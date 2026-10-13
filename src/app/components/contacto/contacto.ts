@@ -38,6 +38,10 @@ export class Contacto implements OnDestroy {
   private temporizador?: ReturnType<typeof setTimeout>;
   private elementoPrevio: HTMLElement | null = null;
 
+  // Momento del último envío exitoso (para limitar envíos seguidos)
+  private ultimoEnvio = 0;
+  private readonly esperaMinimaMs = 30000;   // 30 segundos entre mensajes
+
   constructor(public languageService: LanguageService) {}
 
   get textos() {
@@ -57,6 +61,21 @@ export class Contacto implements OnDestroy {
 
     const formulario = event.target as HTMLFormElement;
 
+    // HONEYPOT: si el campo trampa tiene texto, es un bot.
+    // Se simula un éxito para que no sepa que fue detectado.
+    const trampa = formulario.elements.namedItem('website') as HTMLInputElement | null;
+    if (trampa && trampa.value.trim() !== '') {
+      formulario.reset();
+      this.mostrarAviso('exito');
+      return;
+    }
+
+    // LÍMITE: no más de un mensaje cada 30 segundos
+    if (Date.now() - this.ultimoEnvio < this.esperaMinimaMs) {
+      this.mostrarAviso('error');
+      return;
+    }
+
     this.enviando.set(true);
 
     emailjs.sendForm(
@@ -67,6 +86,7 @@ export class Contacto implements OnDestroy {
     )
     .then(() => {
 
+      this.ultimoEnvio = Date.now();
       formulario.reset();
       this.mostrarAviso('exito');
 

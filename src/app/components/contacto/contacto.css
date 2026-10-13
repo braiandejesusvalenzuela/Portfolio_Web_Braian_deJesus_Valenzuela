@@ -2021,3 +2021,14 @@
 .contacto .section-title::after {
     margin-top: 18px;
 }
+
+/* Honeypot: fuera de pantalla (no usar display:none, los bots lo detectan) */
+.contacto .campo-trampa {
+    position: absolute !important;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+}

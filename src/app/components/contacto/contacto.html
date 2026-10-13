@@ -95,6 +95,18 @@
                 </div>
 
 
+                <!-- HONEYPOT: campo trampa, los humanos no lo ven -->
+                <div class="campo-trampa" aria-hidden="true">
+                    <label for="sitio-web">No completar este campo</label>
+                    <input
+                        type="text"
+                        id="sitio-web"
+                        name="website"
+                        tabindex="-1"
+                        autocomplete="off">
+                </div>
+
+
                 <button
                     type="submit"
                     class="contacto-btn"
