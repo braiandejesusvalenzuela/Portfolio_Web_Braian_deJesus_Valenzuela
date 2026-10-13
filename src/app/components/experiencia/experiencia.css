@@ -1,0 +1,1271 @@
+/* =====================================================
+   EXPERIENCIA
+===================================================== */
+
+.experiencia {
+    position: relative;
+    width: 100%;
+    min-height: 100svh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* deja el navbar arriba y el título un poco más abajo */
+    padding: calc(var(--navbar-height) + 30px) 20px 60px;
+
+    overflow: hidden;
+}
+
+
+/* =====================================================
+   CONTENEDOR
+===================================================== */
+
+.experiencia-container {
+    position: relative;
+    width: 100%;
+    max-width: 1050px;
+    margin: 0 auto;
+    z-index: 1;
+}
+
+
+/* =====================================================
+   CIRCUITOS DECORATIVOS
+===================================================== */
+
+.experiencia-circuitos {
+    position: absolute;
+    inset: -100px -180px;
+    pointer-events: none;
+    opacity: .55;
+
+    background:
+        radial-gradient(circle at 12% 18%, rgba(56, 189, 248, .13) 0 2px, transparent 3px),
+        radial-gradient(circle at 88% 28%, rgba(212, 175, 55, .14) 0 2px, transparent 3px),
+        radial-gradient(circle at 78% 82%, rgba(56, 189, 248, .10) 0 2px, transparent 3px),
+        linear-gradient(
+            90deg,
+            transparent 0 17%,
+            rgba(56, 189, 248, .055) 17.1% 17.2%,
+            transparent 17.3% 100%
+        ),
+        linear-gradient(
+            0deg,
+            transparent 0 72%,
+            rgba(212, 175, 55, .05) 72.1% 72.2%,
+            transparent 72.3% 100%
+        );
+
+    filter: blur(.1px);
+}
+
+
+/* NODOS DECORATIVOS */
+
+.experiencia-circuitos::before,
+.experiencia-circuitos::after {
+    content: "";
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    border: 1px solid rgba(56, 189, 248, .07);
+    border-radius: 30px;
+    transform: rotate(45deg);
+}
+
+.experiencia-circuitos::before {
+    top: 12%;
+    left: -70px;
+}
+
+.experiencia-circuitos::after {
+    right: -70px;
+    bottom: 10%;
+    border-color: rgba(212, 175, 55, .07);
+}
+
+
+/* =====================================================
+   ENCABEZADO
+===================================================== */
+
+.experiencia-header {
+    position: relative;
+    margin-bottom: 36px;
+    text-align: center;
+}
+
+.experiencia-overline {
+    display: inline-block;
+    margin-bottom: 12px;
+
+    font-family: var(--font-primary);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+
+    color: var(--color-tech);
+    opacity: .9;
+}
+
+.experiencia .section-title {
+    margin: 0;
+
+    font-family: var(--font-heading);
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    line-height: 1.1;
+    letter-spacing: -.5px;
+}
+
+.section-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.section-title-icon {
+    width: 30px;
+    height: 30px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    flex: 0 0 30px;
+}
+
+.section-title-icon img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+}
+
+.dark-theme {
+    /* INICIO */
+    --experiencia-title: #ffffff;
+    --experiencia-text: #e5e7eb;
+}
+
+
+/* LÍNEA DECORATIVA */
+
+.titulo-linea {
+    width: 75px;
+    height: 2px;
+    margin: 18px auto 0;
+    border-radius: 999px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--color-tech),
+        rgba(212, 175, 55, .9),
+        transparent
+    );
+
+    box-shadow: 0 0 12px rgba(56, 189, 248, .25);
+}
+
+
+/* =====================================================
+   TARJETA (COMPACTA)
+===================================================== */
+
+.experiencia-card {
+    position: relative;
+    width: 100%;
+    padding: 26px 32px 28px 58px;
+    border-radius: 16px;
+
+    background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, .04),
+        rgba(255, 255, 255, .015)
+    );
+
+    border: 1px solid rgba(56, 189, 248, .12);
+    box-shadow: 0 16px 44px rgba(0, 0, 0, .22);
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    overflow: hidden;
+
+    transition:
+        transform .3s ease,
+        border-color .3s ease,
+        box-shadow .3s ease;
+}
+
+/* línea de acento superior */
+.experiencia-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--color-tech) 30%,
+        rgba(212, 175, 55, .8) 70%,
+        transparent
+    );
+
+    opacity: .8;
+    pointer-events: none;
+}
+
+/* grilla técnica muy sutil */
+.experiencia-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        linear-gradient(rgba(56, 189, 248, .035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(56, 189, 248, .035) 1px, transparent 1px);
+    background-size: 36px 36px;
+
+    -webkit-mask-image: radial-gradient(ellipse at top right, #000, transparent 65%);
+            mask-image: radial-gradient(ellipse at top right, #000, transparent 65%);
+
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   HOVER TARJETA
+===================================================== */
+
+.experiencia-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(56, 189, 248, .3);
+
+    box-shadow:
+        0 24px 60px rgba(0, 0, 0, .28),
+        0 0 28px rgba(56, 189, 248, .06);
+}
+
+
+/* =====================================================
+   LÍNEA DE TIEMPO
+===================================================== */
+
+.experiencia-timeline {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 24px;
+    width: 2px;
+    pointer-events: none;
+}
+
+.timeline-line {
+    position: absolute;
+    top: 22px;
+    bottom: 22px;
+    left: 0;
+    width: 1px;
+
+    background: linear-gradient(
+        180deg,
+        transparent,
+        rgba(56, 189, 248, .65) 15%,
+        rgba(212, 175, 55, .55) 70%,
+        transparent
+    );
+
+    box-shadow: 0 0 8px rgba(56, 189, 248, .18);
+}
+
+.timeline-dot {
+    position: absolute;
+    top: 27px;
+    left: 50%;
+
+    width: 9px;
+    height: 9px;
+
+    transform: translateX(-50%);
+    border-radius: 50%;
+
+    background: var(--color-tech);
+    border: 2px solid var(--color-surface);
+
+    box-shadow:
+        0 0 0 3px rgba(56, 189, 248, .12),
+        0 0 10px rgba(56, 189, 248, .45);
+
+    z-index: 2;
+}
+
+
+/* =====================================================
+   CABECERA DE EXPERIENCIA
+===================================================== */
+
+.experiencia-top {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 24px;
+
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--color-divider);
+}
+
+
+/* =====================================================
+   INFORMACIÓN
+===================================================== */
+
+.experiencia-tipo {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    margin-bottom: 8px;
+
+    font-family: var(--font-primary);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 2px;
+
+    color: var(--color-tech);
+}
+
+/* PUNTO DEL VOLUNTARIADO */
+.experiencia-tipo::before {
+    content: "";
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--color-tech);
+    box-shadow: 0 0 8px rgba(56, 189, 248, .6);
+}
+
+.experiencia-info h3 {
+    margin: 0 0 6px;
+
+    font-family: var(--font-heading);
+    font-size: clamp(1.3rem, 2.6vw, 1.85rem);
+    line-height: 1.2;
+
+    color: #d4af37;
+}
+
+.experiencia-info h4 {
+    margin: 0;
+
+    font-family: var(--font-primary);
+    font-size: .95rem;
+    font-weight: 600;
+
+    color: var(--color-tech);
+}
+
+
+/* =====================================================
+   PERÍODO
+===================================================== */
+
+.experiencia-periodo {
+    flex-shrink: 0;
+    padding: 6px 12px;
+    border-radius: 8px;
+
+    border: 1px solid rgba(212, 175, 55, .3);
+    background: rgba(212, 175, 55, .08);
+
+    font-family: ui-monospace, "SF Mono", "JetBrains Mono", Consolas, monospace;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .5px;
+
+    color: #d4af37;
+    white-space: nowrap;
+}
+
+
+/* =====================================================
+   CUERPO
+===================================================== */
+
+.experiencia-body {
+    position: relative;
+    z-index: 2;
+    padding-top: 18px;
+}
+
+.experiencia-body p {
+    max-width: 850px;
+    margin: 0 0 20px;
+
+    font-family: var(--font-primary);
+    font-size: 15px;
+    line-height: 1.65;
+
+    /* respeta los saltos de línea (\n) de language.ts:
+       cada oración queda debajo de la anterior */
+    white-space: pre-line;
+
+    color: var(--color-text-secondary);
+}
+
+
+/* =====================================================
+   TECNOLOGÍAS
+
+   AJUSTES RÁPIDOS (en .experiencia-tecnologias)
+   - Ancho de cada tarjeta:  --tec-ancho
+   - Alto de cada tarjeta:   --tec-alto
+   - Tamaño de los íconos:   --tec-icono
+   Todas las tarjetas e íconos comparten estos valores.
+===================================================== */
+
+.experiencia-tecnologias {
+    --tec-ancho: 104px;
+    --tec-alto: 90px;
+    --tec-icono: 38px;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fill, var(--tec-ancho));
+    gap: 10px;
+    margin-top: 0;
+}
+
+
+/* TARJETA TECNOLOGÍA (todas del mismo tamaño) */
+
+.tecnologia {
+    --t-rgb: 56, 189, 248;
+
+    position: relative;
+    width: var(--tec-ancho);
+    height: var(--tec-alto);
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    padding: 10px 8px;
+    border-radius: 14px;
+
+    /* vidrio con brillo suave arriba */
+    background:
+        radial-gradient(90% 70% at 50% -10%, rgba(var(--t-rgb), .14), transparent 70%),
+        linear-gradient(
+            160deg,
+            rgba(var(--t-rgb), .07),
+            rgba(212, 175, 55, .03)
+        );
+
+    box-shadow:
+        0 6px 16px rgba(0, 0, 0, .14),
+        inset 0 1px 0 rgba(255, 255, 255, .08);
+
+    transition:
+        transform .3s cubic-bezier(.2, .8, .2, 1),
+        box-shadow .3s ease,
+        background .3s ease;
+}
+
+/* borde fino degradado: celeste → dorado */
+.tecnologia::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 1px;
+    border-radius: inherit;
+    pointer-events: none;
+
+    background: linear-gradient(
+        150deg,
+        rgba(var(--t-rgb), .45),
+        rgba(var(--t-rgb), .12) 45%,
+        rgba(212, 175, 55, .35)
+    );
+
+    -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+    mask-composite: exclude;
+
+    transition: opacity .3s ease;
+}
+
+
+/* ICONO (misma caja para todos) */
+
+.tecnologia img {
+    width: var(--tec-icono);
+    height: var(--tec-icono);
+    flex: 0 0 var(--tec-icono);
+    display: block;
+    object-fit: contain;
+
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, .25));
+
+    transition:
+        transform .3s cubic-bezier(.2, .8, .2, 1),
+        filter .3s ease;
+}
+
+/* ANGULAR: muestra solo el escudo, del mismo tamaño que los demás íconos */
+.tecnologia img[alt="Angular"],
+.tecnologia img[src*="angular"] {
+    object-fit: cover;
+    object-position: left center;
+}
+
+
+/* NOMBRE */
+
+.tecnologia span {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    font-family: var(--font-primary);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .2px;
+
+    color: var(--color-text-secondary);
+
+    transition: color .25s ease;
+}
+
+
+/* HOVER TECNOLOGÍA */
+
+.tecnologia:hover {
+    transform: translateY(-4px);
+
+    background:
+        radial-gradient(90% 70% at 50% -10%, rgba(var(--t-rgb), .24), transparent 70%),
+        linear-gradient(
+            160deg,
+            rgba(var(--t-rgb), .12),
+            rgba(212, 175, 55, .05)
+        );
+
+    box-shadow:
+        0 14px 26px rgba(0, 0, 0, .22),
+        0 0 22px rgba(var(--t-rgb), .22),
+        inset 0 1px 0 rgba(255, 255, 255, .14);
+}
+
+.tecnologia:hover img {
+    transform: scale(1.12);
+    filter: drop-shadow(0 0 10px rgba(var(--t-rgb), .55));
+}
+
+.tecnologia:hover span {
+    color: var(--color-tech);
+}
+
+
+/* =====================================================
+   MODO CLARO
+===================================================== */
+
+:root[data-theme="light"] .experiencia-card {
+    background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, .85),
+        rgba(248, 250, 252, .7)
+    );
+
+    border-color: rgba(14, 116, 144, .14);
+
+    box-shadow:
+        0 16px 44px rgba(15, 23, 42, .10),
+        inset 0 1px 0 rgba(255, 255, 255, .9);
+}
+
+:root[data-theme="light"] .experiencia-card::after {
+    background-image:
+        linear-gradient(rgba(14, 116, 144, .05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(14, 116, 144, .05) 1px, transparent 1px);
+}
+
+:root[data-theme="light"] .tecnologia {
+    --t-rgb: 2, 132, 199;
+
+    background:
+        radial-gradient(90% 70% at 50% -10%, rgba(255, 255, 255, .9), transparent 70%),
+        linear-gradient(160deg, #ffffff, #f0f9ff);
+
+    box-shadow:
+        0 6px 16px rgba(15, 23, 42, .08),
+        inset 0 1px 0 rgba(255, 255, 255, .9);
+}
+
+:root[data-theme="light"] .tecnologia img {
+    filter: drop-shadow(0 3px 6px rgba(15, 23, 42, .18));
+}
+
+:root[data-theme="light"] .tecnologia:hover {
+    background:
+        radial-gradient(90% 70% at 50% -10%, rgba(255, 255, 255, .95), transparent 70%),
+        linear-gradient(160deg, #f0f9ff, #e0f2fe);
+
+    box-shadow:
+        0 14px 26px rgba(15, 23, 42, .14),
+        0 0 20px rgba(var(--t-rgb), .18),
+        inset 0 1px 0 rgba(255, 255, 255, .95);
+}
+
+:root[data-theme="light"] .tecnologia:hover img {
+    filter: drop-shadow(0 0 8px rgba(var(--t-rgb), .45));
+}
+
+:root[data-theme="light"] .tecnologia:hover span {
+    color: #0369a1;
+}
+
+:root[data-theme="light"] .experiencia-periodo {
+    background: rgba(212, 175, 55, .12);
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 768px) {
+
+    .experiencia {
+        padding: calc(var(--navbar-height) + 28px) 15px 50px;
+    }
+
+    .experiencia-header {
+        margin-bottom: 28px;
+    }
+
+    .experiencia-card {
+        padding: 22px 18px 24px 48px;
+        border-radius: 14px;
+    }
+
+    .experiencia-timeline {
+        left: 20px;
+    }
+
+    .timeline-dot {
+        top: 24px;
+    }
+
+    .experiencia-top {
+        flex-direction: column;
+        gap: 14px;
+        padding-bottom: 16px;
+    }
+
+    .experiencia-periodo {
+        align-self: flex-start;
+    }
+
+    .experiencia-body {
+        padding-top: 16px;
+    }
+
+    .experiencia-body p {
+        font-size: 14.5px;
+        line-height: 1.6;
+        margin-bottom: 18px;
+    }
+
+    .experiencia-tecnologias {
+        --tec-ancho: 92px;
+        --tec-alto: 82px;
+        --tec-icono: 34px;
+
+        gap: 8px;
+    }
+
+    .tecnologia {
+        padding: 8px 6px;
+        gap: 7px;
+    }
+
+    .tecnologia span {
+        font-size: 10.5px;
+    }
+}
+
+
+/* =====================================================
+   MOBILE PEQUEÑO
+===================================================== */
+
+@media (max-width: 480px) {
+
+    .experiencia {
+        padding: calc(var(--navbar-height) + 24px) 15px 40px;
+    }
+
+    .experiencia-card {
+        padding-left: 42px;
+        padding-right: 16px;
+    }
+
+    .experiencia-timeline {
+        left: 17px;
+    }
+
+    .experiencia-info h3 {
+        font-size: 1.3rem;
+    }
+
+    .experiencia-info h4 {
+        font-size: .9rem;
+    }
+
+    .experiencia-periodo {
+        font-size: 11px;
+        padding: 5px 10px;
+    }
+
+    /* 2 columnas que ocupan todo el ancho, tarjetas iguales */
+    .experiencia-tecnologias {
+        --tec-alto: 80px;
+        --tec-icono: 32px;
+
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+    }
+
+    .tecnologia {
+        width: 100%;
+    }
+}
+
+
+/* =====================================================
+   MOVIMIENTO REDUCIDO
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .tecnologia,
+    .tecnologia img,
+    .tecnologia span {
+        transition: none;
+    }
+
+    .tecnologia:hover,
+    .tecnologia:hover img {
+        transform: none;
+    }
+}
+
+
+/* =====================================================
+   ANCLA
+===================================================== */
+
+#experiencia {
+    /* el padding de .experiencia ya compensa el navbar */
+    scroll-margin-top: 0;
+}
+
+/* =====================================================
+   AJUSTES: PEGAR AL FINAL DE experiencia.css
+   (reemplaza el bloque de ajustes anterior)
+===================================================== */
+
+/* ---------- Navbar por encima del título (y de toda la sección) ---------- */
+#experiencia.experiencia {
+    position: relative;
+    z-index: 0;
+    isolation: isolate;
+}
+
+
+/* ---------- Sin línea de tiempo vertical ---------- */
+.experiencia-timeline {
+    display: none;
+}
+
+.experiencia-card {
+    padding: 26px 32px 28px;
+}
+
+@media (max-width: 768px) {
+    .experiencia-card { padding: 22px 18px 24px; }
+}
+
+@media (max-width: 480px) {
+    .experiencia-card { padding: 22px 16px 24px; }
+}
+
+
+/* ---------- Viñeta de VOLUNTARIADO: rombo que gira ---------- */
+.experiencia-tipo::before {
+    width: 7px;
+    height: 7px;
+    margin-right: 2px;
+    border-radius: 1px;
+
+    background: var(--color-tech);
+    box-shadow: 0 0 8px rgba(56, 189, 248, .6);
+
+    transform: rotate(45deg);
+    animation: voluntariadoGiro 2.6s ease-in-out infinite;
+}
+
+@keyframes voluntariadoGiro {
+    0%   { transform: rotate(45deg)  scale(1);   }
+    50%  { transform: rotate(225deg) scale(1.3); }
+    100% { transform: rotate(405deg) scale(1);   }
+}
+
+
+/* ---------- Descripción en lista: una viñeta estática por oración ---------- */
+.experiencia-lista {
+    list-style: none;
+    margin: 0 0 20px;
+    padding: 0;
+    max-width: 850px;
+}
+
+.experiencia-lista li {
+    position: relative;
+    margin: 0 0 8px;
+    padding-left: 20px;
+
+    font-family: var(--font-primary);
+    font-size: 15px;
+    line-height: 1.65;
+}
+
+.experiencia-lista li:last-child {
+    margin-bottom: 0;
+}
+
+.experiencia-lista li::before {
+    content: "";
+    position: absolute;
+    left: 3px;
+    top: .62em;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+
+    background: var(--color-tech);
+    box-shadow: 0 0 6px rgba(56, 189, 248, .45);
+}
+
+@media (max-width: 768px) {
+    .experiencia-lista li {
+        font-size: 14.5px;
+        line-height: 1.6;
+    }
+}
+
+
+
+/* ---------- Período (enero 2026 - presente): naranja oscuro en tema claro ---------- */
+:root[data-theme="light"] .experiencia-periodo {
+    color: #c2410c;
+    border-color: rgba(194, 65, 12, .35);
+    background: rgba(249, 115, 22, .10);
+}
+
+:root[data-theme="light"] .experiencia-lista li::before {
+    background: #0284c7;
+    box-shadow: 0 0 5px rgba(2, 132, 199, .35);
+}
+
+
+/* =====================================================
+   SUBIR / BAJAR EL CONTENIDO RESPECTO AL NAVBAR (solo mobile)
+   Es el único valor que tenés que tocar.
+===================================================== */
+
+@media (max-width: 768px) {
+
+    #experiencia.experiencia {
+        /* ↓↓↓ Número más chico = el título sube (más cerca del navbar).
+               Número más grande = el título baja.
+               Se permiten negativos (ej: -10px). */
+        --experiencia-subir-bajar: 28px;
+
+        padding-top: calc(var(--navbar-height, 70px) + var(--experiencia-subir-bajar)) !important;
+
+        /* arranca desde arriba, así el valor mueve el contenido exacto */
+        align-items: flex-start !important;
+    }
+}
+
+
+/* ---------- Movimiento reducido ---------- */
+@media (prefers-reduced-motion: reduce) {
+    .experiencia-tipo::before {
+        animation: none;
+    }
+}
+
+/* =====================================================
+   PEGAR AL FINAL DE experiencia.css (después de todo lo anterior)
+   No borres lo anterior: este bloque lo sobrescribe.
+===================================================== */
+
+
+/* ---------- Descripción: BLANCO en tema oscuro (mobile y desktop) ----------
+   En tema claro sigue el gris oscuro (#374151) del bloque anterior. */
+
+:root:not([data-theme="light"]) #experiencia .experiencia-lista li,
+:root:not([data-theme="light"]) #experiencia .experiencia-body p {
+    color: #ffffff;
+}
+
+
+/* =====================================================
+   MOBILE: LA TARJETA ENTERA ENTRA EN LA PANTALLA
+   Todo se achica según el alto de la pantalla (svh),
+   así en pantallas más bajas se compacta un poco más.
+   La posición vertical sigue controlada por
+   --experiencia-subir-bajar (tu -50px).
+===================================================== */
+
+@media (max-width: 768px) {
+
+    #experiencia.experiencia {
+        padding-left: 12px;
+        padding-right: 12px;
+        padding-bottom: 12px !important;
+    }
+
+    /* Título */
+    #experiencia .experiencia-header {
+        margin-bottom: clamp(8px, 1.8svh, 20px);
+    }
+
+    #experiencia .section-title {
+        font-size: clamp(1.5rem, 3.6svh, 2.2rem);
+        gap: 10px;
+    }
+
+    #experiencia .section-title-icon {
+        width: 26px;
+        height: 26px;
+        flex-basis: 26px;
+    }
+
+    #experiencia .titulo-linea {
+        margin-top: clamp(8px, 1.4svh, 14px);
+    }
+
+    /* Tarjeta */
+    #experiencia .experiencia-card {
+        padding: clamp(12px, 2.2svh, 20px) 14px;
+    }
+
+    #experiencia .experiencia-top {
+        gap: 8px;
+        padding-bottom: clamp(8px, 1.6svh, 14px);
+    }
+
+    #experiencia .experiencia-tipo {
+        margin-bottom: 4px;
+    }
+
+    #experiencia .experiencia-info h3 {
+        margin-bottom: 3px;
+        font-size: clamp(1.05rem, 2.6svh, 1.3rem);
+    }
+
+    #experiencia .experiencia-info h4 {
+        font-size: clamp(.78rem, 1.8svh, .9rem);
+    }
+
+    #experiencia .experiencia-periodo {
+        padding: 4px 9px;
+        font-size: 11px;
+    }
+
+    #experiencia .experiencia-body {
+        padding-top: clamp(8px, 1.6svh, 14px);
+    }
+
+    /* Descripción */
+    #experiencia .experiencia-lista {
+        margin-bottom: clamp(10px, 2svh, 16px);
+    }
+
+    #experiencia .experiencia-lista li {
+        padding-left: 16px;
+        margin-bottom: clamp(4px, .9svh, 7px);
+        font-size: clamp(11.5px, 1.8svh, 14px);
+        line-height: 1.5;
+    }
+
+    #experiencia .experiencia-lista li::before {
+        width: 5px;
+        height: 5px;
+    }
+
+    /* Tecnologías: 4 en una sola fila */
+    #experiencia .experiencia-tecnologias {
+        --tec-alto: clamp(54px, 8svh, 72px);
+        --tec-icono: clamp(22px, 3.8svh, 30px);
+
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 6px;
+    }
+
+    #experiencia .tecnologia {
+        width: 100%;
+        gap: 4px;
+        padding: 6px 3px;
+    }
+
+    #experiencia .tecnologia span {
+        font-size: 9.5px;
+    }
+}
+
+/* Pantallas muy angostas: 2 columnas para que no se corten los nombres */
+@media (max-width: 340px) {
+
+    #experiencia .experiencia-tecnologias {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* =====================================================================
+   SECCIONES A PANTALLA COMPLETA EN EL CELULAR (Experiencia y Proyectos)
+   Hay 4 partes. Cada una va en un archivo distinto (ver títulos).
+===================================================================== */
+ 
+ 
+/* =====================================================================
+   PARTE A  →  pegar al FINAL de experiencia.css
+===================================================================== */
+ 
+@media (max-width: 768px) {
+ 
+    #experiencia.experiencia {
+        /* border-box: el relleno de arriba/abajo ya no se suma al alto,
+           así la sección mide EXACTAMENTE lo que mide la pantalla */
+        box-sizing: border-box;
+ 
+        min-height: 100svh;
+        min-height: 100dvh;   /* sigue a la barra del navegador al ocultarse */
+ 
+        /* al navegar o soltar el scroll, se acomoda en el borde de la pantalla */
+        scroll-snap-align: start;
+        scroll-snap-stop: always;
+    }
+}
+ 
+
+
+/* =====================================================================
+   TARJETAS A PANTALLA COMPLETA (Experiencia y Proyectos) EN EL CELULAR
+   - Los títulos vuelven a su tamaño original.
+   - La tarjeta ocupa TODO el alto que queda debajo del título.
+   - Los tamaños se calculan con el alto de la pantalla (svh) y el ancho (vw),
+     así sirven para un Samsung Galaxy A14 (~412 px de ancho) y para
+     cualquier otro celular, más chico o más grande.
+   Cada parte va en su archivo. Pegar AL FINAL, después de todo lo anterior.
+   (No borres el bloque de --experiencia-subir-bajar ni el del navbar.)
+===================================================================== */
+ 
+ 
+/* =====================================================================
+   PARTE A  →  al FINAL de experiencia.css
+===================================================================== */
+ 
+@media (max-width: 768px) {
+ 
+    /* La sección mide exactamente la pantalla */
+    #experiencia.experiencia {
+        box-sizing: border-box;
+        min-height: 100svh;
+        min-height: 100dvh;
+    }
+ 
+    /* El contenedor se estira a todo el alto disponible */
+    #experiencia .experiencia-container {
+        align-self: stretch;
+        display: flex;
+        flex-direction: column;
+    }
+ 
+    /* ---------- Título: tamaño ORIGINAL ---------- */
+    #experiencia .experiencia-header {
+        flex: 0 0 auto;
+        margin-bottom: 28px;
+    }
+ 
+    #experiencia .section-title {
+        gap: 12px;
+        font-size: clamp(2.2rem, 5vw, 3.5rem);
+    }
+ 
+    #experiencia .section-title-icon {
+        width: 30px;
+        height: 30px;
+        flex: 0 0 30px;
+    }
+ 
+    #experiencia .titulo-linea {
+        margin-top: 18px;
+    }
+ 
+    /* ---------- Tarjeta: ocupa todo lo que queda ---------- */
+    #experiencia .experiencia-card {
+        flex: 1 1 auto;
+        display: flex;
+        flex-direction: column;
+        padding: clamp(18px, 2.8svh, 30px) clamp(16px, 4.5vw, 24px);
+    }
+ 
+    #experiencia .experiencia-top {
+        flex: 0 0 auto;
+        flex-direction: column;
+        gap: 14px;
+        padding-bottom: clamp(14px, 2.2svh, 20px);
+    }
+ 
+    #experiencia .experiencia-tipo {
+        margin-bottom: 8px;
+    }
+ 
+    #experiencia .experiencia-info h3 {
+        margin-bottom: 6px;
+        font-size: clamp(1.4rem, 3.2svh, 1.75rem);
+    }
+ 
+    #experiencia .experiencia-info h4 {
+        font-size: clamp(.95rem, 2svh, 1.05rem);
+    }
+ 
+    #experiencia .experiencia-periodo {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+ 
+    /* El cuerpo reparte el espacio sobrante entre descripción y tecnologías */
+    #experiencia .experiencia-body {
+        flex: 1 1 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        gap: clamp(14px, 2.4svh, 26px);
+        padding-top: clamp(14px, 2.2svh, 22px);
+    }
+ 
+    #experiencia .experiencia-lista {
+        margin: 0;
+    }
+ 
+    #experiencia .experiencia-lista li {
+        padding-left: 20px;
+        margin-bottom: clamp(6px, 1.2svh, 12px);
+        font-size: clamp(14px, 2.1svh, 16.5px);
+        line-height: 1.6;
+    }
+ 
+    #experiencia .experiencia-lista li:last-child {
+        margin-bottom: 0;
+    }
+ 
+    #experiencia .experiencia-lista li::before {
+        width: 6px;
+        height: 6px;
+    }
+ 
+    /* Tecnologías: 2 columnas, tarjetas grandes */
+    #experiencia .experiencia-tecnologias {
+        --tec-alto: clamp(84px, 11svh, 116px);
+        --tec-icono: clamp(34px, 5.2svh, 50px);
+ 
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: clamp(8px, 1.4svh, 14px);
+    }
+ 
+    #experiencia .tecnologia {
+        width: 100%;
+        gap: 8px;
+        padding: 10px 8px;
+    }
+ 
+    #experiencia .tecnologia span {
+        font-size: clamp(12px, 1.7svh, 14px);
+    }
+}
+ 
+/* Celular acostado: la tarjeta vuelve a su tamaño natural (si no, quedaría estirada) */
+@media (max-width: 768px) and (orientation: landscape) {
+ 
+    #experiencia .experiencia-container { align-self: auto; }
+    #experiencia .experiencia-card      { flex: 0 0 auto; }
+    #experiencia .experiencia-body      { justify-content: flex-start; }
+}
+ 
+/* =====================================================================
+   PARTE A  →  pegar al FINAL de experiencia.css
+   Las 4 cápsulas de tecnologías, compactas y en una sola línea.
+===================================================================== */
+ 
+@media (max-width: 768px) {
+ 
+    #experiencia .experiencia-card .experiencia-tecnologias {
+        /* ↓ Tamaños de las cápsulas (se adaptan al ancho y alto del celular) */
+        --tec-alto: clamp(62px, 8.5svh, 82px);
+        --tec-icono: clamp(24px, 4.2svh, 34px);
+ 
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: clamp(4px, 1.4vw, 8px);
+    }
+ 
+    #experiencia .experiencia-card .tecnologia {
+        width: 100%;
+        gap: 5px;
+        padding: 6px 3px;
+        border-radius: 12px;
+    }
+ 
+    #experiencia .experiencia-card .tecnologia span {
+        font-size: clamp(9.5px, 2.6vw, 12px);
+        letter-spacing: 0;
+    }
+}
+ 
+ /* =====================================================================
+   SCROLL LIBRE EN EL CELULAR (Experiencia y Proyectos)
+===================================================================== */
+
+@media (max-width: 768px) {
+
+    #experiencia.experiencia,
+    #proyectos.proyectos {
+        scroll-snap-align: none !important;
+        scroll-snap-stop: normal !important;
+    }
+}
+ 

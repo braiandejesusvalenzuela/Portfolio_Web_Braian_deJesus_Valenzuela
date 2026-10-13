@@ -1,0 +1,133 @@
+<section
+    id="experiencia"
+    class="experiencia section">
+
+<div class="experiencia-container">
+
+    <!-- FONDO DECORATIVO -->
+    <div class="experiencia-circuitos" aria-hidden="true"></div>
+
+
+    <!-- TÍTULO -->
+
+    <div class="experiencia-header">
+
+        <h2 class="section-title">
+            <span class="section-title-icon">
+                <img
+                    src="/icons/briefcase.svg"
+                    alt=""
+                    aria-hidden="true">
+            </span>
+
+            <span>
+                {{ textos.titulo }}
+            </span>
+        </h2>
+
+        <div class="titulo-linea"></div>
+
+    </div>
+
+
+    <!-- EXPERIENCIA -->
+
+    <article class="experiencia-card">
+
+        <!-- CABECERA -->
+
+        <div class="experiencia-top">
+
+            <div class="experiencia-info">
+
+                <span class="experiencia-tipo">
+                    {{ textos.tipo }}
+                </span>
+
+                <h3>
+                    {{ textos.puesto }}
+                </h3>
+
+                <h4>
+                    {{ textos.proyecto }}
+                </h4>
+
+            </div>
+
+
+            <div class="experiencia-periodo">
+                {{ textos.periodo }}
+            </div>
+
+        </div>
+
+
+        <!-- CUERPO -->
+        <div class="experiencia-body">
+
+            <!-- DESCRIPCIÓN: una viñeta por oración (una por cada salto de línea) -->
+            <ul class="experiencia-lista">
+                @for (linea of textos.descripcion.split('\n'); track $index) {
+                    @if (linea.trim()) {
+                        <li>{{ linea.trim() }}</li>
+                    }
+                }
+            </ul>
+
+
+            <!-- TECNOLOGÍAS -->
+
+            <div class="experiencia-tecnologias">
+
+                <div class="tecnologia" title="Angular">
+
+                    <img
+                        src="/icons/technologies/angular.svg"
+                        alt="Angular">
+
+                    <span>Angular</span>
+
+                </div>
+
+
+                <div class="tecnologia" title="Node.js">
+
+                    <img
+                        src="/icons/technologies/nodejs.svg"
+                        alt="Node.js">
+
+                    <span>Node.js</span>
+
+                </div>
+
+
+                <div class="tecnologia" title="PostgreSQL">
+
+                    <img
+                        src="/icons/technologies/postgresql.svg"
+                        alt="PostgreSQL">
+
+                    <span>PostgreSQL</span>
+
+                </div>
+
+
+                <div class="tecnologia" title="Git">
+
+                    <img
+                        src="/icons/technologies/git.svg"
+                        alt="Git">
+
+                    <span>Git</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </article>
+
+</div>
+
+</section>

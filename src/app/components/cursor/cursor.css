@@ -1,0 +1,125 @@
+/* =====================================================
+   LUZ SOBRE EL CIRCUITO
+
+   Capa fija detrás del contenido y delante del fondo de
+   circuitos (body::before). Ocupa toda la pantalla pero no
+   recibe clicks. Dentro hay dos círculos que siguen al mouse:
+
+     .halo    → resplandor suave de color
+     .trazos  → copia más brillante del fondo, visible solo
+                dentro del círculo (máscara difuminada)
+
+   El tamaño y la posición los pone cursor.ts.
+===================================================== */
+
+:host {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    overflow: hidden;
+
+    /* aparece al primer movimiento del mouse */
+    opacity: 0;
+    transition: opacity .45s ease;
+
+    /* TEMA OSCURO: suma luz sobre el fondo */
+    mix-blend-mode: screen;
+}
+
+:host(.visible) {
+    opacity: 1;
+}
+
+/* TEMA CLARO: oscurece y satura los trazos (el fondo claro no admite "luz") */
+:host-context([data-theme="light"]) {
+    mix-blend-mode: multiply;
+}
+
+
+/* ---------- CAPAS ---------- */
+
+.halo,
+.trazos {
+    position: absolute;
+    top: 0;
+    left: 0;
+    will-change: transform;
+
+    /* borde del círculo difuminado */
+    -webkit-mask-image: radial-gradient(
+        circle closest-side,
+        #000 0%,
+        rgba(0, 0, 0, .6) 40%,
+        transparent 100%
+    );
+            mask-image: radial-gradient(
+        circle closest-side,
+        #000 0%,
+        rgba(0, 0, 0, .6) 40%,
+        transparent 100%
+    );
+
+    scale: 1;
+    transition: scale .4s cubic-bezier(.2, .8, .2, 1);
+}
+
+.halo {
+    background: radial-gradient(
+        circle closest-side,
+        rgba(56, 189, 248, .22),    /* ← color del resplandor */
+        transparent
+    );
+}
+
+/* TEMA OSCURO: trazos más brillantes y con más color */
+.trazos {
+    filter: brightness(1.5) saturate(1.5) contrast(1.15);
+}
+
+/* TEMA CLARO: misma inversión que el fondo, pero más intensa */
+:host-context([data-theme="light"]) .trazos {
+    filter: invert(1) hue-rotate(180deg) saturate(1.7) contrast(1.3);
+}
+
+
+/* ---------- ESTADOS ---------- */
+
+/* sobre links, botones y campos: la luz se agranda */
+:host(.intenso) .halo,
+:host(.intenso) .trazos {
+    scale: 1.3;
+}
+
+/* pulso al hacer click */
+:host(.pulso) .halo,
+:host(.pulso) .trazos {
+    animation: luz-pulso .55s ease-out;
+}
+
+@keyframes luz-pulso {
+    40% { scale: 1.65; }
+}
+
+
+/* ---------- SIN MOUSE / SIN MOVIMIENTO ---------- */
+
+@media (hover: none), (pointer: coarse) {
+    :host {
+        display: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    :host,
+    .halo,
+    .trazos {
+        transition: none;
+    }
+
+    :host(.pulso) .halo,
+    :host(.pulso) .trazos {
+        animation: none;
+    }
+}

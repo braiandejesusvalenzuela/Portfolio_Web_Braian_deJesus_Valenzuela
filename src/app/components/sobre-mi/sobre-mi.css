@@ -1,0 +1,648 @@
+/* =====================================================
+   SOBRE MÍ
+===================================================== */
+
+.sobre-mi {
+    position: relative;
+    width: 100%;
+    min-height: 100svh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* ← AQUÍ REGULÁS cuánto baja el contenido respecto al navbar
+       (el número que se suma a --navbar-height) */
+    padding: calc(var(--navbar-height) + 50px) 24px 50px;
+
+    box-sizing: border-box;
+}
+
+
+/* =====================================================
+   CONTENEDOR
+===================================================== */
+
+.sobre-mi-container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+
+/* =====================================================
+   ENCABEZADO
+===================================================== */
+
+.sobre-mi-header {
+    margin-bottom: 32px;
+}
+
+.sobre-mi .section-title {
+    margin: 0;
+
+    font-family: var(--font-heading);
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    line-height: 1.1;
+    letter-spacing: -.5px;
+
+    text-align: center;
+}
+
+.section-title-icon {
+    width: 30px;
+    height: 30px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    flex: 0 0 30px;
+}
+
+.section-title-icon img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+}
+
+.dark-theme {
+    /* SOBRE MÍ */
+    --sobre-title: #ffffff;
+    --sobre-text: #e5e7eb;
+}
+
+/* SUBRAYADO */
+
+.sobre-mi .section-title::after {
+    content: "";
+    display: block;
+
+    width: 75px;
+    height: 2px;
+    margin: 18px auto 0;
+    border-radius: 999px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--color-tech),
+        rgba(212, 175, 55, .9),
+        transparent
+    );
+
+    box-shadow: 0 0 12px rgba(56, 189, 248, .25);
+}
+
+
+/* =====================================================
+   CONTENIDO
+===================================================== */
+
+.sobre-mi-content {
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* =====================================================
+   TARJETA — TEXTO SOBRE MÍ
+===================================================== */
+
+.sobre-mi-texto {
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+
+    padding: 30px 36px 32px 36px;
+    border-radius: 18px;
+
+    background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, .04),
+        rgba(255, 255, 255, .015)
+    );
+
+    border: 1px solid rgba(56, 189, 248, .12);
+    box-shadow: 0 18px 50px rgba(0, 0, 0, .22);
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    overflow: hidden;
+
+    font-family: var(--font-primary);
+    font-size: 16px;
+    line-height: 1.75;
+
+    color: var(--color-text-secondary);
+
+    transition:
+        transform .3s ease,
+        border-color .3s ease,
+        box-shadow .3s ease;
+}
+
+.sobre-mi-texto p {
+    margin: 0 0 18px;
+}
+
+.sobre-mi-texto p:last-child {
+    margin-bottom: 0;
+}
+
+.sobre-mi-texto strong {
+    color: var(--color-gold);
+    text-shadow: 0 0 8px var(--gold-glow);
+}
+
+.sobre-mi-texto p,
+.sobre-mi-texto strong {
+    position: relative;
+    z-index: 2;
+}
+
+/* línea de acento superior */
+.sobre-mi-texto::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--color-tech) 30%,
+        rgba(212, 175, 55, .8) 70%,
+        transparent
+    );
+
+    opacity: .6;
+    pointer-events: none;
+
+    transition: opacity .3s ease;
+}
+
+/* grilla técnica muy sutil */
+.sobre-mi-texto::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        linear-gradient(rgba(56, 189, 248, .03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(56, 189, 248, .03) 1px, transparent 1px);
+    background-size: 36px 36px;
+
+    -webkit-mask-image: radial-gradient(ellipse at top right, #000, transparent 65%);
+            mask-image: radial-gradient(ellipse at top right, #000, transparent 65%);
+
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   HOVER TARJETA
+===================================================== */
+
+.sobre-mi-texto:hover {
+    transform: translateY(-3px);
+    border-color: rgba(56, 189, 248, .3);
+
+    box-shadow:
+        0 24px 60px rgba(0, 0, 0, .28),
+        0 0 28px rgba(56, 189, 248, .06);
+}
+
+.sobre-mi-texto:hover::before {
+    opacity: 1;
+}
+
+
+/* =====================================================
+   MODO CLARO
+===================================================== */
+
+:root[data-theme="light"] .sobre-mi-texto {
+    background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, .85),
+        rgba(248, 250, 252, .7)
+    );
+
+    border-color: rgba(14, 116, 144, .14);
+
+    box-shadow:
+        0 18px 50px rgba(15, 23, 42, .10),
+        inset 0 1px 0 rgba(255, 255, 255, .9);
+}
+
+:root[data-theme="light"] .sobre-mi-texto:hover {
+    border-color: rgba(14, 116, 144, .32);
+
+    box-shadow:
+        0 24px 56px rgba(15, 23, 42, .16),
+        0 0 24px rgba(56, 189, 248, .10);
+}
+
+:root[data-theme="light"] .sobre-mi-texto::after {
+    background-image:
+        linear-gradient(rgba(14, 116, 144, .05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(14, 116, 144, .05) 1px, transparent 1px);
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 768px) {
+
+    .sobre-mi {
+        padding: calc(var(--navbar-height) + 36px) 20px 50px;
+    }
+
+    .sobre-mi-header {
+        margin-bottom: 24px;
+    }
+
+    .sobre-mi-content {
+        width: 100%;
+    }
+
+    .sobre-mi-texto {
+        padding: 24px 20px 26px;
+
+        font-size: 15px;
+        line-height: 1.7;
+
+        border-radius: 16px;
+    }
+
+    .sobre-mi-texto p {
+        margin-bottom: 15px;
+    }
+}
+
+
+/* =====================================================
+   MOBILE PEQUEÑO
+===================================================== */
+
+@media (max-width: 480px) {
+
+    .sobre-mi {
+        padding: calc(var(--navbar-height) + 28px) 15px 40px;
+    }
+
+    .sobre-mi-texto {
+        padding: 22px 16px 24px;
+        font-size: 14.5px;
+    }
+}
+
+
+/* =====================================================
+   ANCLA
+===================================================== */
+
+#sobre-mi {
+    /* el padding de .sobre-mi ya compensa el navbar */
+    scroll-margin-top: 0;
+}
+
+/* =====================================================================
+   PARTE A  →  pegar al FINAL de sobre-mi.css
+===================================================================== */
+ 
+/* ---------- Navbar por encima del título de la sección ---------- */
+#sobre-mi.sobre-mi {
+    position: relative;
+    z-index: 0;
+    isolation: isolate;
+}
+ 
+ 
+/* ---------- SUBIR / BAJAR TODO EL CONTENIDO (solo celular) ---------- */
+ 
+@media (max-width: 768px) {
+ 
+    #sobre-mi.sobre-mi {
+        /* ↓↓↓ ÚNICO VALOR QUE TENÉS QUE TOCAR
+               Más chico (ej: -30px) = todo el contenido sube.
+               Más grande (ej: 60px) = todo el contenido baja. */
+        --sobre-mi-subir-bajar: 28px;
+ 
+        padding-top: calc(var(--navbar-height, 70px) + var(--sobre-mi-subir-bajar)) !important;
+ 
+        /* arranca desde arriba, para que el valor mueva todo exacto */
+        align-items: flex-start !important;
+    }
+}
+ 
+/* =====================================================
+   SOBRE MÍ — VENTANA DE EDITOR + LÍNEA DE TIEMPO
+   (desktop y responsive · todo menos el título)
+===================================================== */
+
+.sobre-mi .sobre-mi-container {
+    max-width: 1100px;      /* más ancho = menos renglones por párrafo */
+}
+
+/* ---------- Variables ---------- */
+.sobre-mi .sobre-mi-texto {
+    --sm-fs: 15.5px;
+    --sm-lh: 1.75;
+    --sm-node: calc(var(--sm-fs) * var(--sm-lh));   /* el nodo mide exacto 1 línea de texto */
+    --sm-pad-y: 10px;
+    --sm-pad-x: 14px;
+    --sm-gap: 6px;
+    --sm-bar: 42px;                                 /* alto de la barra superior */
+
+    --sm-cyan: #38bdf8;
+    --sm-gold: #d4af37;
+    --sm-node-bg: #0b1424;
+    --sm-body: var(--color-text-secondary);         /* MISMO color para todo el texto */
+    --sm-muted: rgba(148, 163, 184, .8);
+
+    counter-reset: sm-paso;
+
+    padding: calc(var(--sm-bar) + 24px) 26px 30px;
+
+    font-family: "Segoe UI", system-ui, -apple-system, Roboto,
+                 "Helvetica Neue", Arial, sans-serif;
+    font-size: var(--sm-fs);
+    line-height: var(--sm-lh);
+    letter-spacing: .1px;
+    color: var(--sm-body);
+    text-wrap: pretty;
+
+    background:
+        radial-gradient(60% 55% at 0% 0%,     rgba(56, 189, 248, .11), transparent 70%),
+        radial-gradient(55% 50% at 100% 100%, rgba(212, 175, 55, .08), transparent 70%),
+        linear-gradient(180deg, rgba(255, 255, 255, .04), rgba(255, 255, 255, .015));
+}
+
+/* ---------- Barra superior estilo editor de código ---------- */
+.sobre-mi .sobre-mi-texto::before {
+    content: "~/sobre-mi.md";
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: auto;
+    height: var(--sm-bar);
+    box-sizing: border-box;
+    z-index: 1;
+
+    display: flex;
+    align-items: center;
+    padding-left: 78px;
+
+    font-family: "Cascadia Code", Consolas, "SFMono-Regular", Menlo, monospace;
+    font-size: 12px;
+    letter-spacing: .3px;
+    color: var(--sm-muted);
+
+    background:
+        radial-gradient(circle 5px at 22px 50%, #ff5f57 98%, transparent),
+        radial-gradient(circle 5px at 40px 50%, #febc2e 98%, transparent),
+        radial-gradient(circle 5px at 58px 50%, #28c840 98%, transparent),
+        linear-gradient(90deg, transparent, var(--sm-cyan), var(--sm-gold), transparent)
+            bottom / 100% 1px no-repeat,
+        rgba(255, 255, 255, .035);
+
+    opacity: 1;
+    pointer-events: none;
+}
+
+/* ---------- Párrafo = un paso ---------- */
+.sobre-mi .sobre-mi-texto p {
+    position: relative;
+    counter-increment: sm-paso;
+    z-index: 2;
+
+    margin: 0 0 var(--sm-gap);
+    padding: var(--sm-pad-y) var(--sm-pad-x) var(--sm-pad-y)
+             calc(var(--sm-pad-x) + var(--sm-node) + 20px);
+    border-radius: 12px;
+
+    font-family: inherit;
+    font-size: var(--sm-fs);
+    line-height: var(--sm-lh);
+    color: var(--sm-body);
+
+    /* capa 1: barrido de luz · capa 2: tinte de fondo (ambas aparecen en hover) */
+    background-image:
+        linear-gradient(100deg, transparent 38%, rgba(56, 189, 248, .13) 50%, transparent 62%),
+        linear-gradient(90deg, rgba(56, 189, 248, 0), rgba(56, 189, 248, 0));
+    background-size: 260% 100%, 100% 100%;
+    background-position: 140% 0, 0 0;
+    background-repeat: no-repeat;
+
+    box-shadow: inset 0 0 0 1px transparent;
+
+    transition:
+        background-position .9s ease,
+        background-color .3s ease,
+        box-shadow .3s ease;
+}
+
+.sobre-mi .sobre-mi-texto p:last-of-type {
+    margin-bottom: 0;
+}
+
+/* ---------- Nodo numerado (centrado con la 1.ª línea) ---------- */
+.sobre-mi .sobre-mi-texto p::before {
+    content: counter(sm-paso, decimal-leading-zero);
+
+    position: absolute;
+    left: var(--sm-pad-x);
+    top: var(--sm-pad-y);
+
+    box-sizing: border-box;
+    width: var(--sm-node);
+    height: var(--sm-node);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-family: "Cascadia Code", Consolas, "SFMono-Regular", Menlo, monospace;
+    font-size: 10.5px;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--sm-cyan);
+
+    border-radius: 50%;
+    border: 1px solid transparent;
+    background:
+        linear-gradient(var(--sm-node-bg), var(--sm-node-bg)) padding-box,
+        linear-gradient(135deg, var(--sm-cyan), var(--sm-gold)) border-box;
+
+    box-shadow: 0 0 0 4px rgba(56, 189, 248, .06);
+
+    transition: transform .35s cubic-bezier(.2, .8, .2, 1),
+                box-shadow .35s ease,
+                color .3s ease,
+                background .3s ease;
+}
+
+/* ---------- Línea que une un nodo con el siguiente ---------- */
+.sobre-mi .sobre-mi-texto p::after {
+    content: "";
+    position: absolute;
+    left: calc(var(--sm-pad-x) + var(--sm-node) / 2 - .5px);
+    top: calc(var(--sm-pad-y) + var(--sm-node) + 4px);
+    bottom: calc(-1 * (var(--sm-gap) + var(--sm-pad-y)) + 4px);
+    width: 1px;
+
+    background: linear-gradient(180deg, rgba(56, 189, 248, .55), rgba(212, 175, 55, .3));
+    pointer-events: none;
+}
+
+/* último párrafo: en lugar de línea, cursor parpadeando al final */
+.sobre-mi .sobre-mi-texto p:last-of-type::after {
+    content: "▍";
+    position: static;
+    display: inline;
+    width: auto;
+    height: auto;
+    margin-left: 3px;
+    background: none;
+    color: var(--sm-cyan);
+    animation: smCursor 1.1s steps(1) infinite;
+}
+
+@keyframes smCursor {
+    50% { opacity: 0; }
+}
+
+/* ---------- HOVER ---------- */
+.sobre-mi .sobre-mi-texto p:hover {
+    background-position: -40% 0, 0 0;
+    background-color: rgba(56, 189, 248, .045);
+    box-shadow: inset 0 0 0 1px rgba(56, 189, 248, .16);
+}
+
+.sobre-mi .sobre-mi-texto p:hover::before {
+    transform: scale(1.1);
+    color: #04121f;
+    background: linear-gradient(135deg, var(--sm-cyan), var(--sm-gold));
+    box-shadow:
+        0 0 0 4px rgba(56, 189, 248, .14),
+        0 0 20px rgba(56, 189, 248, .55);
+}
+
+/* ---------- Negrita dorada (como la tenías) ---------- */
+.sobre-mi .sobre-mi-texto ::ng-deep strong {
+    font-family: inherit;
+    font-weight: 700;
+    color: var(--color-gold);
+    text-shadow: 0 0 8px var(--gold-glow);
+}
+
+/* ---------- MODO CLARO ---------- */
+:root[data-theme="light"] .sobre-mi .sobre-mi-texto {
+    --sm-cyan: #0e7490;
+    --sm-gold: #a67c00;
+    --sm-node-bg: #ffffff;
+    --sm-muted: #64748b;
+
+    background:
+        radial-gradient(60% 55% at 0% 0%,     rgba(14, 116, 144, .09), transparent 70%),
+        radial-gradient(55% 50% at 100% 100%, rgba(166, 124, 0, .06), transparent 70%),
+        linear-gradient(180deg, rgba(255, 255, 255, .85), rgba(248, 250, 252, .7));
+}
+
+:root[data-theme="light"] .sobre-mi .sobre-mi-texto::before {
+    background:
+        radial-gradient(circle 5px at 22px 50%, #ff5f57 98%, transparent),
+        radial-gradient(circle 5px at 40px 50%, #febc2e 98%, transparent),
+        radial-gradient(circle 5px at 58px 50%, #28c840 98%, transparent),
+        linear-gradient(90deg, transparent, var(--sm-cyan), var(--sm-gold), transparent)
+            bottom / 100% 1px no-repeat,
+        rgba(15, 23, 42, .035);
+}
+
+:root[data-theme="light"] .sobre-mi .sobre-mi-texto p {
+    background-image:
+        linear-gradient(100deg, transparent 38%, rgba(14, 116, 144, .12) 50%, transparent 62%),
+        linear-gradient(90deg, rgba(14, 116, 144, 0), rgba(14, 116, 144, 0));
+}
+
+:root[data-theme="light"] .sobre-mi .sobre-mi-texto p:hover {
+    background-color: rgba(14, 116, 144, .045);
+    box-shadow: inset 0 0 0 1px rgba(14, 116, 144, .2);
+}
+
+:root[data-theme="light"] .sobre-mi .sobre-mi-texto p:hover::before {
+    color: #ffffff;
+    box-shadow: 0 0 0 4px rgba(14, 116, 144, .14), 0 0 18px rgba(14, 116, 144, .4);
+}
+
+:root[data-theme="light"] .sobre-mi .sobre-mi-texto p::after {
+    background: linear-gradient(180deg, rgba(14, 116, 144, .45), rgba(166, 124, 0, .28));
+}
+
+:root[data-theme="light"] .sobre-mi .sobre-mi-texto p:last-of-type::after {
+    background: none;
+}
+
+/* ---------- Aparición escalonada al hacer scroll ---------- */
+@media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: view()) {
+
+        .sobre-mi .sobre-mi-texto p {
+            animation: smAparecer linear both;
+            animation-timeline: view();
+            animation-range: entry 5% entry 55%;
+        }
+
+        @keyframes smAparecer {
+            from { opacity: 0; transform: translateY(14px); }
+            to   { opacity: 1; transform: none; }
+        }
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .sobre-mi .sobre-mi-texto p:last-of-type::after {
+        animation: none;
+    }
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 768px) {
+
+    .sobre-mi .sobre-mi-texto {
+        --sm-fs: 14.5px;
+        --sm-lh: 1.7;
+        --sm-pad-x: 8px;
+        --sm-pad-y: 8px;
+        --sm-bar: 36px;
+
+        padding: calc(var(--sm-bar) + 18px) 10px 20px;
+    }
+
+    .sobre-mi .sobre-mi-texto::before {
+        padding-left: 70px;
+        font-size: 11px;
+        background-position: 0 0, 0 0, 0 0, bottom, 0 0;
+    }
+
+    .sobre-mi .sobre-mi-texto p {
+        padding-left: calc(var(--sm-pad-x) + var(--sm-node) + 14px);
+    }
+
+    .sobre-mi .sobre-mi-texto p::before {
+        font-size: 9.5px;
+    }
+}

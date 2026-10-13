@@ -1,0 +1,339 @@
+<section id="contacto" class="contacto">
+
+    <div class="contacto-container">
+
+        <!-- ENCABEZADO -->
+
+        <div class="contacto-header">
+
+            <h2 class="section-title">
+                <span class="section-title-icon">
+                    <img
+                        src="/icons/contact.svg"
+                        alt=""
+                        aria-hidden="true">
+                </span>
+                <span>
+                    {{ textos.titulo }}
+                </span>
+            </h2>
+
+            <p class="contacto-subtitulo">
+                {{ textos.subtitulo }}
+            </p>
+
+        </div>
+
+
+        <!-- FORMULARIO -->
+
+        <div class="contacto-formulario">
+
+            <form (submit)="enviarFormulario($event)">
+
+                <div class="campo">
+
+                    <label for="nombre">
+                        {{ textos.nombre }}
+                    </label>
+
+                    <input
+                        type="text"
+                        id="nombre"
+                        name="name"
+                        [attr.placeholder]="textos.nombrePlaceholder"
+                        required>
+
+                </div>
+
+
+                <div class="campo">
+
+                    <label for="email">
+                        {{ textos.email }}
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        [attr.placeholder]="textos.emailPlaceholder"
+                        required>
+
+                </div>
+
+
+                <div class="campo">
+
+                    <label for="asunto">
+                        {{ textos.asunto }}
+                    </label>
+
+                    <input
+                        type="text"
+                        id="asunto"
+                        name="title"
+                        [attr.placeholder]="textos.asuntoPlaceholder"
+                        required>
+
+                </div>
+
+
+                <div class="campo">
+
+                    <label for="mensaje">
+                        {{ textos.mensaje }}
+                    </label>
+
+                    <textarea
+                        id="mensaje"
+                        name="message"
+                        rows="6"
+                        [attr.placeholder]="textos.mensajePlaceholder"
+                        required></textarea>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="contacto-btn"
+                    [disabled]="enviando()">
+
+                    {{ enviando() ? textos.enviando : textos.enviar }}
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <footer class="footer">
+
+        <!-- GRACIAS -->
+        <p class="footer-item footer-thanks">
+
+            <svg
+                class="smile-icon"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true">
+
+                <circle
+                    cx="12"
+                    cy="12"
+                    r="9"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"/>
+
+                <circle
+                    cx="9"
+                    cy="10"
+                    r="1"
+                    fill="currentColor"/>
+
+                <circle
+                    cx="15"
+                    cy="10"
+                    r="1"
+                    fill="currentColor"/>
+
+                <path
+                    d="M8 14c1.1 1.5 2.4 2.2 4 2.2s2.9-.7 4-2.2"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"/>
+
+            </svg>
+
+            <span>
+                {{ textos.gracias }}
+            </span>
+
+        </p>
+
+
+        <!-- ANGULAR -->
+        <p class="footer-item footer-angular">
+
+            <span>
+                {{ textos.realizado }}
+            </span>
+
+            <img
+                class="angular-icon"
+                src="/icons/technologies/angular.svg"
+                alt="Angular">
+
+        </p>
+
+
+        <!-- NOMBRE -->
+        <p class="footer-item footer-name">
+
+            © {{ currentYear }} Braian De Jesús Valenzuela
+
+        </p>
+
+    </footer>
+
+
+    <!-- =====================================================
+         AVISO DE ENVÍO (ÉXITO / ERROR)
+         Pantalla completa, fuera del formulario para que
+         position: fixed se calcule respecto de la pantalla
+    ===================================================== -->
+    <div
+        class="aviso"
+        [class.activo]="avisoVisible()"
+        [class.exito]="avisoTipo() === 'exito'"
+        [class.error]="avisoTipo() === 'error'"
+        (click)="cerrarAviso()"
+        role="alertdialog"
+        aria-modal="true"
+        aria-live="assertive"
+        [attr.aria-hidden]="!avisoVisible()"
+        [attr.aria-label]="avisoTipo() === 'exito' ? textos.exitoTitulo : textos.errorTitulo">
+
+        <div
+            class="aviso-panel"
+            (click)="$event.stopPropagation()">
+
+            <!-- BARRA SUPERIOR TIPO TERMINAL -->
+            <div class="aviso-barra">
+
+                <div class="aviso-puntos" aria-hidden="true">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+                <span class="aviso-ruta" aria-hidden="true">
+                    ~/contacto/envio.log
+                </span>
+
+                <button
+                    #btnCerrar
+                    type="button"
+                    class="aviso-x"
+                    (click)="cerrarAviso()"
+                    [attr.aria-label]="textos.cerrar">
+
+                    &times;
+
+                </button>
+
+            </div>
+
+
+            <!-- CUERPO -->
+            <div class="aviso-cuerpo">
+
+                <!-- ÍCONO ANIMADO -->
+                <div class="aviso-icono" aria-hidden="true">
+
+                    <!-- Check (éxito) -->
+                    <svg
+                        class="aviso-svg aviso-svg-exito"
+                        viewBox="0 0 52 52"
+                        xmlns="http://www.w3.org/2000/svg">
+
+                        <circle
+                            class="aviso-circulo"
+                            cx="26"
+                            cy="26"
+                            r="23"
+                            fill="none"/>
+
+                        <path
+                            class="aviso-trazo"
+                            d="M15 27l8 8 14-16"
+                            fill="none"/>
+
+                    </svg>
+
+                    <!-- Cruz (error) -->
+                    <svg
+                        class="aviso-svg aviso-svg-error"
+                        viewBox="0 0 52 52"
+                        xmlns="http://www.w3.org/2000/svg">
+
+                        <circle
+                            class="aviso-circulo"
+                            cx="26"
+                            cy="26"
+                            r="23"
+                            fill="none"/>
+
+                        <path
+                            class="aviso-trazo"
+                            d="M18 18l16 16M34 18L18 34"
+                            fill="none"/>
+
+                    </svg>
+
+                </div>
+
+
+                <!-- ESTADO -->
+                <span class="aviso-estado">
+                    {{ avisoTipo() === 'exito' ? 'STATUS: OK' : 'STATUS: ERROR' }}
+                </span>
+
+                <h3 class="aviso-titulo">
+                    {{ avisoTipo() === 'exito' ? textos.exitoTitulo : textos.errorTitulo }}
+                </h3>
+
+                <p class="aviso-mensaje">
+                    {{ avisoTipo() === 'exito' ? textos.exitoMensaje : textos.errorMensaje }}
+                </p>
+
+
+                <!-- TERMINAL -->
+                <div class="aviso-terminal" aria-hidden="true">
+
+                    <p class="aviso-linea">
+                        <span class="aviso-prompt">$</span> emailjs.send()
+                    </p>
+
+                    <p class="aviso-linea aviso-linea-resultado">
+                        <span class="aviso-prompt">&gt;</span>
+                        {{ avisoTipo() === 'exito' ? textos.exitoLinea : textos.errorLinea }}
+                        <span class="aviso-cursor"></span>
+                    </p>
+
+                </div>
+
+
+                <!-- BOTÓN -->
+                <button
+                    type="button"
+                    class="aviso-btn"
+                    (click)="cerrarAviso()">
+
+                    {{ textos.cerrar }}
+
+                </button>
+
+                <p class="aviso-auto">
+                    {{ textos.autocierre }}
+                </p>
+
+            </div>
+
+
+            <!-- BARRA DE PROGRESO DEL CIERRE AUTOMÁTICO -->
+            <div class="aviso-progreso" aria-hidden="true">
+                <span [style.animation-duration.ms]="autocierreMs"></span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>

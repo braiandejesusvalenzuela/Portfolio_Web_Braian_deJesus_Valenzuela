@@ -1,0 +1,123 @@
+<section id="certificaciones" class="certificaciones">
+
+    <div class="certificaciones-container">
+
+        <!-- ENCABEZADO -->
+
+        <div class="certificaciones-header">
+
+            <h2 class="section-title">
+
+                <span class="section-title-icon">
+
+                    <img
+                        src="/icons/certificate.svg"
+                        alt=""
+                        aria-hidden="true">
+
+                </span>
+
+                <span>
+                    {{ textos.titulo }}
+                </span>
+
+            </h2>
+
+        </div>
+
+
+<div class="certificaciones-grid">
+
+    <article class="certificacion-card">
+
+        <span class="certificacion-etiqueta">
+            {{ textos.obtenida }}
+        </span>
+
+        <div class="certificacion-contenido">
+
+            <h3>
+                UTN
+            </h3>
+
+            <h4>
+                {{ textos.office }}
+            </h4>
+
+            <p>
+                {{ textos.officeDescripcion }}
+            </p>
+
+            <button
+                type="button"
+                class="certificacion-btn"
+                (click)="abrirCertificado()">
+
+                {{ textos.verCertificado }}
+
+            </button>
+
+        </div>
+
+    </article>
+
+
+    <article class="certificacion-card certificacion-futura">
+
+        <span class="certificacion-etiqueta">
+            {{ textos.preparacion }}
+        </span>
+
+        <div class="certificacion-contenido">
+
+            <h3>
+                Udemy
+            </h3>
+
+            <h4>
+                {{ textos.profesionales }}
+            </h4>
+
+            <p>
+                {{ textos.profesionalesDescripcion }}
+            </p>
+
+            <span class="certificacion-estado">
+                {{ textos.proximamente }}
+            </span>
+
+        </div>
+
+    </article>
+
+</div>
+
+   <!-- VISOR DEL CERTIFICADO -->
+
+<div
+    class="certificado-modal"
+    [class.activo]="certificadoAbierto"
+    (click)="cerrarCertificado()">
+
+    <div
+        class="certificado-modal-contenido"
+        (click)="$event.stopPropagation()">
+
+        <button
+            type="button"
+            class="certificado-cerrar"
+            (click)="cerrarCertificado()"
+            aria-label="Cerrar certificado">
+
+            &times;
+
+        </button>
+
+        <img
+            src="/certificados/certificado-utn.png"
+            alt="Certificado UTN"
+            class="certificado-imagen">
+
+    </div>
+
+</div>

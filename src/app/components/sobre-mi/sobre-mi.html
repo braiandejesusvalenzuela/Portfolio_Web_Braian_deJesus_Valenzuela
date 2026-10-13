@@ -1,0 +1,46 @@
+<section id="sobre-mi" class="sobre-mi">
+
+    <div class="sobre-mi-container">
+
+        <!-- ENCABEZADO -->
+
+        <div class="sobre-mi-header">
+
+            <h2 class="section-title">
+
+                <span class="section-title-icon">
+                    <img
+                        src="/icons/user.svg"
+                        alt=""
+                        aria-hidden="true">
+                </span>
+
+                <span>
+                    {{ textos.titulo }}
+                </span>
+
+            </h2>
+
+        </div>
+
+
+        <!-- CONTENIDO -->
+
+        <div class="sobre-mi-content">
+
+            <!-- TEXTO -->
+<div class="sobre-mi-texto">
+
+    <p [innerHTML]="textos.parrafo1"></p>
+
+    <p [innerHTML]="textos.parrafo2"></p>
+
+    <p [innerHTML]="textos.parrafo3"></p>
+
+</div>
+
+        </div>
+
+    </div>
+
+</section>

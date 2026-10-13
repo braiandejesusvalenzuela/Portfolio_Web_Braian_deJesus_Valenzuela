@@ -1,0 +1,953 @@
+/* =====================================================
+   DESIGN SYSTEM - Portfolio Braian Valenzuela
+   Versión 2.0
+
+   ÍNDICE
+   1. Fuentes locales
+   2. Variables globales
+   3. Temas (claro y oscuro)
+   4. Reset y base
+   5. Tipografía global
+   6. Fondo tecnológico
+   7. Utilidades, botones, tarjetas y animaciones
+   8. Secciones (layout global)
+   9. Variables de color por sección
+===================================================== */
+
+
+/* =====================================================
+   1. FUENTES LOCALES
+   Manrope      → 400 · 500 · 600 · 700 · 800
+   Space Grotesk → 300 · 400 · 500 · 700
+   (Space Grotesk no tiene 600: el navegador usa 700)
+===================================================== */
+
+@font-face {
+    font-family: 'Manrope';
+    src: url('/fonts/Manrope-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Manrope';
+    src: url('/fonts/Manrope-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Manrope';
+    src: url('/fonts/Manrope-SemiBold.woff2') format('woff2');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Manrope';
+    src: url('/fonts/Manrope-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Manrope';
+    src: url('/fonts/Manrope-ExtraBold.woff2') format('woff2');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Space Grotesk';
+    src: url('/fonts/SpaceGrotesk-Light.woff2') format('woff2');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Space Grotesk';
+    src: url('/fonts/SpaceGrotesk-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Space Grotesk';
+    src: url('/fonts/SpaceGrotesk-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Space Grotesk';
+    src: url('/fonts/SpaceGrotesk-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+/* =====================================================
+   2. VARIABLES GLOBALES
+===================================================== */
+
+:root {
+
+    /* ---------- Tipografía ---------- */
+
+    --font-primary: 'Manrope', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    --font-heading: 'Space Grotesk', 'Manrope', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+
+    /* ---------- Colores principales ---------- */
+
+    --color-primary: #2563eb;
+    --color-primary-hover: #1d4ed8;
+
+    --color-tech: #38bdf8;
+
+    --color-gold: #D4A72C;
+    --gold-glow: rgba(212,167,44,.20);
+
+    --glow-primary: rgba(37,99,235,.18);
+    --glow-secondary: rgba(14,165,233,.12);
+    --glow-tertiary: rgba(96,165,250,.08);
+
+
+    /* ---------- Fondo ---------- */
+
+    --color-background: #ffffff;
+    --color-surface: #f8fafc;
+
+
+    /* ---------- Texto ---------- */
+
+    --color-text: #111827;
+    --color-text-secondary: #4b5563;
+
+
+    /* ---------- Bordes ---------- */
+
+    --color-border: #e5e7eb;
+    --color-divider: #d1d5db;
+
+
+    /* ---------- Sombras ---------- */
+
+    --shadow-sm: 0 2px 8px rgba(0,0,0,.05);
+    --shadow-md: 0 8px 24px rgba(0,0,0,.08);
+    --shadow-lg: 0 15px 35px rgba(0,0,0,.12);
+
+
+    /* ---------- Border Radius ---------- */
+
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 18px;
+    --radius-xl: 25px;
+
+
+    /* ---------- Espaciados ---------- */
+
+    --space-xs: 8px;
+    --space-sm: 16px;
+    --space-md: 24px;
+    --space-lg: 40px;
+    --space-xl: 64px;
+
+
+    /* ---------- Navbar ---------- */
+
+    --navbar-height: 60px;
+    --navbar-background: rgba(255,255,255,.75);
+    --navbar-width: 170px;
+
+
+    /* ---------- Contenedor ---------- */
+
+    --container: 1200px;
+    --content-width: 700px;
+    --page-padding: 32px;
+
+
+    /* ---------- Iconos ---------- */
+
+    --icon-size: 22px;
+
+    --button-icon-color: #2563eb;
+
+    --linkedin-inner: #ffffff;
+
+
+    /* ---------- Transiciones ---------- */
+
+    --transition-fast: .25s ease;
+    --transition-normal: .35s ease;
+
+
+    /* ---------- Desplegables ---------- */
+
+    --dropdown-hover: rgba(56,189,248,.15);
+}
+
+.dark {
+    --dropdown-hover: rgba(56,189,248,.22);
+}
+
+@media (max-width: 768px) {
+
+    :root {
+        --page-padding: 24px;
+    }
+}
+
+
+/* =====================================================
+   3. TEMAS
+   El tema se activa con data-theme en <html>
+   (lo maneja ThemeService)
+===================================================== */
+
+
+/* ==========================
+   TEMA CLARO — BLANCO APAGADO
+   Blanco frío con degradado celeste/dorado
+   (el degradado y el circuito están en la sección 6)
+========================== */
+
+[data-theme="light"] {
+
+    --button-icon-color: #2563eb;
+    --contacto-btn-text: #000000;
+
+    --color-background: #EEF2F8;
+
+    --color-surface: rgba(255,255,255,.78);
+
+    --color-text: #1C2430;
+
+    --color-text-secondary: #59636F;
+
+    --color-border: rgba(28,36,48,.10);
+
+    --color-divider: rgba(28,36,48,.14);
+
+    --color-primary: #1976D2;
+
+    --color-primary-hover: #125BA3;
+
+    --navbar-background: rgba(247,249,252,.86);
+
+    --glow-primary: rgba(25,118,210,.08);
+
+    --glow-secondary: rgba(14,165,233,.06);
+
+    --glow-tertiary: rgba(255,255,255,.30);
+
+    --photo-glow: rgba(25,118,210,.14);
+
+    --navbar-border: rgba(25,118,210,.18);
+
+    --color-gold: #A66A00;
+    --gold-glow: rgba(166,106,0,.12);
+
+    --color-tech: #0878B8;
+}
+
+
+/* ==========================
+   TEMA OSCURO
+========================== */
+
+[data-theme="dark"] {
+
+    --button-icon-color: #38bdf8;
+    --contacto-btn-text: #ffffff;
+
+    --color-background: #01050D;
+
+    --color-surface: rgba(3,12,25,.78);
+
+    --color-text: #F8FAFC;
+
+    --color-text-secondary: #A8B7C8;
+
+    --color-border: rgba(56,189,248,.12);
+
+    --color-divider: rgba(56,189,248,.15);
+
+    --color-primary: #38BDF8;
+
+    --color-primary-hover: #0EA5E9;
+
+    --navbar-background: rgba(1,5,13,.88);
+
+    --glow-primary: rgba(0,90,180,.25);
+
+    --glow-secondary: rgba(0,180,255,.14);
+
+    --glow-tertiary: rgba(30,80,160,.08);
+
+    --photo-glow: rgba(56,189,248,.30);
+
+    --navbar-border: rgba(56,189,248,.18);
+
+    --color-gold: #FFD45A;
+    --gold-glow: rgba(255,212,90,.28);
+
+    --color-tech: #38BDF8;
+}
+
+
+/* =====================================================
+   4. RESET Y BASE
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+button {
+    font: inherit;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+body {
+    position: relative;
+    isolation: isolate;
+
+    font-family: var(--font-primary);
+    color: var(--color-text);
+    background: var(--color-background);
+    overflow-x: hidden;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    transition:
+        background .4s,
+        color .4s;
+}
+
+
+/* =====================================================
+   5. TIPOGRAFÍA GLOBAL
+   - Texto e interfaz  → Manrope
+   - Títulos           → Space Grotesk
+===================================================== */
+
+/* Los campos de formulario no heredan la fuente por defecto */
+input,
+textarea,
+select,
+button {
+    font-family: inherit;
+}
+
+/* Títulos */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-heading);
+}
+
+/* Interfaz: navbar, menús desplegables y botones.
+   Se fuerza Manrope aunque un componente use otra fuente. */
+.navbar,
+.navbar *,
+.acciones,
+.acciones *,
+.cv-menu,
+.cv-menu *,
+.language-menu,
+.language-menu *,
+.theme-menu,
+.theme-menu *,
+.navigation-dropdown,
+.navigation-dropdown *,
+.language-dropdown,
+.language-dropdown *,
+.theme-dropdown,
+.theme-dropdown * {
+    font-family: var(--font-primary) !important;
+}
+
+.navbar,
+.acciones {
+    letter-spacing: .5px;
+}
+
+/* Opciones de los menús desplegables */
+.language-dropdown button,
+.theme-dropdown button,
+.navigation-dropdown a,
+.cv-dropdown a {
+    font-weight: 500 !important;
+}
+
+/* Botones principales */
+.acciones .btn,
+.cv-button,
+.btn-outline {
+    font-weight: 600 !important;
+}
+
+
+/* =====================================================
+   6. FONDO TECNOLÓGICO
+   Se usa la MISMA imagen en los dos temas:
+
+   · Oscuro → se ve tal cual, oscurecida un poco.
+   · Claro  → se invierte con filtros CSS (el azul marino
+     pasa a blanco y el dorado a ámbar oscuro) y se mezcla
+     con "multiply" sobre el degradado, así solo se
+     dibujan los trazos y el fondo no se ensucia.
+
+   Capas (de atrás hacia adelante):
+     body            → color base
+     body::after     → degradado del tema claro (z -2)
+     body::before    → imagen de circuitos       (z -1)
+===================================================== */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+
+    background-image: url('/img/fondo-circuito-dorado.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    opacity: .55;
+
+    /* Solo se anima la opacidad: el filtro y la mezcla
+       cambian de golpe para evitar un destello al cambiar de tema */
+    transition: opacity .6s ease;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -2;
+
+    opacity: 0;
+    transition: opacity .6s ease;
+
+    background:
+
+        /* centro limpio y luminoso para que el contenido respire */
+        radial-gradient(
+            circle at 50% 45%,
+            rgba(255,255,255,.75),
+            transparent 45%
+        ),
+
+        /* esquina superior izquierda: celeste tecnológico */
+        radial-gradient(
+            circle at 0% 0%,
+            rgba(56,189,248,.16),
+            transparent 55%
+        ),
+
+        /* esquina inferior derecha: dorado suave */
+        radial-gradient(
+            circle at 100% 100%,
+            rgba(212,167,44,.16),
+            transparent 55%
+        ),
+
+        /* puntos muy sutiles (textura de placa electrónica) */
+        radial-gradient(
+            rgba(15,23,42,.05) 1px,
+            transparent 1.5px
+        ) 0 0 / 28px 28px,
+
+        /* base: blanco frío → gris azulado → blanco cálido */
+        linear-gradient(
+            160deg,
+            #F7F9FC 0%,
+            #EEF2F8 50%,
+            #F6F3EC 100%
+        );
+}
+
+
+/* ---------- Tema oscuro ---------- */
+
+[data-theme="dark"] body::before {
+    opacity: .62;
+
+    filter:
+        brightness(.65)
+        contrast(1.15)
+        saturate(1.15);
+}
+
+
+/* ---------- Tema claro ---------- */
+
+[data-theme="light"] body::before {
+
+    /* ← AQUÍ REGULÁS cuánto se nota el circuito (0 a 1) */
+    opacity: .55;
+
+    filter:
+        invert(1)
+        hue-rotate(180deg)
+        saturate(.9);
+
+    mix-blend-mode: multiply;
+}
+
+[data-theme="light"] body::after {
+    opacity: 1;
+}
+
+
+/* =====================================================
+   7. UTILIDADES, BOTONES, TARJETAS Y ANIMACIONES
+===================================================== */
+
+/* ==========================
+   UTILIDADES
+========================== */
+
+.container {
+    width: 100%;
+    max-width: var(--container);
+    margin: 0 auto;
+    padding-inline: var(--page-padding);
+}
+
+.section {
+    min-height: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* ==========================
+   BOTONES
+========================== */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    padding: 14px 32px;
+    border-radius: var(--radius-md);
+
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+
+    cursor: pointer;
+    transition: var(--transition-normal);
+}
+
+.btn-primary {
+    background: var(--color-primary);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: var(--color-primary-hover);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+
+.btn-outline {
+    border: 2px solid var(--color-primary);
+    color: var(--color-primary);
+    background: transparent;
+}
+
+.btn-outline:hover {
+    background: var(--color-primary);
+    color: white;
+}
+
+
+/* ==========================
+   ICONOS DE BOTONES
+========================== */
+
+.acciones .button-icon {
+    width: 20px;
+    height: 20px;
+    color: var(--button-icon-color);
+
+    transition:
+        color .25s ease,
+        transform .25s ease;
+}
+
+.acciones .btn:hover .button-icon {
+    transform: scale(1.05);
+}
+
+[data-theme] .acciones .btn img {
+    opacity: 1;
+}
+
+
+/* ==========================
+   TARJETAS
+========================== */
+
+.card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    backdrop-filter: blur(20px);
+    border-radius: var(--radius-lg);
+    padding: 30px;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition-normal);
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lg);
+}
+
+.card-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+
+/* ==========================
+   TÍTULOS DE SECCIÓN
+========================== */
+
+.section-title {
+    font-size: clamp(2.3rem, 6vw, 4rem);
+    font-weight: 700;
+    margin-bottom: 50px;
+    color: var(--color-text);
+}
+
+
+/* ==========================
+   ANIMACIONES
+========================== */
+
+.fade-up {
+    animation: fadeUp .8s ease forwards;
+}
+
+@keyframes fadeUp {
+
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes backgroundGlow {
+
+    0% {
+        transform: scale(1);
+        filter: blur(0);
+    }
+
+    50% {
+        transform: scale(1.04);
+    }
+
+    100% {
+        transform: scale(1.08);
+        filter: blur(2px);
+    }
+}
+
+
+/* =====================================================
+   8. SECCIONES — LAYOUT GLOBAL
+===================================================== */
+
+/* ==========================
+   BASE (todos los tamaños)
+========================== */
+
+section {
+    scroll-margin-top: 0;
+    min-height: 100svh;
+    box-sizing: border-box;
+
+    padding-top: var(--navbar-height);
+    padding-bottom: 40px;
+}
+
+#inicio {
+    padding-top: calc(var(--navbar-height) + 80px);
+}
+
+
+/* ==========================
+   CELULAR (hasta 768px)
+   Secciones compactas e independientes
+========================== */
+
+@media (max-width: 768px) {
+
+    section {
+        scroll-margin-top: calc(var(--navbar-height) + 5px);
+        min-height: 100svh;
+
+        padding-top: calc(var(--navbar-height) + 20px);
+        padding-bottom: 30px;
+    }
+
+    #inicio {
+        padding-top: calc(var(--navbar-height) + 60px);
+    }
+
+    .inicio,
+    .experiencia,
+    .proyectos,
+    .tecnologias,
+    .formacion,
+    .certificaciones,
+    .sobre-mi,
+    .contacto {
+        min-height: 0 !important;
+        height: auto !important;
+
+        display: flex !important;
+        flex-direction: column;
+        justify-content: flex-start !important;
+        align-items: stretch !important;
+
+        box-sizing: border-box;
+
+        padding-top: 45px !important;
+        padding-bottom: 45px !important;
+    }
+
+    /* espaciado superior distinto en algunas secciones */
+    .inicio,
+    .experiencia {
+        padding-top: 55px !important;
+    }
+
+    /* contacto termina en el footer */
+    .contacto {
+        padding-bottom: 0 !important;
+    }
+}
+
+
+/* ==========================
+   ESCRITORIO (769px o más)
+========================== */
+
+@media (min-width: 769px) {
+
+    /* Componentes de Angular: sin espacios fantasma */
+    app-inicio,
+    app-experiencia,
+    app-proyectos,
+    app-tecnologias,
+    app-formacion,
+    app-certificaciones,
+    app-sobre-mi,
+    app-contacto {
+        display: block;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        transform: none;
+    }
+
+    /* Espacio entre secciones */
+    app-inicio          { margin-bottom: -10px; }
+    app-experiencia     { margin-bottom: 30px; }
+    app-proyectos       { margin-bottom: 50px; }
+    app-tecnologias     { margin-bottom: -100px; }
+    app-formacion       { margin-bottom: -200px; }
+    app-certificaciones { margin-bottom: -100px; }
+    app-sobre-mi        { margin-bottom: 100px; }
+
+    /* Secciones a pantalla completa */
+    .inicio,
+    .experiencia,
+    .proyectos,
+    .tecnologias,
+    .formacion,
+    .certificaciones,
+    .sobre-mi {
+        min-height: 100svh;
+        box-sizing: border-box;
+    }
+
+    /* Contacto NO ocupa una pantalla extra: el footer es el final */
+    .contacto {
+        min-height: 0 !important;
+        height: auto !important;
+
+        padding-bottom: 0 !important;
+        margin: 0 !important;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+
+        box-sizing: border-box;
+    }
+
+    .contacto-container {
+        margin-bottom: 0 !important;
+    }
+
+    .contacto .footer {
+        margin: 45px 0 0 0 !important;
+        padding-bottom: 25px !important;
+        box-sizing: border-box;
+    }
+}
+
+
+/* ==========================
+   CONTENEDOR — DESKTOP GRANDE
+========================== */
+
+@media (min-width: 1024px) {
+
+    .container {
+        padding-inline: 48px;
+    }
+}
+
+
+/* =====================================================
+   9. VARIABLES DE COLOR POR SECCIÓN
+   (se activan con las clases .dark-theme / .light-theme)
+===================================================== */
+
+.dark-theme {
+
+    --inicio-title: #ffffff;
+    --inicio-text: #e5e7eb;
+
+    --sobre-title: #ffffff;
+    --sobre-text: #e5e7eb;
+
+    --tecnologias-title: #ffffff;
+    --tecnologias-text: #e5e7eb;
+
+    --proyectos-title: #ffffff;
+    --proyectos-text: #e5e7eb;
+
+    --experiencia-title: #ffffff;
+    --experiencia-text: #e5e7eb;
+
+    --formacion-title: #ffffff;
+    --formacion-text: #e5e7eb;
+
+    --certificaciones-title: #ffffff;
+    --certificaciones-text: #e5e7eb;
+
+    --contacto-title: #ffffff;
+    --contacto-text: #e5e7eb;
+}
+
+.light-theme {
+
+    --inicio-title: #000000;
+    --inicio-text: #1f2937;
+
+    --sobre-title: #000000;
+    --sobre-text: #1f2937;
+
+    --tecnologias-title: #000000;
+    --tecnologias-text: #1f2937;
+
+    --proyectos-title: #000000;
+    --proyectos-text: #1f2937;
+
+    --experiencia-title: #000000;
+    --experiencia-text: #1f2937;
+
+    --formacion-title: #000000;
+    --formacion-text: #1f2937;
+
+    --certificaciones-title: #000000;
+    --certificaciones-text: #1f2937;
+
+    --contacto-title: #000000;
+    --contacto-text: #1f2937;
+}
+
+/* =====================================================================
+   PARTE C  →  pegar en el styles.css GLOBAL (el de src/styles.css)
+   Hace que al soltar el scroll cerca de una sección, se acomode sola
+   en el borde de la pantalla (suave, no bloquea el scroll).
+===================================================================== */
+ 
+@media (max-width: 768px) {
+ 
+    html {
+        scroll-snap-type: y proximity;
+    }
+}
+ 

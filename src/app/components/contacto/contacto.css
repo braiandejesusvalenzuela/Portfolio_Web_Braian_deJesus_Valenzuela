@@ -1,0 +1,2023 @@
+/* =====================================================
+   CONTACTO — SECCIÓN
+===================================================== */
+
+.contacto {
+    position: relative;
+    width: 100%;
+    min-height: auto !important;
+    height: auto !important;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    /* sin espacio arriba: el contenido queda lo más alto posible */
+    padding: 0;
+    margin: 0;
+
+    box-sizing: border-box;
+}
+
+
+/* =====================================================
+   CONTENEDOR
+===================================================== */
+
+.contacto-container {
+    width: 100%;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 24px;
+    box-sizing: border-box;
+}
+
+
+/* =====================================================
+   ENCABEZADO
+===================================================== */
+
+.contacto-header {
+    margin-bottom: 20px;
+}
+
+.contacto .section-title {
+    margin: 0;
+
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 4.5vw, 3rem);
+    line-height: 1.1;
+    letter-spacing: -.5px;
+
+    text-align: center;
+}
+
+.section-title-icon {
+    width: 30px;
+    height: 30px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    flex: 0 0 30px;
+}
+
+.section-title-icon img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+}
+
+.dark-theme {
+    /* CONTACTO */
+    --contacto-title: #ffffff;
+    --contacto-text: #e5e7eb;
+}
+
+/* SUBRAYADO */
+
+.contacto .section-title::after {
+    content: "";
+    display: block;
+
+    width: 75px;
+    height: 2px;
+    margin: 14px auto 0;
+    border-radius: 999px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--color-tech),
+        rgba(212, 175, 55, .9),
+        transparent
+    );
+
+    box-shadow: 0 0 12px rgba(56, 189, 248, .25);
+}
+
+.contacto-subtitulo {
+    max-width: 600px;
+    margin: 10px auto 0;
+
+    font-family: var(--font-primary);
+    font-size: 14px;
+    line-height: 1.5;
+    text-align: center;
+
+    color: var(--color-text-secondary);
+}
+
+
+/* =====================================================
+   FORMULARIO (TARJETA COMPACTA)
+===================================================== */
+
+.contacto-formulario {
+    position: relative;
+
+    padding: 14px 18px 16px;
+    border-radius: 14px;
+
+    background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, .04),
+        rgba(255, 255, 255, .015)
+    );
+
+    border: 1px solid rgba(56, 189, 248, .12);
+    box-shadow: 0 14px 38px rgba(0, 0, 0, .22);
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    overflow: hidden;
+
+    transition:
+        border-color .3s ease,
+        box-shadow .3s ease;
+}
+
+/* línea de acento superior */
+.contacto-formulario::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--color-tech) 30%,
+        rgba(212, 175, 55, .8) 70%,
+        transparent
+    );
+
+    opacity: .6;
+    pointer-events: none;
+
+    transition: opacity .3s ease;
+}
+
+/* grilla técnica muy sutil */
+.contacto-formulario::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        linear-gradient(rgba(56, 189, 248, .03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(56, 189, 248, .03) 1px, transparent 1px);
+    background-size: 32px 32px;
+
+    -webkit-mask-image: radial-gradient(ellipse at top right, #000, transparent 65%);
+            mask-image: radial-gradient(ellipse at top right, #000, transparent 65%);
+
+    pointer-events: none;
+}
+
+/* el contenido queda por encima de la grilla */
+.contacto-formulario > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* HOVER */
+.contacto-formulario:hover {
+    border-color: rgba(56, 189, 248, .3);
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, .3),
+        0 0 26px rgba(56, 189, 248, .07);
+}
+
+.contacto-formulario:hover::before {
+    opacity: 1;
+}
+
+
+/* =====================================================
+   CAMPOS
+===================================================== */
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 8px;
+}
+
+.campo label {
+    margin-bottom: 4px;
+
+    font-family: var(--font-primary);
+    font-size: 11.5px;
+    font-weight: 600;
+    letter-spacing: .3px;
+
+    color: var(--color-gold);
+}
+
+.campo input,
+.campo textarea {
+    width: 100%;
+    box-sizing: border-box;
+
+    padding: 6px 10px;
+    border-radius: 8px;
+
+    border: 1px solid rgba(56, 189, 248, .14);
+    background: rgba(56, 189, 248, .03);
+
+    color: var(--color-text);
+
+    font-family: var(--font-primary);
+    font-size: 13px;
+
+    outline: none;
+    resize: vertical;
+
+    transition:
+        border-color .25s ease,
+        box-shadow .25s ease,
+        background .25s ease;
+}
+
+.campo textarea {
+    line-height: 1.45;
+}
+
+.campo input::placeholder,
+.campo textarea::placeholder {
+    color: var(--color-text-secondary);
+    opacity: .7;
+}
+
+.campo input:focus,
+.campo textarea:focus {
+    border-color: var(--color-tech);
+    background: rgba(56, 189, 248, .05);
+
+    box-shadow:
+        0 0 0 3px rgba(56, 189, 248, .08),
+        0 0 14px rgba(56, 189, 248, .08);
+}
+
+
+/* =====================================================
+   BOTÓN
+===================================================== */
+
+.contacto-btn {
+    width: 100%;
+    height: 36px;
+
+    margin-top: 2px;
+
+    border: 1px solid rgba(56, 189, 248, .55);
+    border-radius: 9px;
+
+    background: linear-gradient(
+        135deg,
+        rgba(56, 189, 248, .90),
+        rgba(14, 165, 233, .75)
+    );
+
+    color: var(--contacto-btn-text);
+
+    font-family: var(--font-primary);
+    font-size: 13px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow: 0 6px 18px rgba(56, 189, 248, .14);
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease,
+        background .25s ease;
+}
+
+.contacto-btn:hover {
+    transform: translateY(-2px);
+
+    background: linear-gradient(
+        135deg,
+        rgba(56, 189, 248, 1),
+        rgba(14, 165, 233, .90)
+    );
+
+    box-shadow:
+        0 10px 28px rgba(56, 189, 248, .25),
+        0 0 18px rgba(56, 189, 248, .12);
+}
+
+
+/* =====================================================
+   FOOTER: UNA FILA CENTRADA, SIN FONDO
+   gracias  |  realizado con Angular  |  © nombre
+
+   AJUSTES RÁPIDOS
+   - Bajar/subir el texto: el primer valor del padding (46px)
+   - Ancho de la línea superior: --linea-ancho (igual al formulario)
+   - Separación entre los textos: gap
+===================================================== */
+
+.footer {
+    --linea-ancho: 712px;            /* 760px del contenedor - 48px de padding */
+    --f-rgb: 56, 189, 248;
+
+    position: relative;
+
+    width: 100%;
+    margin: 44px 0 0;
+    padding: 10px 24px 26px;         /* 46px arriba = texto más abajo */
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 44px;
+
+    font-family: var(--font-primary);
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+}
+
+/* Línea superior: mismo ancho que el formulario, centrada */
+.footer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: min(var(--linea-ancho), calc(100% - 48px));
+    height: 1px;
+    transform: translateX(-50%);
+    pointer-events: none;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(var(--f-rgb), .35),
+        transparent
+    );
+}
+
+.footer-item {
+    margin: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    white-space: nowrap;
+    line-height: 1;
+}
+
+/* Separadores verticales mínimos a cada lado del centro */
+.footer-angular {
+    position: relative;
+}
+
+.footer-angular::before,
+.footer-angular::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 1px;
+    height: 16px;
+    transform: translateY(-50%);
+    pointer-events: none;
+
+    background: rgba(148, 163, 184, .28);
+}
+
+.footer-angular::before { left: -22px; }
+.footer-angular::after  { right: -22px; }
+
+/* Íconos */
+.footer .smile-icon {
+    width: 18px;
+    height: 18px;
+    flex: 0 0 18px;
+    display: block;
+    color: var(--color-tech);
+}
+
+.footer .angular-icon {
+    width: 52px;
+    height: 52px;
+    flex: 0 0 52px;
+    display: block;
+    object-fit: contain;
+
+    transition: transform .3s ease, filter .3s ease;
+}
+
+.footer-angular:hover .angular-icon {
+    transform: scale(1.1);
+    filter:
+        drop-shadow(0 0 5px rgba(227, 44, 44, .45))
+        drop-shadow(0 0 12px rgba(56, 189, 248, .25));
+}
+
+
+/* =====================================================
+   MODO CLARO
+===================================================== */
+
+:root[data-theme="light"] .contacto-formulario {
+    background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, .85),
+        rgba(248, 250, 252, .7)
+    );
+
+    border-color: rgba(14, 116, 144, .14);
+
+    box-shadow:
+        0 14px 36px rgba(15, 23, 42, .09),
+        inset 0 1px 0 rgba(255, 255, 255, .9);
+}
+
+:root[data-theme="light"] .contacto-formulario:hover {
+    border-color: rgba(14, 116, 144, .32);
+
+    box-shadow:
+        0 20px 46px rgba(15, 23, 42, .15),
+        0 0 22px rgba(56, 189, 248, .10);
+}
+
+:root[data-theme="light"] .contacto-formulario::after {
+    background-image:
+        linear-gradient(rgba(14, 116, 144, .05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(14, 116, 144, .05) 1px, transparent 1px);
+}
+
+:root[data-theme="light"] .campo input,
+:root[data-theme="light"] .campo textarea {
+    background: rgba(14, 116, 144, .04);
+    border-color: rgba(14, 116, 144, .16);
+}
+
+/* Footer en tema claro */
+:root[data-theme="light"] .footer {
+    --f-rgb: 2, 132, 199;
+}
+
+:root[data-theme="light"] .footer-angular::before,
+:root[data-theme="light"] .footer-angular::after {
+    background: rgba(15, 23, 42, .22);
+}
+
+
+/* =====================================================
+   DESKTOP — EL FOOTER ES EL FINAL REAL
+===================================================== */
+
+@media (min-width: 769px) {
+
+    .contacto {
+        height: auto !important;
+        min-height: 0 !important;
+        padding-bottom: 0 !important;
+        margin-bottom: 0 !important;
+    }
+
+    .contacto-container {
+        margin-bottom: 0 !important;
+        padding-bottom: 0 !important;
+    }
+
+    .footer {
+        margin-bottom: 0 !important;
+    }
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 768px) {
+
+    .contacto {
+        width: 100%;
+        height: auto !important;
+        min-height: 0 !important;
+
+        padding: 0 20px !important;
+        margin: 0 !important;
+    }
+
+    .contacto-container {
+        padding: 0;
+    }
+
+    .contacto-header {
+        margin-bottom: 18px;
+    }
+
+    .contacto-formulario {
+        padding: 12px 14px 14px;
+        border-radius: 12px;
+    }
+
+    .contacto-subtitulo {
+        font-size: 13.5px;
+    }
+
+    .campo {
+        margin-bottom: 7px;
+    }
+
+    /* Footer apilado en columna, sin separadores verticales */
+    .footer {
+        flex-direction: column;
+        gap: 14px;
+
+        margin-top: 40px;
+        padding: 38px 0 22px;
+    }
+
+    .footer::before {
+        width: 100%;
+    }
+
+    .footer-angular::before,
+    .footer-angular::after {
+        display: none;
+    }
+}
+
+
+/* =====================================================
+   ANCLA — ACÁ REGULÁS EL NAVBAR RESPECTO AL TÍTULO
+   Al navegar desde el navbar, esta es la distancia entre
+   el navbar y el título de Contacto.
+   Menos px = título más pegado al navbar.
+   Más px   = título más separado.
+===================================================== */
+
+#contacto {
+    scroll-margin-top: calc(var(--navbar-height) + 25px);
+}
+
+
+/* =====================================================
+   BOTÓN DESHABILITADO (mientras se envía)
+===================================================== */
+
+.contacto-btn:disabled {
+    opacity: .65;
+    cursor: wait;
+    transform: none;
+    box-shadow: none;
+}
+
+
+/* =====================================================
+   AVISO DE ENVÍO — PANTALLA COMPLETA
+   Éxito (verde) y error (rojo) comparten estructura.
+   IMPORTANTE: ningún ancestro de .aviso debe tener
+   transform, filter ni backdrop-filter.
+===================================================== */
+
+.aviso {
+    --aviso-acento: #34d399;
+    --aviso-rgb: 52, 211, 153;
+
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 24px;
+    box-sizing: border-box;
+    overflow: hidden;
+
+    background: rgba(6, 10, 18, .80);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition: opacity .3s ease, visibility .3s ease;
+}
+
+.aviso.error {
+    --aviso-acento: #f43f5e;
+    --aviso-rgb: 244, 63, 94;
+}
+
+.aviso.activo {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+/* grilla técnica a pantalla completa */
+.aviso::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+
+    background-image:
+        linear-gradient(rgba(56, 189, 248, .05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(56, 189, 248, .05) 1px, transparent 1px);
+    background-size: 44px 44px;
+
+    -webkit-mask-image: radial-gradient(circle at center, #000, transparent 70%);
+            mask-image: radial-gradient(circle at center, #000, transparent 70%);
+}
+
+/* resplandor del color de estado */
+.aviso::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 700px;
+    height: 700px;
+    max-width: 140vw;
+    max-height: 140vw;
+
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    pointer-events: none;
+
+    background: radial-gradient(
+        circle,
+        rgba(var(--aviso-rgb), .14),
+        transparent 65%
+    );
+}
+
+
+/* ---------- PANEL ---------- */
+
+.aviso-panel {
+    position: relative;
+    z-index: 1;
+
+    width: 100%;
+    max-width: 480px;
+    overflow: hidden;
+
+    border-radius: 18px;
+
+    background: linear-gradient(
+        180deg,
+        rgba(20, 28, 44, .96),
+        rgba(11, 17, 30, .98)
+    );
+
+    border: 1px solid rgba(var(--aviso-rgb), .4);
+
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, .55),
+        0 0 40px rgba(var(--aviso-rgb), .14),
+        inset 0 1px 0 rgba(255, 255, 255, .06);
+
+    transform: translateY(14px) scale(.95);
+    transition: transform .35s cubic-bezier(.2, .8, .2, 1);
+}
+
+.aviso.activo .aviso-panel {
+    transform: translateY(0) scale(1);
+}
+
+/* línea de acento superior */
+.aviso-panel::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    z-index: 2;
+    pointer-events: none;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--aviso-acento) 40%,
+        rgba(212, 175, 55, .8) 75%,
+        transparent
+    );
+}
+
+
+/* ---------- BARRA TIPO TERMINAL ---------- */
+
+.aviso-barra {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 11px 12px 11px 16px;
+
+    background: rgba(255, 255, 255, .03);
+    border-bottom: 1px solid rgba(var(--aviso-rgb), .16);
+}
+
+.aviso-puntos {
+    display: flex;
+    gap: 6px;
+}
+
+.aviso-puntos span {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: rgba(148, 163, 184, .35);
+}
+
+.aviso-puntos span:first-child {
+    background: var(--aviso-acento);
+    box-shadow: 0 0 8px rgba(var(--aviso-rgb), .7);
+}
+
+.aviso-ruta {
+    flex: 1;
+
+    font-family: ui-monospace, "SF Mono", "JetBrains Mono", Consolas, monospace;
+    font-size: 11px;
+    letter-spacing: .4px;
+
+    color: rgba(203, 213, 225, .6);
+}
+
+.aviso-x {
+    width: 28px;
+    height: 28px;
+    padding: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(255, 255, 255, .14);
+    border-radius: 8px;
+    background: transparent;
+
+    color: #e2e8f0;
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition:
+        background .2s ease,
+        border-color .2s ease,
+        color .2s ease,
+        transform .2s ease;
+}
+
+.aviso-x:hover,
+.aviso-x:focus-visible {
+    background: rgba(var(--aviso-rgb), .14);
+    border-color: var(--aviso-acento);
+    color: var(--aviso-acento);
+    transform: scale(1.06);
+    outline: none;
+}
+
+
+/* ---------- CUERPO ---------- */
+
+.aviso-cuerpo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 30px 28px 26px;
+    text-align: center;
+}
+
+
+/* ---------- ÍCONO ANIMADO ---------- */
+
+.aviso-icono {
+    position: relative;
+
+    width: 76px;
+    height: 76px;
+    margin-bottom: 16px;
+}
+
+/* anillos que laten */
+.aviso-icono::before,
+.aviso-icono::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    border: 1px solid rgba(var(--aviso-rgb), .45);
+    opacity: 0;
+}
+
+.aviso.activo .aviso-icono::before {
+    animation: avisoOnda 2.2s ease-out .5s infinite;
+}
+
+.aviso.activo .aviso-icono::after {
+    animation: avisoOnda 2.2s ease-out 1.3s infinite;
+}
+
+.aviso-svg {
+    display: none;
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    filter: drop-shadow(0 0 8px rgba(var(--aviso-rgb), .55));
+}
+
+.aviso.exito .aviso-svg-exito,
+.aviso.error .aviso-svg-error {
+    display: block;
+}
+
+.aviso-circulo {
+    stroke: var(--aviso-acento);
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-dasharray: 145;
+    stroke-dashoffset: 145;
+}
+
+.aviso-trazo {
+    stroke: var(--aviso-acento);
+    stroke-width: 3.2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 50;
+    stroke-dashoffset: 50;
+}
+
+.aviso.activo .aviso-circulo {
+    animation: avisoTrazar .7s ease-out .15s forwards;
+}
+
+.aviso.activo .aviso-trazo {
+    animation: avisoTrazar .45s ease-out .7s forwards;
+}
+
+
+/* ---------- TEXTOS ---------- */
+
+.aviso-estado {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+
+    margin-bottom: 12px;
+    padding: 4px 11px;
+
+    border: 1px solid rgba(var(--aviso-rgb), .4);
+    border-radius: 6px;
+    background: rgba(var(--aviso-rgb), .1);
+
+    font-family: ui-monospace, "SF Mono", "JetBrains Mono", Consolas, monospace;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+
+    color: var(--aviso-acento);
+}
+
+.aviso-estado::before {
+    content: "";
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--aviso-acento);
+    box-shadow: 0 0 8px rgba(var(--aviso-rgb), .9);
+}
+
+.aviso-titulo {
+    margin: 0 0 8px;
+
+    font-family: var(--font-heading);
+    font-size: clamp(1.4rem, 4vw, 1.75rem);
+    line-height: 1.2;
+
+    color: #f1f5f9;
+}
+
+.aviso-mensaje {
+    max-width: 380px;
+    margin: 0 0 18px;
+
+    font-family: var(--font-primary);
+    font-size: 14.5px;
+    line-height: 1.6;
+
+    color: #cbd5e1;
+}
+
+
+/* ---------- TERMINAL ---------- */
+
+.aviso-terminal {
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    padding: 12px 14px;
+
+    border: 1px solid rgba(var(--aviso-rgb), .18);
+    border-radius: 10px;
+    background: rgba(0, 0, 0, .32);
+
+    text-align: left;
+}
+
+.aviso-linea {
+    margin: 0;
+
+    font-family: ui-monospace, "SF Mono", "JetBrains Mono", Consolas, monospace;
+    font-size: 12px;
+    line-height: 1.8;
+
+    color: rgba(203, 213, 225, .7);
+}
+
+.aviso-linea-resultado {
+    color: var(--aviso-acento);
+}
+
+.aviso-prompt {
+    margin-right: 6px;
+    color: var(--color-tech, #38bdf8);
+}
+
+.aviso-cursor {
+    display: inline-block;
+    width: 7px;
+    height: 13px;
+    margin-left: 4px;
+    vertical-align: -2px;
+    background: var(--aviso-acento);
+    box-shadow: 0 0 8px rgba(var(--aviso-rgb), .8);
+}
+
+.aviso.activo .aviso-linea {
+    opacity: 0;
+    animation: avisoAparecer .35s ease forwards;
+}
+
+.aviso.activo .aviso-linea:nth-child(1) { animation-delay: .5s; }
+.aviso.activo .aviso-linea:nth-child(2) { animation-delay: .9s; }
+
+.aviso.activo .aviso-cursor {
+    animation: avisoParpadeo 1s steps(1, end) infinite;
+}
+
+
+/* ---------- BOTÓN ---------- */
+
+.aviso-btn {
+    width: 100%;
+    max-width: 240px;
+    height: 40px;
+
+    border: 1px solid rgba(var(--aviso-rgb), .55);
+    border-radius: 10px;
+
+    background: rgba(var(--aviso-rgb), .12);
+    color: #f1f5f9;
+
+    font-family: var(--font-primary);
+    font-size: 13.5px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform .25s ease,
+        background .25s ease,
+        box-shadow .25s ease;
+}
+
+.aviso-btn:hover,
+.aviso-btn:focus-visible {
+    transform: translateY(-2px);
+    background: rgba(var(--aviso-rgb), .22);
+    box-shadow: 0 0 22px rgba(var(--aviso-rgb), .22);
+    outline: none;
+}
+
+.aviso-auto {
+    margin: 12px 0 0;
+
+    font-family: var(--font-primary);
+    font-size: 11.5px;
+
+    color: rgba(148, 163, 184, .8);
+}
+
+
+/* ---------- BARRA DE PROGRESO (cierre automático) ---------- */
+
+.aviso-progreso {
+    height: 3px;
+    background: rgba(255, 255, 255, .06);
+}
+
+.aviso-progreso span {
+    display: block;
+    height: 100%;
+    width: 100%;
+
+    transform-origin: left center;
+    background: linear-gradient(
+        90deg,
+        var(--aviso-acento),
+        var(--color-tech, #38bdf8)
+    );
+    box-shadow: 0 0 10px rgba(var(--aviso-rgb), .7);
+}
+
+/* arranca al abrir el aviso y se reinicia en cada envío
+   (la duración llega por estilo inline desde el componente) */
+.aviso.activo .aviso-progreso span {
+    animation: avisoProgreso 10s linear forwards;
+}
+
+
+/* ---------- ANIMACIONES ---------- */
+
+@keyframes avisoTrazar {
+    to { stroke-dashoffset: 0; }
+}
+
+@keyframes avisoOnda {
+    0%   { transform: scale(1);   opacity: .6; }
+    100% { transform: scale(1.7); opacity: 0; }
+}
+
+@keyframes avisoAparecer {
+    from { opacity: 0; transform: translateY(4px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes avisoParpadeo {
+    0%, 55%   { opacity: 1; }
+    56%, 100% { opacity: 0; }
+}
+
+@keyframes avisoProgreso {
+    from { transform: scaleX(1); }
+    to   { transform: scaleX(0); }
+}
+
+
+/* ---------- MODO CLARO ---------- */
+
+:root[data-theme="light"] .aviso {
+    background: rgba(226, 236, 248, .78);
+}
+
+:root[data-theme="light"] .aviso::before {
+    background-image:
+        linear-gradient(rgba(14, 116, 144, .08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(14, 116, 144, .08) 1px, transparent 1px);
+}
+
+:root[data-theme="light"] .aviso-panel {
+    background: linear-gradient(180deg, #ffffff, #f0f9ff);
+
+    box-shadow:
+        0 30px 70px rgba(15, 23, 42, .22),
+        0 0 36px rgba(var(--aviso-rgb), .16),
+        inset 0 1px 0 rgba(255, 255, 255, .9);
+}
+
+:root[data-theme="light"] .aviso-barra {
+    background: rgba(14, 116, 144, .05);
+}
+
+:root[data-theme="light"] .aviso-ruta {
+    color: rgba(51, 65, 85, .65);
+}
+
+:root[data-theme="light"] .aviso-x {
+    border-color: rgba(15, 23, 42, .18);
+    color: #334155;
+}
+
+:root[data-theme="light"] .aviso-titulo {
+    color: #0f172a;
+}
+
+:root[data-theme="light"] .aviso-mensaje {
+    color: #475569;
+}
+
+:root[data-theme="light"] .aviso-terminal {
+    background: rgba(14, 116, 144, .06);
+    border-color: rgba(14, 116, 144, .18);
+}
+
+:root[data-theme="light"] .aviso-linea {
+    color: #475569;
+}
+
+:root[data-theme="light"] .aviso-linea-resultado {
+    color: var(--aviso-acento);
+}
+
+:root[data-theme="light"] .aviso-btn {
+    color: #0f172a;
+}
+
+:root[data-theme="light"] .aviso-auto {
+    color: #64748b;
+}
+
+:root[data-theme="light"] .aviso-progreso {
+    background: rgba(15, 23, 42, .08);
+}
+
+
+/* ---------- MOBILE ---------- */
+
+@media (max-width: 480px) {
+
+    .aviso {
+        padding: 14px;
+    }
+
+    .aviso-cuerpo {
+        padding: 24px 18px 22px;
+    }
+
+    .aviso-icono {
+        width: 64px;
+        height: 64px;
+    }
+
+    .aviso-mensaje {
+        font-size: 14px;
+    }
+}
+
+
+/* ---------- MOVIMIENTO REDUCIDO ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .aviso *,
+    .aviso *::before,
+    .aviso *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+
+    .aviso .aviso-circulo,
+    .aviso .aviso-trazo {
+        stroke-dashoffset: 0;
+    }
+
+    .aviso .aviso-linea {
+        opacity: 1;
+    }
+}
+
+/* =====================================================================
+   PARTE A  →  pegar al FINAL de contacto.css
+===================================================================== */
+ 
+ 
+/* ---------- Botón ENVIAR: texto blanco en tema claro ---------- */
+ 
+:root[data-theme="light"] .contacto-btn,
+:root[data-theme="light"] .contacto-btn:hover {
+    color: #ffffff;
+}
+ 
+/* fondo un poco más intenso para que el texto blanco se lea bien */
+:root[data-theme="light"] .contacto-btn {
+    background: linear-gradient(135deg, #0ea5e9, #0284c7);
+    border-color: rgba(2, 132, 199, .7);
+}
+ 
+:root[data-theme="light"] .contacto-btn:hover {
+    background: linear-gradient(135deg, #38bdf8, #0284c7);
+}
+ 
+ 
+/* ---------- CELULAR ---------- */
+ 
+@media (max-width: 768px) {
+ 
+    /* SUBIR / BAJAR TODO EL CONTENIDO */
+    #contacto.contacto {
+        /* ↓↓↓ ÚNICO VALOR QUE TENÉS QUE TOCAR
+               Más chico (ej: -30px) = todo el contenido sube.
+               Más grande (ej: 60px) = todo el contenido baja.
+               (25px deja todo como estaba antes) */
+        --contacto-subir-bajar: 25px;
+ 
+        padding-top: calc(var(--navbar-height, 70px) + var(--contacto-subir-bajar)) !important;
+ 
+        /* ya no se usa el margen del ancla: el valor de arriba lo reemplaza,
+           así no se suman los dos */
+        scroll-margin-top: 0 !important;
+    }
+ 
+    /* FOOTER: un texto por línea, todos alineados a la izquierda */
+    .contacto .footer {
+        align-items: flex-start;
+        text-align: left;
+    }
+ 
+    .contacto .footer .footer-item {
+        justify-content: flex-start;
+    }
+}
+ 
+/* =====================================================================
+   PEGAR AL FINAL DE contacto.css (después de lo anterior)
+===================================================================== */
+
+
+/* ---------- Botón ENVIAR: texto BLANCO en tema claro (forzado) ----------
+   Cubre el botón, lo que tenga adentro (span, íconos), el hover,
+   el foco y el estado deshabilitado, y le gana a cualquier otro estilo. */
+
+:root[data-theme="light"] #contacto .contacto-btn,
+:root[data-theme="light"] #contacto .contacto-btn *,
+:root[data-theme="light"] #contacto .contacto-btn:hover,
+:root[data-theme="light"] #contacto .contacto-btn:hover *,
+:root[data-theme="light"] #contacto .contacto-btn:focus-visible,
+:root[data-theme="light"] #contacto .contacto-btn:disabled,
+[data-theme="light"] #contacto .contacto-btn,
+[data-theme="light"] #contacto .contacto-btn * {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+}
+
+
+/* ---------- FOOTER EN EL CELULAR ----------
+   Un texto por línea, alineados a la izquierda ENTRE SÍ,
+   y el bloque completo centrado en la mitad de la página,
+   dentro del ancho del formulario. */
+
+@media (max-width: 768px) {
+
+    .contacto .footer {
+        display: grid;
+        grid-template-columns: auto;   /* una columna del ancho del texto más largo */
+        justify-content: center;       /* esa columna queda en el centro de la página */
+        justify-items: start;          /* los 3 textos arrancan en el mismo borde izquierdo */
+        align-items: center;
+        row-gap: 14px;
+
+        text-align: left;
+    }
+
+    .contacto .footer .footer-item {
+        justify-content: flex-start;
+    }
+}
+
+/* =====================================================================
+   PEGAR AL FINAL DE contacto.css (después de todo lo anterior)
+===================================================================== */
+
+
+/* ---------- FOOTER: SUBIR / BAJAR (solo celular) ---------- */
+
+@media (max-width: 768px) {
+
+    .contacto .footer {
+        /* ↓↓↓ VALORES QUE PODÉS TOCAR
+
+           --footer-subir-bajar : mueve TODO el footer (línea + textos).
+                                  Más chico = sube. Más grande = baja.
+                                  Se permiten negativos (ej: -10px).
+
+           --footer-texto-y     : distancia entre la línea y los textos.
+                                  Más chico = textos más cerca de la línea. */
+        --footer-subir-bajar: 160px;
+        --footer-texto-y: 38px;
+
+        margin-top: var(--footer-subir-bajar) !important;
+        padding-top: var(--footer-texto-y) !important;
+    }
+}
+
+
+/* ---------- BOTÓN ENVIAR: TEXTO BLANCO EN TEMA CLARO ----------
+   Se usa :host-context (igual que en la sección Inicio), que funciona
+   sin importar si el tema claro se marca con un atributo o con una clase
+   en <html> o en <body>. */
+
+:host-context([data-theme="light"]) .contacto-btn,
+:host-context([data-theme="light"]) .contacto-btn *,
+:host-context([data-theme="light"]) .contacto-btn::before,
+:host-context([data-theme="light"]) .contacto-btn::after,
+:host-context(.light-theme) .contacto-btn,
+:host-context(.light-theme) .contacto-btn *,
+:host-context(.light-theme) .contacto-btn::before,
+:host-context(.light-theme) .contacto-btn::after,
+:host-context(.light) .contacto-btn,
+:host-context(.light) .contacto-btn *,
+:host-context(.light) .contacto-btn::before,
+:host-context(.light) .contacto-btn::after,
+:host-context([data-theme="claro"]) .contacto-btn,
+:host-context([data-theme="claro"]) .contacto-btn *,
+:host-context([data-theme="claro"]) .contacto-btn::before,
+:host-context([data-theme="claro"]) .contacto-btn::after {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+}
+
+/* fondo un poco más intenso en tema claro para que el blanco se lea bien */
+:host-context([data-theme="light"]) .contacto-btn,
+:host-context(.light-theme) .contacto-btn,
+:host-context(.light) .contacto-btn,
+:host-context([data-theme="claro"]) .contacto-btn {
+    background: linear-gradient(135deg, #0ea5e9, #0284c7);
+    border-color: rgba(2, 132, 199, .7);
+}
+
+/* =====================================================
+   FORMULARIO DE CONTACTO — VENTANA DE EDITOR / TERMINAL
+   (desktop y responsive · solo el formulario)
+===================================================== */
+
+/* ---------- Variables ---------- */
+.contacto .contacto-formulario {
+    --cf-cyan: #38bdf8;
+    --cf-gold: #d4af37;
+    --cf-ok: #34d399;
+    --cf-err: #f43f5e;
+    --cf-bar: 38px;                 /* alto de la barra superior */
+    --cf-field-bg: rgba(8, 15, 28, .55);
+    --cf-muted: rgba(148, 163, 184, .8);
+
+    counter-reset: cf-campo;
+
+    padding: calc(var(--cf-bar) + 18px) 22px 20px;
+    border-radius: 16px;
+
+    background:
+        radial-gradient(60% 55% at 0% 0%,     rgba(56, 189, 248, .10), transparent 70%),
+        radial-gradient(55% 50% at 100% 100%, rgba(212, 175, 55, .07), transparent 70%),
+        linear-gradient(180deg, rgba(255, 255, 255, .04), rgba(255, 255, 255, .015));
+
+    animation: cfEntrada .6s cubic-bezier(.2, .8, .2, 1) both;
+}
+
+@keyframes cfEntrada {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: none; }
+}
+
+
+/* ---------- Barra superior estilo editor ---------- */
+.contacto .contacto-formulario::before {
+    content: "~/nuevo-mensaje.sh";
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: auto;
+    height: var(--cf-bar);
+    box-sizing: border-box;
+    z-index: 2;
+
+    display: flex;
+    align-items: center;
+    padding-left: 80px;
+
+    font-family: "Cascadia Code", Consolas, "SFMono-Regular", Menlo, monospace;
+    font-size: 12px;
+    letter-spacing: .3px;
+    color: var(--cf-muted);
+
+    background:
+        radial-gradient(circle 5px at 22px 50%, #ff5f57 98%, transparent),
+        radial-gradient(circle 5px at 40px 50%, #febc2e 98%, transparent),
+        radial-gradient(circle 5px at 58px 50%, #28c840 98%, transparent),
+        linear-gradient(90deg, transparent, var(--cf-cyan), var(--cf-gold), transparent)
+            bottom / 100% 1px no-repeat,
+        rgba(255, 255, 255, .035);
+
+    opacity: 1;
+    pointer-events: none;
+}
+
+
+/* ---------- Cada campo = una "línea" numerada ---------- */
+.contacto .campo {
+    position: relative;
+    counter-increment: cf-campo;
+
+    margin-bottom: 12px;
+    padding-left: 14px;
+}
+
+/* guía vertical a la izquierda: se enciende al escribir en el campo */
+.contacto .campo::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 2px;
+    bottom: 2px;
+    width: 2px;
+    border-radius: 2px;
+
+    background: linear-gradient(180deg, var(--cf-cyan), var(--cf-gold));
+    opacity: .22;
+    transform-origin: top;
+    transition: opacity .3s ease, box-shadow .3s ease;
+}
+
+.contacto .campo:focus-within::before {
+    opacity: 1;
+    box-shadow: 0 0 12px rgba(56, 189, 248, .6);
+}
+
+/* etiqueta con número: 01 · 02 · 03 · 04 */
+.contacto .campo label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    margin-bottom: 6px;
+
+    font-family: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+    font-size: 12.5px;
+    font-weight: 600;
+    letter-spacing: .3px;
+    color: var(--color-gold);
+
+    transition: color .25s ease;
+}
+
+.contacto .campo label::before {
+    content: counter(cf-campo, decimal-leading-zero);
+
+    min-width: 24px;
+    padding: 3px 0;
+    text-align: center;
+    box-sizing: border-box;
+
+    font-family: "Cascadia Code", Consolas, "SFMono-Regular", Menlo, monospace;
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--cf-cyan);
+
+    border-radius: 6px;
+    border: 1px solid rgba(56, 189, 248, .3);
+    background: rgba(56, 189, 248, .08);
+
+    transition: background .25s ease, color .25s ease, box-shadow .25s ease;
+}
+
+.contacto .campo:focus-within label {
+    color: var(--cf-cyan);
+}
+
+.contacto .campo:focus-within label::before {
+    color: #04121f;
+    background: linear-gradient(135deg, var(--cf-cyan), var(--cf-gold));
+    border-color: transparent;
+    box-shadow: 0 0 12px rgba(56, 189, 248, .5);
+}
+
+
+/* ---------- Inputs y textarea ---------- */
+.contacto .campo input,
+.contacto .campo textarea {
+    padding: 9px 12px;
+    border-radius: 10px;
+
+    font-family: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+    font-size: 14px;
+
+    background: var(--cf-field-bg);
+    border: 1px solid rgba(56, 189, 248, .16);
+    caret-color: var(--cf-cyan);
+
+    transition:
+        border-color .25s ease,
+        box-shadow .25s ease,
+        background .25s ease,
+        transform .25s ease;
+}
+
+.contacto .campo textarea {
+    min-height: 92px;
+    line-height: 1.5;
+    resize: vertical;
+}
+
+.contacto .campo input:hover,
+.contacto .campo textarea:hover {
+    border-color: rgba(56, 189, 248, .38);
+}
+
+.contacto .campo input:focus,
+.contacto .campo textarea:focus {
+    border-color: var(--cf-cyan);
+    background: rgba(8, 15, 28, .75);
+    transform: translateX(2px);
+
+    box-shadow:
+        0 0 0 3px rgba(56, 189, 248, .12),
+        0 0 22px rgba(56, 189, 248, .14);
+}
+
+/* sin el amarillo del autocompletado */
+.contacto .campo input:-webkit-autofill,
+.contacto .campo input:-webkit-autofill:focus {
+    -webkit-text-fill-color: var(--color-text, #e5e7eb);
+    -webkit-box-shadow: 0 0 0 1000px #0b1424 inset;
+    caret-color: var(--cf-cyan);
+}
+
+/* validación visual (clases de Angular, una vez que el usuario tocó el campo) */
+.contacto .campo input.ng-invalid.ng-touched,
+.contacto .campo textarea.ng-invalid.ng-touched {
+    border-color: var(--cf-err);
+    box-shadow: 0 0 0 3px rgba(244, 63, 94, .12);
+}
+
+.contacto .campo input.ng-valid.ng-touched:not(:placeholder-shown),
+.contacto .campo textarea.ng-valid.ng-touched:not(:placeholder-shown) {
+    border-color: rgba(52, 211, 153, .55);
+}
+
+.contacto .campo:has(.ng-invalid.ng-touched)::before {
+    background: var(--cf-err);
+    opacity: 1;
+}
+
+.contacto .campo:has(.ng-valid.ng-touched:not(:placeholder-shown))::before {
+    background: var(--cf-ok);
+    opacity: .85;
+}
+
+
+/* ---------- Botón: comando de terminal ---------- */
+.contacto .contacto-btn {
+    position: relative;
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    height: 44px;
+    margin-top: 6px;
+    border-radius: 11px;
+
+    font-size: 14px;
+    letter-spacing: .3px;
+}
+
+/* barrido de luz al pasar el mouse */
+.contacto .contacto-btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+
+    background: linear-gradient(
+        110deg,
+        transparent 35%,
+        rgba(255, 255, 255, .28) 50%,
+        transparent 65%
+    );
+    transform: translateX(-120%);
+    transition: transform .8s ease;
+}
+
+.contacto .contacto-btn:hover::before {
+    transform: translateX(120%);
+}
+
+/* flecha: indica "enviar" */
+.contacto .contacto-btn::after {
+    content: "→";
+    font-size: 17px;
+    line-height: 1;
+    transition: transform .3s cubic-bezier(.2, .8, .2, 1);
+}
+
+.contacto .contacto-btn:hover::after {
+    transform: translateX(5px);
+}
+
+.contacto .contacto-btn:active {
+    transform: translateY(0) scale(.99);
+}
+
+/* mientras se envía: la flecha se vuelve un spinner */
+.contacto .contacto-btn:disabled::after {
+    content: "";
+    width: 14px;
+    height: 14px;
+    border: 2px solid currentColor;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: cfGirar .7s linear infinite;
+}
+
+.contacto .contacto-btn:disabled::before {
+    display: none;
+}
+
+@keyframes cfGirar {
+    to { transform: rotate(360deg); }
+}
+
+
+/* ---------- MODO CLARO ---------- */
+:root[data-theme="light"] .contacto .contacto-formulario {
+    --cf-cyan: #0e7490;
+    --cf-gold: #a67c00;
+    --cf-field-bg: rgba(255, 255, 255, .85);
+    --cf-muted: #64748b;
+
+    background:
+        radial-gradient(60% 55% at 0% 0%,     rgba(14, 116, 144, .08), transparent 70%),
+        radial-gradient(55% 50% at 100% 100%, rgba(166, 124, 0, .06), transparent 70%),
+        linear-gradient(180deg, rgba(255, 255, 255, .88), rgba(248, 250, 252, .72));
+}
+
+:root[data-theme="light"] .contacto .contacto-formulario::before {
+    background:
+        radial-gradient(circle 5px at 22px 50%, #ff5f57 98%, transparent),
+        radial-gradient(circle 5px at 40px 50%, #febc2e 98%, transparent),
+        radial-gradient(circle 5px at 58px 50%, #28c840 98%, transparent),
+        linear-gradient(90deg, transparent, var(--cf-cyan), var(--cf-gold), transparent)
+            bottom / 100% 1px no-repeat,
+        rgba(15, 23, 42, .035);
+}
+
+:root[data-theme="light"] .contacto .campo input,
+:root[data-theme="light"] .contacto .campo textarea {
+    border-color: rgba(14, 116, 144, .22);
+}
+
+:root[data-theme="light"] .contacto .campo input:focus,
+:root[data-theme="light"] .contacto .campo textarea:focus {
+    background: #ffffff;
+    box-shadow:
+        0 0 0 3px rgba(14, 116, 144, .12),
+        0 0 18px rgba(14, 116, 144, .12);
+}
+
+:root[data-theme="light"] .contacto .campo:focus-within label::before {
+    color: #ffffff;
+}
+
+:root[data-theme="light"] .contacto .campo input:-webkit-autofill,
+:root[data-theme="light"] .contacto .campo input:-webkit-autofill:focus {
+    -webkit-text-fill-color: #0f172a;
+    -webkit-box-shadow: 0 0 0 1000px #ffffff inset;
+}
+
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 768px) {
+
+    .contacto .contacto-formulario {
+        --cf-bar: 34px;
+
+        padding: calc(var(--cf-bar) + 14px) 14px 16px;
+        border-radius: 14px;
+    }
+
+    .contacto .contacto-formulario::before {
+        padding-left: 72px;
+        font-size: 11px;
+    }
+
+    .contacto .campo {
+        margin-bottom: 10px;
+        padding-left: 12px;
+    }
+
+    .contacto .campo label {
+        font-size: 12px;
+    }
+
+    /* 16px evita que iOS haga zoom al tocar el campo */
+    .contacto .campo input,
+    .contacto .campo textarea {
+        font-size: 16px;
+        padding: 9px 11px;
+    }
+
+    .contacto .campo textarea {
+        min-height: 84px;
+    }
+
+    .contacto .contacto-btn {
+        height: 46px;
+    }
+}
+
+
+/* ---------- MOVIMIENTO REDUCIDO ---------- */
+@media (prefers-reduced-motion: reduce) {
+
+    .contacto .contacto-formulario {
+        animation: none;
+    }
+
+    .contacto .campo input:focus,
+    .contacto .campo textarea:focus {
+        transform: none;
+    }
+
+    .contacto .contacto-btn::before,
+    .contacto .contacto-btn::after {
+        transition: none;
+    }
+
+    .contacto .contacto-btn:disabled::after {
+        animation: none;
+    }
+}
+
+/* =====================================================================
+   PEGAR AL FINAL DE contacto.css (reemplaza el bloque anterior)
+   1) DESKTOP: formulario algo más compacto, entra completo en pantalla
+   2) TEMA CLARO: campos de escritura claros (NO grises)
+===================================================================== */
+
+
+/* ---------- 1) DESKTOP (solo ≥ 769px) ---------- */
+
+@media (min-width: 769px) {
+
+    #contacto {
+        scroll-margin-top: calc(var(--navbar-height) + 12px);
+    }
+
+    /* Título: tamaño original, solo menos aire alrededor */
+    .contacto-header {
+        margin-bottom: 12px;
+    }
+
+    .contacto-subtitulo {
+        margin-top: 8px;
+    }
+
+    /* Tarjeta */
+    .contacto .contacto-formulario {
+        --cf-bar: 32px;
+        padding: calc(var(--cf-bar) + 12px) 22px 16px;
+    }
+
+    /* Campos */
+    .contacto .campo {
+        margin-bottom: 10px;
+    }
+
+    .contacto .campo label {
+        margin-bottom: 4px;
+    }
+
+    .contacto .campo input,
+    .contacto .campo textarea {
+        padding: 7px 12px;
+    }
+
+    .contacto .campo textarea {
+        height: 80px;
+        min-height: 0;
+    }
+
+    /* Botón */
+    .contacto .contacto-btn {
+        height: 40px;
+        margin-top: 4px;
+    }
+
+    /* Footer */
+    .footer {
+        margin-top: 28px;
+        padding: 10px 24px 18px;
+    }
+}
+
+
+/* ---------- 2) TEMA CLARO: CAMPOS CLAROS Y LEGIBLES ---------- */
+
+/* Variante A: atributo en <html> */
+:root[data-theme="light"] .contacto .campo input,
+:root[data-theme="light"] .contacto .campo textarea {
+    color-scheme: light;
+    background-color: #f8fcff !important;
+    background-image: none !important;
+    color: #0f172a !important;
+    -webkit-text-fill-color: #0f172a;
+    border: 1px solid rgba(14, 116, 144, .35) !important;
+    caret-color: #0e7490;
+}
+
+:root[data-theme="light"] .contacto .campo input:focus,
+:root[data-theme="light"] .contacto .campo textarea:focus {
+    background-color: #ffffff !important;
+    border-color: #0e7490 !important;
+}
+
+:root[data-theme="light"] .contacto .campo input::placeholder,
+:root[data-theme="light"] .contacto .campo textarea::placeholder {
+    color: #64748b !important;
+    -webkit-text-fill-color: #64748b;
+    opacity: 1;
+}
+
+:root[data-theme="light"] .contacto .campo input:-webkit-autofill,
+:root[data-theme="light"] .contacto .campo input:-webkit-autofill:focus {
+    -webkit-text-fill-color: #0f172a;
+    -webkit-box-shadow: 0 0 0 1000px #f8fcff inset !important;
+}
+
+
+/* Variante B: cualquier forma de marcar el tema claro (atributo o clase,
+   en <html> o <body>) */
+:host-context([data-theme="light"]) .campo input,
+:host-context([data-theme="light"]) .campo textarea,
+:host-context(.light-theme) .campo input,
+:host-context(.light-theme) .campo textarea,
+:host-context(.light) .campo input,
+:host-context(.light) .campo textarea,
+:host-context([data-theme="claro"]) .campo input,
+:host-context([data-theme="claro"]) .campo textarea {
+    color-scheme: light;
+    background-color: #f8fcff !important;
+    background-image: none !important;
+    color: #0f172a !important;
+    -webkit-text-fill-color: #0f172a;
+    border: 1px solid rgba(14, 116, 144, .35) !important;
+    caret-color: #0e7490;
+}
+
+:host-context([data-theme="light"]) .campo input:focus,
+:host-context([data-theme="light"]) .campo textarea:focus,
+:host-context(.light-theme) .campo input:focus,
+:host-context(.light-theme) .campo textarea:focus,
+:host-context(.light) .campo input:focus,
+:host-context(.light) .campo textarea:focus,
+:host-context([data-theme="claro"]) .campo input:focus,
+:host-context([data-theme="claro"]) .campo textarea:focus {
+    background-color: #ffffff !important;
+    border-color: #0e7490 !important;
+}
+
+:host-context([data-theme="light"]) .campo input::placeholder,
+:host-context([data-theme="light"]) .campo textarea::placeholder,
+:host-context(.light-theme) .campo input::placeholder,
+:host-context(.light-theme) .campo textarea::placeholder,
+:host-context(.light) .campo input::placeholder,
+:host-context(.light) .campo textarea::placeholder,
+:host-context([data-theme="claro"]) .campo input::placeholder,
+:host-context([data-theme="claro"]) .campo textarea::placeholder {
+    color: #64748b !important;
+    -webkit-text-fill-color: #64748b;
+    opacity: 1;
+}
+
+/* =====================================================================
+   PEGAR AL FINAL DE contacto.css
+   1) DESKTOP: bajar el contenido respecto al navbar
+   2) FOOTER: línea electrizante minimalista
+===================================================================== */
+
+
+/* ---------- 1) BAJAR EL CONTENIDO (desktop) ---------- */
+
+@media (min-width: 769px) {
+
+    /* ↓↓↓ ÚNICO VALOR A TOCAR
+       Más grande = el contenido baja. Más chico = sube.
+       (antes estaba en 12px) */
+    #contacto {
+        scroll-margin-top: calc(var(--navbar-height) + 40px);
+    }
+}
+
+
+/* ---------- 2) LÍNEA DEL FOOTER: ELECTRIZANTE MINIMALISTA ----------
+   Línea base muy fina + una chispa de luz que la recorre,
+   con un leve parpadeo eléctrico. */
+
+.footer::before {
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(var(--f-rgb), .30) 20%,
+        rgba(var(--f-rgb), .30) 80%,
+        transparent
+    );
+    animation: footerParpadeo 4.5s steps(1, end) infinite;
+}
+
+/* la chispa */
+.footer::after {
+    content: "";
+    position: absolute;
+    top: -.5px;
+    left: 50%;
+    width: min(var(--linea-ancho), calc(100% - 48px));
+    height: 2px;
+    transform: translateX(-50%);
+    pointer-events: none;
+
+    background-image: linear-gradient(
+        90deg,
+        transparent,
+        rgba(var(--f-rgb), .9) 55%,
+        #ffffff 80%,
+        rgba(var(--f-rgb), .9) 90%,
+        transparent
+    );
+    background-size: 130px 100%;
+    background-repeat: no-repeat;
+    background-position: -130px 0;
+
+    filter: drop-shadow(0 0 4px rgba(var(--f-rgb), .9));
+    animation: footerChispa 3.2s cubic-bezier(.45, 0, .25, 1) infinite;
+}
+
+@keyframes footerChispa {
+    0%   { background-position: -130px 0; }
+    70%  { background-position: calc(100% + 130px) 0; }
+    100% { background-position: calc(100% + 130px) 0; }
+}
+
+/* parpadeo sutil de la línea base, como una corriente inestable */
+@keyframes footerParpadeo {
+    0%, 100% { opacity: 1; }
+    62%      { opacity: .45; }
+    64%      { opacity: 1; }
+    66%      { opacity: .6; }
+    68%      { opacity: 1; }
+}
+
+/* en celular la línea ocupa todo el ancho */
+@media (max-width: 768px) {
+    .footer::after {
+        width: 100%;
+    }
+}
+
+/* en tema claro la chispa termina en un tono más oscuro para que se vea */
+:root[data-theme="light"] .footer::after {
+    background-image: linear-gradient(
+        90deg,
+        transparent,
+        rgba(var(--f-rgb), .8) 55%,
+        rgba(var(--f-rgb), 1) 85%,
+        transparent
+    );
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .footer::before,
+    .footer::after {
+        animation: none;
+    }
+    .footer::after {
+        display: none;
+    }
+}
+
+/* =====================================================================
+   TÍTULO DE CONTACTO: MISMO TAMAÑO QUE SOBRE MÍ (desktop y celular)
+===================================================================== */
+
+.contacto .section-title {
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+}
+
+.contacto .section-title::after {
+    margin-top: 18px;
+}

@@ -1,0 +1,195 @@
+<nav class="navbar">
+
+    <div class="navbar-container">
+
+
+        <div class="navbar-actions">
+
+            <!-- IDIOMA -->
+            <div class="language-menu">
+
+                <button 
+                class="icon-button"
+                (click)="toggleLanguage()">
+
+                    <img 
+                    src="/icons/globe.svg" 
+                    alt="Idioma">
+
+                </button>
+
+
+     <div class="language-dropdown"
+     [class.open]="languageOpen">
+
+    <button
+        (click)="changeLanguage('es')">
+
+        <span class="flag">
+            🇪🇸
+        </span>
+
+        {{ languageService.t('navbar').spanish }}
+
+    </button>
+
+
+    <button
+        (click)="changeLanguage('en')">
+
+        <span class="flag">
+            🇬🇧
+        </span>
+
+        {{ languageService.t('navbar').english }}
+
+    </button>
+
+</div>
+</div>
+
+
+            <!-- TEMA -->
+            <div class="theme-menu">
+
+                <button 
+                class="icon-button"
+                (click)="toggleThemeMenu()">
+
+                    <img
+                    src="/icons/appearance.svg"
+                    alt="Tema">
+
+                </button>
+
+
+                <div
+                class="theme-dropdown"
+                [class.open]="themeOpen">
+
+
+                    <button
+                    (click)="changeTheme('light')">
+
+                        <img
+                        src="/icons/sun.svg"
+                        alt="Claro">
+
+                    {{ languageService.t('navbar').light }}
+
+                    </button>
+
+
+                    <button
+                    (click)="changeTheme('dark')">
+
+                        <img
+                        src="/icons/moon.svg"
+                        alt="Oscuro">
+
+                    {{ languageService.t('navbar').dark }}
+
+
+                    </button>
+
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+
+
+        <!-- MENU NAVEGACION -->
+
+        <div class="navbar-right">
+
+            <div class="menu-container">
+
+
+                <button
+                class="hamburger-button"
+                (click)="toggleNavigation()">
+
+
+                    <img
+                    [src]="navigationOpen 
+                    ? '/icons/close.svg'
+                    : '/icons/menu.svg'"
+                    class="hamburger-icon"
+                    alt="Menú">
+
+
+                </button>
+
+
+
+                <div
+                class="navigation-dropdown"
+                [class.open]="navigationOpen">
+
+
+                    <a href="#inicio" (click)="closeNavigation()">
+                        <img src="/icons/home.svg">
+                        <span>{{ languageService.t('navbar').inicio }}</span>
+                    </a>
+
+
+                    <a href="#experiencia" (click)="closeNavigation()">
+                        <img src="/icons/briefcase.svg">
+                        {{ languageService.t('navbar').experiencia }}
+                    </a>
+
+
+                    <a href="#proyectos" (click)="closeNavigation()">
+                        <img src="/icons/folder.svg">
+                        {{ languageService.t('navbar').proyectos }}
+                    </a>
+
+
+                    <a href="#tecnologias" (click)="closeNavigation()">
+                        <img src="/icons/code.svg">
+                        {{ languageService.t('navbar').tecnologias }}
+                    </a>
+
+
+                    <a href="#formacion" (click)="closeNavigation()">
+                        <img src="/icons/graduation.svg">
+                        {{ languageService.t('navbar').formacion }}
+                    </a>
+
+
+                    <a href="#certificaciones" (click)="closeNavigation()">
+                        <img src="/icons/certificate.svg">
+                        {{ languageService.t('navbar').certificaciones }}
+                    </a>
+
+
+                    <a href="#sobre-mi" (click)="closeNavigation()">
+                        <img src="/icons/user.svg">
+                        {{ languageService.t('navbar').sobreMi }}
+                    </a>
+
+
+                    <a href="#contacto" (click)="closeNavigation()">
+                        <img src="/icons/contact.svg">
+                        {{ languageService.t('navbar').contacto }}
+                    </a>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+</nav>

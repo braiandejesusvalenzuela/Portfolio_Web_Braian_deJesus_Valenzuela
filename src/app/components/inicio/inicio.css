@@ -1,0 +1,1559 @@
+/* =====================================================
+   SECCIÓN INICIO
+
+   1. Base (estilos compartidos)
+   2. Mobile (hasta 768px)
+   3. Escritorio (769px o más)
+   4. Tema claro
+   5. Movimiento reducido
+
+   IMPORTANTE: ningún ancestro de .cv-modal debe tener
+   transform, filter ni backdrop-filter (rompe position: fixed).
+===================================================== */
+
+
+/* =====================================================
+   1. BASE
+===================================================== */
+
+.inicio {
+    --glow-rgb: 56, 189, 248;
+    --glow-strength: 1;
+
+    width: 100%;
+    max-width: var(--content-width);
+    margin: 0 auto;
+}
+
+
+/* ---------- FOTO ---------- */
+
+.inicio-foto {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.foto {
+    --foto-size: 160px;
+
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: fit-content;
+
+    animation: aparecer 1s ease;
+}
+
+/* Anillo tecnológico */
+.foto::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    border-radius: 50%;
+    z-index: 1;
+    pointer-events: none;
+
+    background: conic-gradient(
+        from 210deg,
+        #38bdf8 0deg,
+        #00f5ff 70deg,
+        #8b5cf6 135deg,
+        #38bdf8 210deg,
+        transparent 250deg,
+        transparent 275deg,
+        #38bdf8 315deg,
+        #00f5ff 360deg
+    );
+
+    -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 2px));
+    mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 2px));
+
+    filter:
+        drop-shadow(0 0 5px rgba(56, 189, 248, .55))
+        drop-shadow(0 0 12px rgba(56, 189, 248, .20));
+}
+
+.foto img {
+    position: relative;
+    z-index: 2;
+
+    width: var(--foto-size);
+    height: var(--foto-size);
+
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center 25%;
+
+    border: 2px solid transparent;
+    background:
+        linear-gradient(var(--color-background), var(--color-background)) padding-box,
+        linear-gradient(135deg, #38bdf8, #00f5ff, #8b5cf6, #38bdf8) border-box;
+
+    box-shadow:
+        0 0 12px rgba(56, 189, 248, .25),
+        0 15px 35px rgba(0, 0, 0, .20);
+
+    transition: transform .35s ease, box-shadow .35s ease;
+}
+
+.foto img:hover {
+    transform: scale(1.025);
+    box-shadow:
+        0 0 24px rgba(56, 189, 248, .30),
+        0 14px 35px rgba(0, 0, 0, .22);
+}
+
+
+/* ---------- CÁPSULA DE NACIONALIDAD ---------- */
+
+.nacionalidad {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    width: fit-content;
+    padding: 7px 13px;
+
+    font-family: var(--font-primary);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .7px;
+    text-transform: uppercase;
+    color: var(--color-text);
+
+    background: linear-gradient(135deg, rgba(56, 189, 248, .08), rgba(255, 255, 255, .025));
+    border: 1px solid rgba(56, 189, 248, .22);
+    border-radius: 10px;
+
+    box-shadow:
+        0 4px 16px rgba(0, 0, 0, .08),
+        inset 0 0 12px rgba(56, 189, 248, .025);
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    transition:
+        transform .3s ease,
+        border-color .3s ease,
+        box-shadow .3s ease,
+        background .3s ease;
+}
+
+.nacionalidad .bandera {
+    display: inline-flex;
+    align-items: center;
+    font-size: 16px;
+    line-height: 1;
+    filter: drop-shadow(0 0 4px rgba(56, 189, 248, .15));
+    transition: transform .3s ease;
+}
+
+/* Indicador de sistema */
+.nacionalidad::after {
+    content: "";
+    width: 5px;
+    height: 5px;
+    margin-left: 2px;
+    border-radius: 50%;
+    background: #38bdf8;
+    box-shadow:
+        0 0 5px rgba(56, 189, 248, .8),
+        0 0 10px rgba(56, 189, 248, .35);
+    animation: statusPulse 2.5s ease-in-out infinite;
+}
+
+@keyframes statusPulse {
+    0%, 100% { opacity: .55; transform: scale(.9); }
+    50%      { opacity: 1;   transform: scale(1.15); }
+}
+
+.nacionalidad:hover {
+    transform: translateY(-2px);
+    border-color: rgba(56, 189, 248, .45);
+    background: linear-gradient(135deg, rgba(56, 189, 248, .13), rgba(139, 92, 246, .07));
+    box-shadow:
+        0 7px 22px rgba(0, 0, 0, .12),
+        0 0 18px rgba(56, 189, 248, .08),
+        inset 0 0 14px rgba(56, 189, 248, .04);
+}
+
+.nacionalidad:hover .bandera {
+    transform: scale(1.08);
+}
+
+
+/* ---------- TEXTO ---------- */
+
+.saludo {
+    margin-bottom: 10px;
+    font-size: 2rem;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+.saludo-texto {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.saludo-intro {
+    color: var(--color-text);
+}
+
+/* Nombre: degradado naranja */
+.saludo-nombre {
+    padding-bottom: .1em;
+    font-family: var(--font-heading);
+    font-weight: 700;
+
+    background: linear-gradient(100deg, #f97316 0%, #fb923c 45%, #fbbf24 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+
+    text-shadow: 0 0 18px rgba(249, 115, 22, .18);
+}
+
+/* Profesión: degradado violeta + cursor de consola */
+.profesion {
+    position: relative;
+
+    margin: 0 0 10px;
+    padding: 0 0 .1em 18px;
+
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    font-weight: 700;
+
+    background: linear-gradient(100deg, #7c3aed 0%, #a855f7 45%, #c084fc 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+
+    text-shadow: 0 0 18px rgba(168, 85, 247, .20);
+}
+
+.profesion::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 5%;
+    width: 3px;
+    height: 90%;
+    border-radius: 2px;
+    background: #38bdf8;
+    box-shadow:
+        0 0 5px rgba(56, 189, 248, .9),
+        0 0 12px rgba(56, 189, 248, .55);
+    animation: cursorConsola 1s steps(1, end) infinite;
+}
+
+@keyframes cursorConsola {
+    0%, 45%   { opacity: 1; }
+    46%, 100% { opacity: 0; }
+}
+
+/* Línea de transferencia de bits (se activa en escritorio) */
+@keyframes transferenciaBits {
+    from { background-position: 0 0; }
+    to   { background-position: 200% 0; }
+}
+
+.descripcion {
+    margin: 0;
+    font-size: 1.3rem;
+    line-height: 1.5;
+    color: var(--color-text-secondary);
+}
+
+
+/* ---------- BOTONES: CV / LINKEDIN / GITHUB ---------- */
+
+.acciones {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.acciones .btn {
+    position: relative;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    font-family: 'Manrope', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--color-text);
+
+    background: transparent;
+    border: 1px solid rgba(56, 189, 248, .45);
+    border-radius: 12px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, .08);
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    overflow: hidden;
+    cursor: pointer;
+
+    transition:
+        transform .25s ease,
+        border-color .25s ease,
+        color .25s ease,
+        box-shadow .25s ease;
+}
+
+/* Brillo interno que aparece en hover */
+.acciones .btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+        120% 160% at 50% 120%,
+        rgba(var(--glow-rgb), calc(.18 * var(--glow-strength))),
+        transparent 70%
+    );
+    opacity: 0;
+    transition: opacity .3s ease;
+    pointer-events: none;
+}
+
+.acciones .btn > * {
+    position: relative;
+    z-index: 1;
+}
+
+.acciones .btn:hover,
+.acciones .btn:focus-visible {
+    transform: translateY(-3px);
+    border-color: rgb(var(--glow-rgb));
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, .20),
+        0 0 20px rgba(var(--glow-rgb), calc(.20 * var(--glow-strength))),
+        inset 0 0 18px rgba(var(--glow-rgb), calc(.06 * var(--glow-strength)));
+}
+
+.acciones .btn:hover::before,
+.acciones .btn:focus-visible::before {
+    opacity: 1;
+}
+
+.acciones .btn span {
+    line-height: 1;
+    white-space: nowrap;
+}
+
+.acciones .btn .button-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    color: var(--button-icon-color);
+    transition: color .25s ease, transform .25s ease;
+}
+
+.acciones .btn:hover .button-icon,
+.acciones .btn:focus-visible .button-icon {
+    color: var(--color-tech);
+    transform: scale(1.05);
+}
+
+/* CV */
+.cv-menu {
+    position: relative;
+    display: inline-flex;
+    z-index: 30; 
+}
+
+.cv-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.cv-button .cv-icon {
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
+    display: block;
+    transition: transform .25s ease;
+}
+
+.cv-button:hover .cv-icon {
+    transform: scale(1.05);
+}
+
+.cv-button .chevron {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    display: block;
+    transition: transform .3s ease;
+}
+
+.cv-button.open .chevron {
+    transform: rotate(180deg);
+}
+
+/* LinkedIn: el logo usa currentColor, se adapta al tema */
+.acciones .linkedin-icon {
+    width: 90px;
+    height: auto;
+    aspect-ratio: 288.5 / 77;
+    flex: none;
+    display: block;
+}
+
+/* GitHub */
+.acciones .github-button {
+    font-weight: 900;
+    letter-spacing: .2px;
+    text-shadow:
+        .5px 0 0 currentColor,
+        -.5px 0 0 currentColor,
+        0 .5px 0 currentColor,
+        0 -.5px 0 currentColor;
+}
+
+
+/* ---------- DESPLEGABLE DEL CV ---------- */
+
+.cv-dropdown {
+    position: absolute;
+    top: calc(100% - 5px);
+    left: 0;
+    
+
+    width: 177px;
+    margin-top: 6px;
+    padding: 6px;
+    box-sizing: border-box;
+
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 14px;
+    box-shadow: var(--shadow-lg);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    pointer-events: none;
+
+    transition:
+        opacity .25s ease,
+        transform .25s ease,
+        visibility .25s ease;
+}
+
+.cv-dropdown.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.cv-dropdown .cv-opcion {
+    width: 100%;
+    height: 46px;
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 15px;
+
+    padding: 10px 12px;
+
+    border: none;
+    border-radius: 10px;
+    background: transparent;
+
+    color: var(--color-text);
+    font-family: 'Manrope', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+    cursor: pointer;
+
+    transition:
+        background .25s ease,
+        color .25s ease,
+        text-shadow .25s ease,
+        box-shadow .25s ease;
+}
+
+.cv-dropdown .cv-opcion:hover,
+.cv-dropdown .cv-opcion:focus-visible {
+    background: rgba(56, 189, 248, .10);
+    color: var(--color-tech);
+    text-shadow: 0 0 8px rgba(56, 189, 248, .45);
+    box-shadow: inset 0 0 12px rgba(56, 189, 248, .05);
+}
+
+.cv-dropdown .cv-opcion span {
+    display: inline-flex;
+    align-items: center;
+    line-height: 1;
+    color: inherit;
+}
+
+.cv-dropdown .cv-opcion svg {
+    flex: 0 0 20px;
+    width: 20px;
+    height: 20px;
+    display: block;
+    transition: transform .25s ease, filter .25s ease;
+}
+
+.cv-dropdown .cv-opcion:hover svg,
+.cv-dropdown .cv-opcion:focus-visible svg {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 5px rgba(56, 189, 248, .45));
+}
+
+
+/* ---------- VISOR DEL CV ---------- */
+
+.cv-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+
+    background: rgba(0, 0, 0, .78);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition: opacity .3s ease, visibility .3s ease;
+}
+
+.cv-modal.activo {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.cv-modal-contenido {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: min(900px, 100%);
+}
+
+.cv-imagen {
+    display: block;
+    max-width: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, .45);
+}
+
+.cv-modal-cerrar {
+    position: absolute;
+    top: -18px;
+    right: -18px;
+    z-index: 2;
+
+    width: 38px;
+    height: 38px;
+    padding: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+    border: 1px solid rgba(56, 189, 248, .45);
+    background: var(--color-surface);
+    color: var(--color-text);
+
+    font-family: Arial, sans-serif;
+    font-size: 25px;
+    line-height: 1;
+
+    cursor: pointer;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, .25);
+
+    transition:
+        transform .25s ease,
+        background .25s ease,
+        color .25s ease,
+        border-color .25s ease;
+}
+
+.cv-modal-cerrar:hover {
+    transform: scale(1.08);
+    background: rgba(56, 189, 248, .12);
+    border-color: var(--color-tech);
+    color: var(--color-tech);
+}
+
+
+/* =====================================================
+   2. MOBILE (hasta 768px)
+===================================================== */
+
+@media (max-width: 768px) {
+
+    .inicio {
+        min-height: 100svh;
+        padding: calc(var(--navbar-height) + 160px) 12px 0;
+    }
+
+    .inicio-foto {
+        align-items: center;
+        margin-bottom: 35px;
+    }
+
+    .nacionalidad {
+        padding: 6px 11px 6px 9px;
+        gap: 6px;
+        border-radius: 9px;
+    }
+
+    .nacionalidad .bandera { font-size: 15px; }
+
+    .nacionalidad::after {
+        width: 4px;
+        height: 4px;
+    }
+
+    .saludo { font-size: 1.7rem; }
+
+    .descripcion { margin-bottom: 30px; }
+
+    /* Los tres botones del mismo tamaño, en una sola fila */
+    .acciones {
+        width: 100%;
+        justify-content: center;
+        gap: 8px;
+        margin-bottom: 50px;
+    }
+
+    .acciones .btn {
+        flex: 1 1 0;
+        min-width: 0;
+        height: 50px;
+        padding: 0 6px;
+        gap: 6px;
+    }
+
+    .acciones .cv-menu {
+        display: flex;
+        flex: 1 1 0;
+        min-width: 0;
+    }
+
+    .acciones .github-button .button-icon {
+        width: 28px;
+        height: 28px;
+    }
+
+    .cv-menu .cv-dropdown { width: 140px; }
+
+    .cv-dropdown .cv-opcion:first-child {
+        padding-left: 2px;
+        padding-right: 0;
+    }
+
+    .cv-dropdown .descargar-cv {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
+    /* Visor del CV: debajo del navbar */
+    .cv-modal {
+        padding: var(--navbar-height) 12px 12px;
+        overflow: hidden;
+    }
+
+    .cv-modal-contenido {
+        width: 100%;
+        height: 100%;
+        max-width: 100%;
+        max-height: 100%;
+        pointer-events: none;
+    }
+
+    .cv-imagen {
+        max-height: calc(100% - 20px);
+        border-radius: 6px;
+        pointer-events: auto;
+    }
+
+    .cv-modal-cerrar {
+        position: fixed;
+        top: calc(var(--navbar-height) + 4px);
+        right: 4px;
+        z-index: 100000;
+
+        width: 36px;
+        height: 36px;
+        font-size: 23px;
+        pointer-events: auto;
+    }
+}
+
+
+/* =====================================================
+   3. ESCRITORIO (769px o más)
+===================================================== */
+
+@media (min-width: 769px) {
+
+    .inicio {
+        --visor-alto: calc(100svh - var(--navbar-height) - 48px);
+
+        /* Separación vertical entre bloques */
+        --espacio: clamp(10px, 2vh, 24px);
+
+        max-width: none;
+        margin-top: -0px;
+        padding: calc(var(--navbar-height) + 4px) 32px 16px;
+    }
+
+    /* Una sola columna centrada: foto arriba, texto y botones debajo */
+    .inicio-contenido {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: var(--espacio);
+        text-align: center;
+    }
+
+    /* ---------- FOTO + NACIONALIDAD (arriba) ---------- */
+
+    .inicio-foto {
+        align-items: center;
+        gap: clamp(8px, 1.4vh, 12px);
+    }
+
+    .foto { --foto-size: clamp(100px, 19vh, 200px); }
+
+    /* ---------- TEXTO + BOTONES ---------- */
+
+    .inicio-info {
+        width: 100%;
+        min-width: 0;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: calc(var(--espacio) * 1.4);
+    }
+
+    .inicio-texto {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        min-width: 0;
+        gap: calc(var(--espacio) * .8);
+
+        /* Permite medir el ancho real (cqw) para que nombre y profesión
+           crezcan al máximo sin partirse en dos líneas */
+        container-type: inline-size;
+    }
+
+    .saludo {
+        margin: 0;
+        line-height: 1.15;
+    }
+
+    .saludo-texto {
+        flex-direction: column;
+        align-items: center;
+        flex-wrap: nowrap;
+        gap: calc(var(--espacio) * .4);
+    }
+
+    /* "Hola, soy": una línea, mismo tamaño que la nacionalidad */
+    .saludo-intro {
+        white-space: nowrap;
+        font-family: var(--font-primary);
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: .7px;
+        text-transform: uppercase;
+    }
+
+    /* Nombre y profesión: una sola línea */
+    .saludo-nombre {
+        white-space: nowrap;
+        font-size: min(4.8vw, 7.5vh);                   /* respaldo */
+        font-size: min(calc(100cqw / 15), 7.5vh);
+    }
+
+    .profesion {
+        margin: 0;
+        padding: 0 18px calc(var(--espacio) * .6);
+        white-space: nowrap;
+        font-size: min(3.9vw, 5.6vh);                   /* respaldo */
+        font-size: min(calc(100cqw / 19), 5.6vh);
+        line-height: 1.2;
+    }
+
+
+
+    /* Descripción: 2 líneas parejas, centrada */
+    .descripcion {
+        max-width: 75ch;
+        text-align: center;
+        text-wrap: balance;
+        font-size: min(1.6vw, 2.8vh);
+        line-height: 1.45;
+    }
+
+    /* Botones como mini-tarjetas, centrados debajo de la descripción */
+    .acciones {
+        justify-content: center;
+    }
+
+    .acciones .btn {
+        width: clamp(140px, 12vw, 180px);
+        height: clamp(48px, 7vh, 60px);
+        padding: 0 14px;
+        border-radius: 20px;
+        background: color-mix(in srgb, var(--color-surface) 62%, transparent);
+    }
+
+    .acciones .cv-menu .cv-button { padding: 0 18px; }
+
+    /* Mismo tamaño de ícono y de texto para los 3 botones */
+    .acciones {
+        --icono: clamp(24px, 2.3vw, 30px);
+        --texto: clamp(15px, 1.2vw, 18px);
+    }
+
+    .acciones .cv-button .cv-icon,
+    .acciones .github-button .button-icon {
+        width: var(--icono);
+        height: var(--icono);
+    }
+
+    .acciones .linkedin-icon {
+        width: auto;
+        height: var(--icono);
+    }
+
+    .acciones .btn span {
+        font-size: var(--texto);
+    }
+
+/* Íconos de LinkedIn y GitHub: mismo tamaño, sin fondo ni borde */
+.acciones {
+    --icono-redes: 30px;
+}
+
+.acciones .linkedin-button svg,
+.acciones .github-button svg {
+    width: var(--icono-redes);
+    height: var(--icono-redes);
+    flex-shrink: 0;
+}
+
+/* GitHub: gatito blanco sobre círculo negro (colores originales, ambos temas) */
+.acciones .github-button svg {
+    background: radial-gradient(circle closest-side, #000000 98%, transparent 100%)
+                center / 75% 75% no-repeat;
+}
+
+.acciones .github-button svg path {
+    fill: #ffffff;
+    transform: scale(1.125);
+    transform-box: fill-box;
+    transform-origin: center;
+}
+
+/* "Linked" en negrita (mismo truco que GitHub) */
+.acciones .linkedin-button {
+    font-weight: 900;
+    letter-spacing: .2px;
+    text-shadow:
+        .5px 0 0 currentColor,
+        -.5px 0 0 currentColor,
+        0 .5px 0 currentColor,
+        0 -.5px 0 currentColor;
+}
+
+/* Texto pegado al ícono en ambos botones */
+.acciones .linkedin-button,
+.acciones .github-button {
+    gap: 2px;
+}
+
+    .acciones {
+        --icono-redes: 40px;
+    }
+
+/* LinkedIn: logo azul original, letras "in" blancas (ambos temas) */
+.acciones .linkedin-button svg {
+    background: linear-gradient(#ffffff, #ffffff) center / 60% 60% no-repeat;
+}
+
+.acciones .linkedin-button svg path {
+    fill: #0A66C2;
+}
+
+    .acciones .btn.linkedin-button span,
+    .acciones .btn.github-button span {
+        font-size: clamp(20px, 1.7vw, 25px);
+    }
+
+/* =====================================================
+   BOTONES CV / LINKEDIN / GITHUB: DISEÑO MODERNO
+   Mismo diseño para los 3, en tema oscuro y claro.
+   El tamaño no se toca (width, height y padding quedan igual).
+===================================================== */
+
+.acciones .btn {
+    /* Colores del tema oscuro */
+    --borde: 1.5px;
+    --b1: #38bdf8;
+    --b2: #818cf8;
+    --b3: #8b5cf6;
+    --fondo-a: rgba(56, 189, 248, .16);
+    --fondo-b: rgba(139, 92, 246, .10);
+    --fondo-base: rgba(15, 23, 42, .55);
+    --brillo: rgba(255, 255, 255, .16);
+    --sombra: rgba(0, 0, 0, .35);
+
+    border-color: transparent;
+
+    /* Interior: luz arriba, degradado diagonal y base de vidrio */
+    background:
+        radial-gradient(120% 90% at 50% -20%, var(--brillo), transparent 60%),
+        linear-gradient(145deg, var(--fondo-a) 0%, var(--fondo-b) 100%),
+        var(--fondo-base);
+
+    box-shadow:
+        0 8px 22px var(--sombra),
+        inset 0 1px 0 var(--brillo),
+        inset 0 -10px 18px rgba(0, 0, 0, .12);
+
+    transition:
+        transform .3s cubic-bezier(.2, .8, .2, 1),
+        box-shadow .3s ease;
+}
+
+/* Colores del tema claro: fondo suave que acompaña texto negro e íconos */
+:host-context(.light-theme) .acciones .btn,
+:host-context(.light) .acciones .btn,
+:host-context([data-theme="light"]) .acciones .btn,
+:host-context([data-theme="claro"]) .acciones .btn {
+    --b1: #0284c7;
+    --b2: #4f46e5;
+    --b3: #7c3aed;
+    --fondo-a: #7dd3fc;                    /* celeste medio */
+    --fondo-b: #bae6fd;                    /* celeste suave */
+    --fondo-base: #e0f2fe;
+    --brillo: rgba(255, 255, 255, .9);
+    --sombra: rgba(15, 23, 42, .12);
+
+    background:
+        radial-gradient(120% 90% at 50% -20%, var(--brillo), transparent 60%),
+        linear-gradient(145deg, var(--fondo-a) 0%, var(--fondo-b) 100%);
+
+    box-shadow:
+        0 8px 20px var(--sombra),
+        inset 0 1px 0 var(--brillo),
+        inset 0 -8px 16px rgba(2, 132, 199, .04);
+}
+
+/* Interior: destello que cruza el botón en hover */
+.acciones .btn::before {
+    inset: 0;
+    opacity: 1;
+    background: linear-gradient(
+        110deg,
+        transparent 35%,
+        rgba(255, 255, 255, .30) 50%,
+        transparent 65%
+    );
+    background-size: 250% 100%;
+    background-position: 130% 0;
+    transition: background-position .8s ease;
+}
+
+:host-context(.light-theme) .acciones .btn::before {
+    background: linear-gradient(
+        110deg,
+        transparent 35%,
+        rgba(2, 132, 199, .16) 50%,
+        transparent 65%
+    );
+    background-size: 250% 100%;
+    background-position: 130% 0;
+}
+
+.acciones .btn:hover::before,
+.acciones .btn:focus-visible::before,
+.acciones .cv-button.open::before {
+    opacity: 1;
+    background-position: -30% 0;
+}
+
+/* Borde degradado animado */
+.acciones .btn::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: var(--borde);
+    border-radius: inherit;
+    pointer-events: none;
+
+    background: linear-gradient(120deg, var(--b1), var(--b2), var(--b3), var(--b1));
+    background-size: 250% 100%;
+    background-position: 0 0;
+
+    -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+    mask-composite: exclude;
+
+    transition: background-position .8s ease, filter .3s ease;
+}
+
+/* Hover / foco / menú CV abierto */
+.acciones .btn:hover,
+.acciones .btn:focus-visible,
+.acciones .cv-button.open {
+    transform: translateY(-4px);
+    border-color: transparent;
+    box-shadow:
+        0 16px 32px var(--sombra),
+        0 0 26px rgba(var(--glow-rgb), calc(.35 * var(--glow-strength))),
+        inset 0 1px 0 var(--brillo),
+        inset 0 0 20px rgba(var(--glow-rgb), calc(.10 * var(--glow-strength)));
+}
+
+.acciones .btn:hover::after,
+.acciones .btn:focus-visible::after,
+.acciones .cv-button.open::after {
+    background-position: 100% 0;
+    filter: drop-shadow(0 0 6px rgba(var(--glow-rgb), .65));
+}
+
+.acciones .btn:active {
+    transform: translateY(-1px) scale(.98);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .acciones .btn::before,
+    .acciones .btn::after {
+        transition: none;
+    }
+}
+
+/* Hover / foco / menú CV abierto */
+.acciones .btn:hover,
+.acciones .btn:focus-visible,
+.acciones .cv-button.open {
+    transform: translateY(-4px);
+    border-color: transparent;
+    box-shadow:
+        0 14px 30px rgba(0, 0, 0, .22),
+        0 0 24px rgba(var(--glow-rgb), calc(.32 * var(--glow-strength))),
+        inset 0 1px 0 rgba(255, 255, 255, .22),
+        inset 0 0 18px rgba(var(--glow-rgb), calc(.08 * var(--glow-strength)));
+}
+
+.acciones .btn:hover::after,
+.acciones .btn:focus-visible::after,
+.acciones .cv-button.open::after {
+    background-position: 100% 0;
+    filter: drop-shadow(0 0 6px rgba(var(--glow-rgb), .7));
+}
+
+.acciones .btn:active {
+    transform: translateY(-1px) scale(.98);
+}
+
+/* Tema claro: sombras más suaves y brillo superior más marcado */
+:host-context(.light-theme) .acciones .btn {
+    box-shadow:
+        0 6px 16px rgba(15, 23, 42, .10),
+        inset 0 1px 0 rgba(255, 255, 255, .8);
+}
+
+:host-context(.light-theme) .acciones .btn:hover,
+:host-context(.light-theme) .acciones .btn:focus-visible,
+:host-context(.light-theme) .acciones .cv-button.open {
+    box-shadow:
+        0 14px 28px rgba(15, 23, 42, .16),
+        0 0 20px rgba(var(--glow-rgb), calc(.25 * var(--glow-strength))),
+        inset 0 1px 0 rgba(255, 255, 255, .9);
+}
+
+/* ---------- VISOR DEL CV ---------- */
+
+    .cv-modal {
+        padding: calc(var(--navbar-height) + 16px) 32px 32px;
+        background: rgba(6, 10, 18, .62);
+    }
+
+    .cv-modal-contenido { max-height: var(--visor-alto); }
+
+    .cv-imagen {
+        max-height: var(--visor-alto);
+        border-radius: 14px;
+    }
+
+    .cv-dropdown { width: 100%; }
+}
+
+
+/* =====================================================
+   5. MOVIMIENTO REDUCIDO
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .inicio *,
+    .inicio *::before,
+    .inicio *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+/* =====================================================
+   DESPLEGABLE DEL CV: DISEÑO A JUEGO CON LOS BOTONES
+===================================================== */
+
+.cv-dropdown {
+    /* Tema oscuro */
+    --d-b1: #38bdf8;
+    --d-b2: #818cf8;
+    --d-b3: #8b5cf6;
+    --d-fondo-a: rgba(30, 41, 59, .92);
+    --d-fondo-b: rgba(15, 23, 42, .96);
+    --d-brillo: rgba(255, 255, 255, .10);
+    --d-hover: rgba(56, 189, 248, .14);
+    --d-hover-texto: var(--color-tech);
+
+    border: none;
+    border-radius: 18px;
+    padding: 6px;
+
+    background:
+        radial-gradient(120% 80% at 50% -20%, var(--d-brillo), transparent 60%),
+        linear-gradient(145deg, var(--d-fondo-a), var(--d-fondo-b));
+
+    box-shadow:
+        0 18px 36px rgba(0, 0, 0, .35),
+        0 0 22px rgba(56, 189, 248, .12),
+        inset 0 1px 0 var(--d-brillo);
+}
+
+/* Borde degradado fino */
+.cv-dropdown::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 1.2px;
+    border-radius: inherit;
+    pointer-events: none;
+
+    background: linear-gradient(135deg, var(--d-b1), var(--d-b2), var(--d-b3));
+
+    -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+    mask-composite: exclude;
+}
+
+/* Opciones */
+.cv-dropdown .cv-opcion {
+    position: relative;
+    z-index: 1;
+    border-radius: 13px;
+}
+
+.cv-dropdown .cv-opcion:hover,
+.cv-dropdown .cv-opcion:focus-visible {
+    background: var(--d-hover);
+    color: var(--d-hover-texto);
+    box-shadow: inset 0 0 0 1px rgba(56, 189, 248, .25);
+}
+
+/* Tema claro: más claro que el botón para que se distinga */
+:host-context(.light-theme) .cv-dropdown,
+:host-context(.light) .cv-dropdown,
+:host-context([data-theme="light"]) .cv-dropdown,
+:host-context([data-theme="claro"]) .cv-dropdown {
+    --d-b1: #0284c7;
+    --d-b2: #4f46e5;
+    --d-b3: #7c3aed;
+    --d-fondo-a: #ffffff;
+    --d-fondo-b: #f0f9ff;
+    --d-brillo: rgba(255, 255, 255, .9);
+    --d-hover: #e0f2fe;
+    --d-hover-texto: #0369a1;
+
+    box-shadow:
+        0 16px 32px rgba(15, 23, 42, .16),
+        0 0 18px rgba(2, 132, 199, .10),
+        inset 0 1px 0 var(--d-brillo);
+}
+
+:host-context(.light-theme) .cv-dropdown .cv-opcion:hover,
+:host-context(.light) .cv-dropdown .cv-opcion:hover,
+:host-context([data-theme="light"]) .cv-dropdown .cv-opcion:hover,
+:host-context([data-theme="claro"]) .cv-dropdown .cv-opcion:hover,
+:host-context(.light-theme) .cv-dropdown .cv-opcion:focus-visible,
+:host-context(.light) .cv-dropdown .cv-opcion:focus-visible,
+:host-context([data-theme="light"]) .cv-dropdown .cv-opcion:focus-visible,
+:host-context([data-theme="claro"]) .cv-dropdown .cv-opcion:focus-visible {
+    text-shadow: none;
+    box-shadow: inset 0 0 0 1px rgba(2, 132, 199, .25);
+}
+
+/* =====================================================
+   6. MOBILE: AJUSTES (hasta 768px)
+   Va al final del archivo para ganar sobre los estilos globales.
+===================================================== */
+
+@media (max-width: 768px) {
+
+    /* ---------- Navbar por encima de la foto ---------- */
+    /* La foto queda en su propio contexto de apilado (z-index interno 1 y 2) */
+    .foto {
+        z-index: 0;
+        isolation: isolate;
+    }
+
+    /* El menú CV no compite con el navbar */
+    .acciones .cv-menu { z-index: 5; }
+
+
+    /* ---------- Desplegable del CV: texto e ícono dentro ---------- */
+    .cv-menu .cv-dropdown {
+        width: max-content;          /* se adapta al texto más largo */
+        min-width: 100%;             /* nunca más angosto que el botón CV */
+        max-width: calc(100vw - 24px);
+    }
+
+    .cv-dropdown .cv-opcion,
+    .cv-dropdown .cv-opcion:first-child,
+    .cv-dropdown .descargar-cv {
+        width: 100%;
+        height: 44px;
+        justify-content: flex-start;
+        gap: 10px;
+        padding: 0 12px;
+        font-size: 13px;
+    }
+
+    .cv-dropdown .cv-opcion svg {
+        flex: 0 0 20px;
+        width: 20px;
+        height: 20px;
+    }
+
+    .cv-dropdown .cv-opcion span { white-space: nowrap; }
+
+
+    /* ---------- LinkedIn y GitHub visibles en tema claro y oscuro ---------- */
+    .acciones { --icono-redes: 30px; }
+
+    .acciones .linkedin-button,
+    .acciones .github-button {
+        gap: 3px;
+        padding: 0 4px;
+        font-weight: 900;
+        letter-spacing: .2px;
+        text-shadow:
+            .5px 0 0 currentColor,
+            -.5px 0 0 currentColor,
+            0 .5px 0 currentColor,
+            0 -.5px 0 currentColor;
+    }
+
+    .acciones .btn.linkedin-button span,
+    .acciones .btn.github-button span {
+        font-size: 14px;
+    }
+
+    .acciones .linkedin-button svg,
+    .acciones .github-button svg {
+        width: var(--icono-redes);
+        height: var(--icono-redes);
+        flex-shrink: 0;
+    }
+
+    /* GitHub: gatito blanco sobre círculo negro */
+    .acciones .github-button svg {
+        background: radial-gradient(circle closest-side, #000000 98%, transparent 100%)
+                    center / 75% 75% no-repeat;
+    }
+
+    .acciones .github-button svg path {
+        fill: #ffffff;
+        transform: scale(1.125);
+        transform-box: fill-box;
+        transform-origin: center;
+    }
+
+    /* LinkedIn: logo azul con las letras "in" blancas */
+    .acciones .linkedin-button svg {
+        background: linear-gradient(#ffffff, #ffffff) center / 60% 60% no-repeat;
+    }
+
+    .acciones .linkedin-button svg path { fill: #0A66C2; }
+}
+
+
+/* =====================================================
+   DESCRIPCIÓN: GRIS OSCURO (mobile y desktop)
+===================================================== */
+
+:host-context(.light-theme) .descripcion,
+:host-context(.light) .descripcion,
+:host-context([data-theme="light"]) .descripcion,
+:host-context([data-theme="claro"]) .descripcion {
+    color: #374151;
+}
+
+
+@media (max-width: 768px) {
+
+    /* Deja lugar arriba para que la cruz no se tape con el navbar */
+    .cv-modal {
+        padding: calc(var(--navbar-height) + 24px) 12px 12px;
+    }
+
+    /* El contenedor se ajusta al tamaño de la imagen */
+    .cv-modal-contenido {
+        width: auto;
+        height: auto;
+        max-width: 100%;
+        max-height: 100%;
+        pointer-events: auto;
+    }
+
+    .cv-imagen {
+        max-width: 100%;
+        max-height: calc(100svh - var(--navbar-height) - 36px);
+    }
+
+    /* Cruz sobre la esquina de la imagen, lo más al borde posible */
+    .cv-modal-cerrar {
+        position: absolute;
+        top: -14px;
+        right: -8px;
+        z-index: 2;
+        width: 36px;
+        height: 36px;
+        font-size: 23px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    #inicio.inicio {
+        /* ↓↓↓ ÚNICO VALOR QUE TENÉS QUE TOCAR ↓↓↓
+           Número más chico = todo sube.
+           Número más grande = todo baja.
+           Se permiten negativos (ej: -20px). */
+        --inicio-subir-bajar: 50px;
+
+        padding-top: calc(var(--navbar-height, 70px) + var(--inicio-subir-bajar)) !important;
+    }
+}
+
+/* =====================================================================
+   BOTONES CV / LINKEDIN / GITHUB
+   Tema oscuro: fondo oscuro + texto blanco
+   Tema claro:  fondo de Sobre mí + texto negro
+   Igual en desktop y celular. El tamaño no se toca.
+===================================================================== */
+
+/* ---------- Colores: TEMA OSCURO (por defecto) ---------- */
+.acciones .btn {
+    --bt-texto: #f1f5f9;
+    --bt-icono-hover: #38bdf8;
+    --bt-b1: #38bdf8;
+    --bt-b2: #818cf8;
+    --bt-b3: #8b5cf6;
+    --bt-destello: rgba(255, 255, 255, .30);
+    --bt-glow: rgba(56, 189, 248, .35);
+    --bt-borde-glow: rgba(56, 189, 248, .65);
+
+    --bt-fondo:
+        radial-gradient(120% 90% at 50% -20%, rgba(255, 255, 255, .16), transparent 60%),
+        linear-gradient(145deg, rgba(56, 189, 248, .16) 0%, rgba(139, 92, 246, .10) 100%),
+        rgba(15, 23, 42, .92);
+
+    --bt-sombra:
+        0 8px 22px rgba(0, 0, 0, .35),
+        inset 0 1px 0 rgba(255, 255, 255, .16),
+        inset 0 -10px 18px rgba(0, 0, 0, .12);
+
+    --bt-sombra-hover:
+        0 16px 32px rgba(0, 0, 0, .35),
+        0 0 26px var(--bt-glow),
+        inset 0 1px 0 rgba(255, 255, 255, .16),
+        inset 0 0 20px rgba(56, 189, 248, .10);
+}
+
+/* ---------- Colores: TEMA CLARO (mismo color que Sobre mí) ---------- */
+:root[data-theme="light"] .acciones .btn,
+:host-context([data-theme="light"]) .acciones .btn,
+:host-context(.light-theme) .acciones .btn,
+:host-context(.light) .acciones .btn,
+:host-context([data-theme="claro"]) .acciones .btn {
+    --bt-texto: #0f172a;
+    --bt-icono-hover: #0e7490;
+    --bt-b1: #0e7490;
+    --bt-b2: #a67c00;
+    --bt-b3: #0e7490;
+    --bt-destello: rgba(14, 116, 144, .14);
+    --bt-glow: rgba(14, 116, 144, .22);
+    --bt-borde-glow: rgba(14, 116, 144, .55);
+
+    --bt-fondo:
+        radial-gradient(60% 55% at 0% 0%,     rgba(14, 116, 144, .09), transparent 70%),
+        radial-gradient(55% 50% at 100% 100%, rgba(166, 124, 0, .06), transparent 70%),
+        linear-gradient(180deg, rgba(255, 255, 255, .92), rgba(248, 250, 252, .85));
+
+    --bt-sombra:
+        0 6px 16px rgba(15, 23, 42, .10),
+        inset 0 1px 0 rgba(255, 255, 255, .8);
+
+    --bt-sombra-hover:
+        0 14px 28px rgba(15, 23, 42, .16),
+        0 0 20px var(--bt-glow),
+        inset 0 1px 0 rgba(255, 255, 255, .9);
+}
+
+/* ---------- Aplicación (igual para los dos temas) ---------- */
+.acciones .btn {
+    color: var(--bt-texto) !important;
+    border-color: transparent !important;
+    background: var(--bt-fondo) !important;
+    box-shadow: var(--bt-sombra) !important;
+
+    transition:
+        transform .3s cubic-bezier(.2, .8, .2, 1),
+        box-shadow .3s ease;
+}
+
+/* texto e íconos con el color del tema */
+.acciones .btn span,
+.acciones .btn .button-icon,
+.acciones .btn .chevron {
+    color: var(--bt-texto) !important;
+}
+
+.acciones .btn:hover .button-icon,
+.acciones .btn:focus-visible .button-icon,
+.acciones .cv-button.open .button-icon {
+    color: var(--bt-icono-hover) !important;
+}
+
+/* destello que cruza el botón */
+.acciones .btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 1 !important;
+
+    background: linear-gradient(
+        110deg,
+        transparent 35%,
+        var(--bt-destello) 50%,
+        transparent 65%
+    ) !important;
+    background-size: 250% 100% !important;
+    background-position: 130% 0 !important;
+    transition: background-position .8s ease;
+}
+
+/* borde degradado */
+.acciones .btn::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 1.5px;
+    border-radius: inherit;
+    pointer-events: none;
+
+    background: linear-gradient(120deg, var(--bt-b1), var(--bt-b2), var(--bt-b3), var(--bt-b1)) !important;
+    background-size: 250% 100% !important;
+    background-position: 0 0 !important;
+
+    -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+    mask-composite: exclude;
+
+    transition: background-position .8s ease, filter .3s ease;
+}
+
+/* hover / foco / menú CV abierto */
+.acciones .btn:hover,
+.acciones .btn:focus-visible,
+.acciones .cv-button.open {
+    transform: translateY(-4px);
+    box-shadow: var(--bt-sombra-hover) !important;
+}
+
+.acciones .btn:hover::before,
+.acciones .btn:focus-visible::before,
+.acciones .cv-button.open::before {
+    background-position: -30% 0 !important;
+}
+
+.acciones .btn:hover::after,
+.acciones .btn:focus-visible::after,
+.acciones .cv-button.open::after {
+    background-position: 100% 0 !important;
+    filter: drop-shadow(0 0 6px var(--bt-borde-glow));
+}
+
+.acciones .btn:active {
+    transform: translateY(-1px) scale(.98);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .acciones .btn::before,
+    .acciones .btn::after {
+        transition: none;
+    }
+}

@@ -1,0 +1,1557 @@
+/* ==========================
+   NAVBAR PREMIUM
+========================== */
+
+.navbar {
+    position: fixed;
+    top: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+/* CONTENEDOR */
+.navbar-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    width: max-content;
+    padding: 8px 14px;
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid var(--navbar-border);
+    border-radius: 999px;
+    box-shadow: var(--shadow-lg);
+    background: var(--navbar-background);
+}
+
+.navbar-right {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.navbar-actions {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+}
+
+/* ==========================
+   DROPDOWNS IDIOMA Y TEMA
+========================== */
+
+.language-menu,
+.theme-menu {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+/* CONTENEDOR DROPDOWN */
+
+.language-dropdown,
+.theme-dropdown {
+    position: absolute;
+    top: 55px;
+    transform: translateX(-50%) translateY(-10px);
+    min-width: 150px;
+    padding: 8px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 18px;
+    box-shadow: var(--shadow-lg);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    opacity: 0;
+    visibility: hidden;
+    transition: .25s ease;
+    z-index: 10000;
+}
+
+.language-dropdown {
+    left: 150%;
+    transform: translateX(-50%) translateY(-10px);
+}
+
+.theme-dropdown {
+    left: 50%;
+    transform: translateX(-50%) translateY(-10px);
+}
+
+.language-dropdown.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+.theme-dropdown.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* ABIERTO */
+
+.language-dropdown.open,
+.theme-dropdown.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* ==========================
+   DROPDOWN HOVER PREMIUM
+========================== */
+
+.language-dropdown button,
+.theme-dropdown button,
+.cv-dropdown a {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--color-text);
+    transition:
+        background-color .25s ease,
+        color .25s ease;
+}
+
+.language-dropdown button:hover,
+.theme-dropdown button:hover,
+.cv-dropdown a:hover {
+    background-color: var(--color-primary);
+    color: #ffffff;
+}
+
+.language-dropdown button:hover img,
+.theme-dropdown button:hover img,
+.cv-dropdown a:hover img {
+    filter: brightness(0) invert(1);
+}
+
+/* BOTONES INTERNOS */
+
+.language-dropdown button,
+.theme-dropdown button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+    border: none;
+    border-radius: 12px;
+    background: transparent;
+    color: var(--color-text);
+    cursor: pointer;
+    font-size: 14px;
+    transition: .25s ease;
+}
+
+/* ICONOS */
+
+.language-dropdown img,
+.theme-dropdown img {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+}
+
+/* ==========================
+   BOTONES PREMIUM
+========================== */
+
+.icon-button {
+    width: 42px;
+    height: 42px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    transition: .25s;
+    background: transparent;
+    cursor: pointer;
+}
+
+.icon-button:hover {
+    transform: scale(1.08);
+}
+
+.icon-button img {
+    width: 36px;
+    height: 30px;
+    display: block;
+}
+
+/* BOTÓN HAMBURGUESA */
+
+.hamburger-button {
+    width: 42px;
+    height: 42px;
+    border: none;
+    border-radius: 50%;
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: none;
+}
+
+.hamburger-icon {
+    width: 40px;
+    height: 40px;
+    transition: .35s;
+}
+
+.hamburger-button:hover {
+    transform: scale(1.08);
+}
+
+.hamburger-button:hover .hamburger-icon {
+    transform: rotate(90deg);
+}
+
+/*=============================
+MENÚ NAVEGACIÓN
+=============================*/
+
+.navigation-dropdown {
+    position: absolute;
+    top: 58px;
+    right: 0;
+    left: 50%;
+    width: 170px;
+    padding: 6px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+    box-shadow: var(--shadow-lg);
+    backdrop-filter: blur(18px);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: .25s ease;
+    z-index: 10000;
+}
+
+.navigation-dropdown.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+.navigation-dropdown a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 10px;
+    border-radius: 10px;
+    font-size: 13px;
+    white-space: nowrap;
+}
+
+.navigation-dropdown img {
+    width: 18px;
+    height: 18px;
+}
+
+.navigation-dropdown a:hover {
+    background: rgba(56, 189, 248, .15);
+    color: var(--color-primary);
+    transform: translateX(3px);
+}
+
+/* MENÚ DE SECCIONES */
+
+.navigation-dropdown a {
+    font-size: 13px;
+    font-weight: 600;
+}
+
+/* IDIOMA Y TEMA */
+
+.language-dropdown button,
+.theme-dropdown button {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* =====================================================
+   DROPDOWN IDIOMA Y TEMA — HOVER SUAVE
+===================================================== */
+
+.language-dropdown button:hover,
+.theme-dropdown button:hover {
+    background: rgba(56, 189, 248, 0.10);
+    color: var(--color-tech);
+    text-shadow: 0 0 8px rgba(56, 189, 248, 0.45);
+    box-shadow: inset 0 0 12px rgba(56, 189, 248, 0.05);
+}
+
+/* ICONOS */
+
+.language-dropdown button:hover img,
+.theme-dropdown button:hover img {
+    filter: drop-shadow(0 0 5px rgba(56, 189, 248, 0.45));
+    transform: scale(1.05);
+    transition:
+        transform .25s ease,
+        filter .25s ease;
+}
+
+/* TEXTO */
+
+.language-dropdown button,
+.theme-dropdown button {
+    font-family: var(--font-primary);
+    transition:
+        background .25s ease,
+        color .25s ease,
+        box-shadow .25s ease,
+        text-shadow .25s ease;
+}
+
+@media (max-width: 768px) {
+
+    .navigation-dropdown {
+        top: calc(100% + 4px);
+    }
+
+}
+
+/* =====================================================
+   ESCRITORIO — MENÚ HORIZONTAL
+   Todo lo nuevo está acá abajo, así que por debajo de
+   1024px (mobile y tablet) el navbar queda exactamente
+   como estaba, con el menú hamburguesa.
+   Para cambiar el punto de corte, modificá el 1024px.
+===================================================== */
+
+@media (min-width: 1024px) {
+
+    .navbar {
+        width: max-content;
+        max-width: calc(100vw - 32px);
+    }
+
+    .navbar-container {
+        gap: 20px;
+        padding: 8px 18px;
+    }
+
+    .navbar-right,
+    .navbar-actions {
+        flex-shrink: 0;
+    }
+
+    /* Orden: secciones a la izquierda, idioma y tema a la derecha.
+       Si borrás estas dos líneas, vuelve al orden original. */
+    .navbar-right {
+        order: 1;
+    }
+
+    .navbar-actions {
+        order: 2;
+        padding-left: 16px;
+        border-left: 1px solid var(--navbar-border);
+    }
+
+    /* Ya no hace falta el botón hamburguesa */
+    .hamburger-button {
+        display: none;
+    }
+
+    /* El desplegable pasa a ser una fila dentro de la píldora.
+       Se incluye .open para anular su transform (translateX(-50%)). */
+    .navigation-dropdown,
+    .navigation-dropdown.open {
+        position: static;
+        top: auto;
+        left: auto;
+        right: auto;
+        width: auto;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        gap: 2px;
+        padding: 0;
+        background: transparent;
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+    }
+
+    .navigation-dropdown a {
+        padding: 8px 10px;
+        border-radius: 999px;
+        gap: 8px;
+        transition:
+            background .25s ease,
+            color .25s ease,
+            transform .25s ease;
+    }
+
+    .navigation-dropdown a:hover {
+        transform: translateY(-1px);
+    }
+
+    .navigation-dropdown a:focus-visible {
+        outline: 2px solid var(--color-primary);
+        outline-offset: 2px;
+    }
+
+    /* Entre 1024px y 1279px se ocultan los íconos para que entren las 8 secciones */
+    .navigation-dropdown img {
+        display: none;
+    }
+}
+
+/* Pantallas anchas: vuelven los íconos y se da más aire */
+@media (min-width: 1280px) {
+
+    .navbar-container {
+        gap: 24px;
+        padding: 8px 22px;
+    }
+
+    .navigation-dropdown {
+        gap: 4px;
+    }
+
+    .navigation-dropdown a {
+        padding: 8px 14px;
+    }
+
+    .navigation-dropdown img {
+        display: block;
+    }
+}
+
+/* =====================================================
+   ESCRITORIO — HOVER TECH (brillo celeste + › + subrayado)
+   Igual que el bloque anterior: por debajo de 1024px no
+   se aplica nada, así que mobile y tablet no cambian.
+===================================================== */
+
+@media (min-width: 1024px) {
+
+    .navbar {
+        /* Color del brillo (RGB) y su intensidad.
+           Bajá --glow-strength (ej. 0.5) para un brillo más sutil. */
+        --glow-rgb: 56, 189, 248;
+        --glow-strength: 1;
+    }
+
+    /* ---------- SECCIONES ---------- */
+
+    .navigation-dropdown a {
+        /* Debe coincidir con el padding horizontal del link (10px acá, 14px desde 1280px) */
+        --link-pad: 10px;
+        position: relative;
+        transition:
+            background .3s ease,
+            color .25s ease,
+            transform .25s ease,
+            text-shadow .3s ease;
+    }
+
+    /* Símbolo › a la izquierda: se desliza hacia adentro */
+    .navigation-dropdown a::before {
+        content: '›';
+        position: absolute;
+        top: 50%;
+        left: calc(var(--link-pad) - 8px);
+        font-family: var(--font-mono, ui-monospace, SFMono-Regular, Menlo, Consolas, monospace);
+        font-size: 15px;
+        font-weight: 700;
+        line-height: 1;
+        color: var(--color-primary);
+        text-shadow: 0 0 8px rgba(var(--glow-rgb), calc(.75 * var(--glow-strength)));
+        opacity: 0;
+        transform: translate(-6px, -50%);
+        pointer-events: none;
+        transition:
+            opacity .25s ease,
+            transform .35s cubic-bezier(.2, .8, .2, 1);
+    }
+
+    /* Subrayado luminoso con un punto brillante en la punta */
+    .navigation-dropdown a::after {
+        content: '';
+        position: absolute;
+        left: var(--link-pad);
+        right: calc(100% - var(--link-pad));   /* ancho 0 en reposo */
+        bottom: 0;
+        height: 6px;
+        background:
+            radial-gradient(
+                circle at calc(100% - 3px) 50%,
+                #ffffff 0,
+                #ffffff 1.2px,
+                rgba(var(--glow-rgb), 1) 1.9px,
+                transparent 3.4px
+            ) no-repeat,
+            linear-gradient(90deg, transparent, rgba(var(--glow-rgb), .95)) center / 100% 2px no-repeat;
+        filter: drop-shadow(0 0 4px rgba(var(--glow-rgb), calc(.85 * var(--glow-strength))));
+        opacity: 0;
+        pointer-events: none;
+        transition:
+            right .45s cubic-bezier(.2, .8, .2, 1),
+            opacity .25s ease;
+    }
+
+    /* Estado hover / foco de teclado */
+    .navigation-dropdown a:hover,
+    .navigation-dropdown a:focus-visible {
+        background:
+            radial-gradient(
+                120% 160% at 50% 120%,
+                rgba(var(--glow-rgb), calc(.12 * var(--glow-strength))),
+                transparent 70%
+            );
+        color: var(--color-primary);
+        text-shadow: 0 0 10px rgba(var(--glow-rgb), calc(.5 * var(--glow-strength)));
+    }
+
+    .navigation-dropdown a:hover::before,
+    .navigation-dropdown a:focus-visible::before {
+        opacity: 1;
+        transform: translate(0, -50%);
+    }
+
+    .navigation-dropdown a:hover::after,
+    .navigation-dropdown a:focus-visible::after {
+        right: var(--link-pad);
+        opacity: 1;
+    }
+
+    /* Íconos de las secciones */
+    .navigation-dropdown img {
+        transition:
+            transform .3s cubic-bezier(.2, .8, .2, 1),
+            filter .3s ease;
+    }
+
+    .navigation-dropdown a:hover img,
+    .navigation-dropdown a:focus-visible img {
+        transform: scale(1.12);
+        filter: drop-shadow(0 0 5px rgba(var(--glow-rgb), calc(.8 * var(--glow-strength))));
+    }
+
+    /* ---------- BOTONES DE IDIOMA Y TEMA ---------- */
+
+    .icon-button {
+        transition:
+            transform .25s ease,
+            box-shadow .3s ease,
+            background .3s ease;
+    }
+
+    .icon-button img {
+        transition:
+            transform .4s cubic-bezier(.2, .8, .2, 1),
+            filter .3s ease;
+    }
+
+    .icon-button:hover,
+    .icon-button:focus-visible {
+        background:
+            radial-gradient(
+                circle at 50% 50%,
+                rgba(var(--glow-rgb), calc(.18 * var(--glow-strength))),
+                transparent 72%
+            );
+        box-shadow:
+            0 0 0 1px rgba(var(--glow-rgb), calc(.35 * var(--glow-strength))),
+            0 0 16px rgba(var(--glow-rgb), calc(.35 * var(--glow-strength))),
+            inset 0 0 10px rgba(var(--glow-rgb), calc(.12 * var(--glow-strength)));
+    }
+
+    .icon-button:hover img,
+    .icon-button:focus-visible img {
+        filter: drop-shadow(0 0 6px rgba(var(--glow-rgb), calc(.75 * var(--glow-strength))));
+    }
+
+    /* Giro corto distinto para cada botón */
+    .language-menu > .icon-button:hover img,
+    .language-menu > .icon-button:focus-visible img {
+        transform: rotate(20deg);
+    }
+
+    .theme-menu > .icon-button:hover img,
+    .theme-menu > .icon-button:focus-visible img {
+        transform: rotate(-25deg);
+    }
+}
+
+/* Desde 1280px los links tienen más padding, el subrayado y el › se ajustan a él */
+@media (min-width: 1280px) {
+
+    .navigation-dropdown a {
+        --link-pad: 14px;
+    }
+}
+
+/* Respeta la preferencia del sistema de reducir movimiento */
+@media (min-width: 1024px) and (prefers-reduced-motion: reduce) {
+
+    .navigation-dropdown a,
+    .navigation-dropdown a::before,
+    .navigation-dropdown a::after,
+    .navigation-dropdown img,
+    .icon-button,
+    .icon-button img {
+        transition: none;
+    }
+
+    .navigation-dropdown a:hover,
+    .navigation-dropdown a:hover img,
+    .language-menu > .icon-button:hover img,
+    .theme-menu > .icon-button:hover img {
+        transform: none;
+    }
+}
+
+/* =====================================================
+   ESCRITORIO — DISEÑO DEL NAVBAR
+   Vidrio translúcido + borde degradado + halo + destello
+   único al cargar. Por debajo de 1024px no se aplica nada.
+   Requiere que el <nav> tenga [class.scrolled]="isScrolled"
+   (ver navbar.html) para volverse más sólido al hacer scroll.
+===================================================== */
+
+@media (min-width: 1024px) {
+
+    .navbar {
+        /* Segundo tono del borde (índigo). El primero es --glow-rgb */
+        --glow-rgb-2: 129, 140, 248;
+    }
+
+    .navbar-container {
+        position: relative;
+
+        /* Opacidad del vidrio: arriba de todo y al hacer scroll.
+           Subí el valor para más sólido, bajalo para más transparente. */
+        --glass-alpha: 55%;
+
+        background: color-mix(in srgb, var(--navbar-background) var(--glass-alpha), transparent);
+        backdrop-filter: blur(18px) saturate(160%);
+        -webkit-backdrop-filter: blur(18px) saturate(160%);
+
+        /* El borde real pasa a dibujarlo el ::before (degradado) */
+        border-color: transparent;
+
+        box-shadow:
+            var(--shadow-lg),
+            0 12px 32px -14px rgba(var(--glow-rgb), calc(.45 * var(--glow-strength))),
+            inset 0 1px 0 rgba(255, 255, 255, .12);
+
+        transition:
+            background .4s ease,
+            box-shadow .4s ease;
+    }
+
+    /* Al hacer scroll: más sólido y con el halo un poco más marcado */
+    .navbar.scrolled .navbar-container {
+        --glass-alpha: 88%;
+
+        box-shadow:
+            var(--shadow-lg),
+            0 14px 36px -12px rgba(var(--glow-rgb), calc(.55 * var(--glow-strength))),
+            inset 0 1px 0 rgba(255, 255, 255, .14);
+    }
+
+    /* Anillo de 1px que copia la forma de la píldora (técnica de máscara) */
+    .navbar-container::before,
+    .navbar-container::after {
+        content: '';
+        position: absolute;
+        inset: -1px;
+        padding: 1px;
+        border-radius: inherit;
+        pointer-events: none;
+        -webkit-mask:
+            linear-gradient(#000 0 0) content-box,
+            linear-gradient(#000 0 0);
+        -webkit-mask-composite: xor;
+        mask:
+            linear-gradient(#000 0 0) content-box,
+            linear-gradient(#000 0 0);
+        mask-composite: exclude;
+    }
+
+    /* Borde degradado: celeste arriba a la izquierda → índigo, que se desvanece hacia abajo */
+    .navbar-container::before {
+        background:
+            linear-gradient(
+                160deg,
+                rgba(var(--glow-rgb), calc(.9 * var(--glow-strength))) 0%,
+                rgba(var(--glow-rgb), calc(.28 * var(--glow-strength))) 38%,
+                rgba(var(--glow-rgb-2), calc(.35 * var(--glow-strength))) 72%,
+                rgba(var(--glow-rgb-2), .06) 100%
+            );
+    }
+
+    /* Destello que cruza el borde una sola vez al cargar la página */
+    .navbar-container::after {
+        padding: 2px;
+        background:
+            linear-gradient(
+                90deg,
+                transparent 44%,
+                rgba(var(--glow-rgb), .9) 49%,
+                var(--sweep-core, #ffffff) 50%,
+                rgba(var(--glow-rgb), .9) 51%,
+                transparent 56%
+            ) 100% 0 / 250% 100% no-repeat;
+        opacity: 0;
+        animation: navbar-sweep 1.6s cubic-bezier(.4, 0, .2, 1) .6s 1 both;
+    }
+}
+
+@keyframes navbar-sweep {
+    from {
+        background-position: 100% 0;
+        opacity: 1;
+    }
+    to {
+        background-position: 0 0;
+        opacity: 1;
+    }
+}
+
+/* =====================================================
+   ESCRITORIO — TEMA CLARO
+   Ajusta brillos y bordes para fondos claros: tonos más
+   profundos, menos resplandor y vidrio más opaco.
+   Se activa con la clase .light-theme en un ancestro del
+   navbar (html o body). El tema oscuro queda como está.
+===================================================== */
+
+@media (min-width: 1024px) {
+
+    :host-context(.light-theme) .navbar {
+        --glow-rgb: 2, 132, 199;        /* celeste más profundo */
+        --glow-rgb-2: 79, 70, 229;      /* índigo más profundo */
+        --glow-strength: .7;
+        --sweep-core: #0369a1;          /* el destello ya no es blanco */
+    }
+
+    /* Vidrio un poco más opaco y reflejo superior blanco */
+    :host-context(.light-theme) .navbar-container {
+        --glass-alpha: 62%;
+
+        box-shadow:
+            var(--shadow-lg),
+            0 12px 32px -14px rgba(var(--glow-rgb), calc(.35 * var(--glow-strength))),
+            inset 0 1px 0 rgba(255, 255, 255, .7);
+    }
+
+    :host-context(.light-theme) .navbar.scrolled .navbar-container {
+        --glass-alpha: 90%;
+
+        box-shadow:
+            var(--shadow-lg),
+            0 14px 36px -12px rgba(var(--glow-rgb), calc(.4 * var(--glow-strength))),
+            inset 0 1px 0 rgba(255, 255, 255, .8);
+    }
+
+    /* Hover de las secciones: sin brillo en el texto, fondo un poco más visible */
+    :host-context(.light-theme) .navigation-dropdown a::before {
+        text-shadow: none;
+    }
+
+    :host-context(.light-theme) .navigation-dropdown a:hover,
+    :host-context(.light-theme) .navigation-dropdown a:focus-visible {
+        background:
+            radial-gradient(
+                120% 160% at 50% 120%,
+                rgba(var(--glow-rgb), .14),
+                transparent 70%
+            );
+        text-shadow: none;
+    }
+
+    /* Desplegables de idioma y tema: sin brillo en el texto */
+    :host-context(.light-theme) .language-dropdown button:hover,
+    :host-context(.light-theme) .theme-dropdown button:hover {
+        text-shadow: none;
+    }
+}
+
+/* Respeta la preferencia del sistema de reducir movimiento */
+@media (min-width: 1024px) and (prefers-reduced-motion: reduce) {
+
+    .navbar-container {
+        transition: none;
+    }
+
+    .navbar-container::after {
+        animation: none;
+        opacity: 0;
+    }
+}
+
+@media (min-width: 1024px) {
+
+    /* El desplegable se posiciona respecto de .navbar-actions (el bloque
+       que empieza en la barra separadora), no de cada botón */
+    .navbar-actions {
+        position: relative;
+        --navbar-pad: 18px;   /* mismo padding derecho que .navbar-container */
+    }
+
+    .language-menu,
+    .theme-menu {
+        position: static;
+    }
+
+    .language-dropdown,
+    .theme-dropdown,
+    .language-dropdown.open,
+    .theme-dropdown.open {
+        left: 0;                              /* arranca en la barra separadora */
+        right: calc(-1 * var(--navbar-pad));  /* termina en el borde del navbar */
+        width: auto;
+        min-width: 0;
+    }
+
+    .language-dropdown,
+    .theme-dropdown {
+        transform: translateY(-10px);
+    }
+
+    .language-dropdown.open,
+    .theme-dropdown.open {
+        transform: translateY(0);
+    }
+}
+
+/* Desde 1280px el navbar tiene 22px de padding a la derecha */
+@media (min-width: 1280px) {
+
+    .navbar-actions {
+        --navbar-pad: 22px;
+    }
+}
+
+/* =====================================================
+   SECCIÓN ACTIVA (scrollspy) — DORADO
+
+   Reemplaza TODO el bloque anterior "SECCIÓN ACTIVA (scrollspy)"
+   de navbar.css (desde ese comentario hasta el cierre de
+   `:host-context(.light-theme) .navigation-dropdown a.active`).
+   Pegalo en el mismo lugar.
+
+   · Sección ACTIVA → dorado, LED encendido a la izquierda y un
+     haz de luz que recorre el subrayado de punta a punta.
+   · HOVER en las demás → queda igual: celeste, › y subrayado
+     que crece con un punto brillante en la punta.
+===================================================== */
+
+
+/* ---------- COLOR DEL ACTIVO ---------- */
+
+.navigation-dropdown {
+    --activo-rgb: 255, 212, 90;          /* dorado brillante (tema oscuro) */
+}
+
+:host-context([data-theme="light"]) .navigation-dropdown,
+:host-context(.light-theme) .navigation-dropdown {
+    --activo-rgb: 166, 106, 0;           /* ámbar profundo (tema claro) */
+}
+
+
+/* ---------- MOBILE Y TABLET (menú hamburguesa) ---------- */
+
+.navigation-dropdown a.active,
+.navigation-dropdown a.active:hover {
+    color: rgb(var(--activo-rgb));
+    background: linear-gradient(
+        90deg,
+        rgba(var(--activo-rgb), .18),
+        rgba(var(--activo-rgb), .04)
+    );
+    box-shadow: inset 3px 0 0 rgb(var(--activo-rgb));
+}
+
+
+/* ---------- ESCRITORIO (menú horizontal) ---------- */
+
+@media (min-width: 1024px) {
+
+    /* Píldora dorada con aro fino y halo */
+    .navigation-dropdown a.active,
+    .navigation-dropdown a.active:hover,
+    .navigation-dropdown a.active:focus-visible {
+        color: rgb(var(--activo-rgb));
+
+        background:
+            radial-gradient(
+                120% 160% at 50% 120%,
+                rgba(var(--activo-rgb), .24),
+                transparent 70%
+            ),
+            linear-gradient(
+                180deg,
+                rgba(var(--activo-rgb), .10),
+                rgba(var(--activo-rgb), .03)
+            );
+
+        box-shadow:
+            inset 0 0 0 1px rgba(var(--activo-rgb), .32),
+            0 0 18px -4px rgba(var(--activo-rgb), calc(.6 * var(--glow-strength, 1)));
+
+        text-shadow: 0 0 10px rgba(var(--activo-rgb), calc(.55 * var(--glow-strength, 1)));
+
+        /* se "enciende" una vez al volverse la sección activa */
+        animation: navbar-activo-encendido .7s cubic-bezier(.2, .8, .2, 1) 1;
+    }
+
+    /* LED a la izquierda (reemplaza al › del hover) */
+    .navigation-dropdown a.active::before {
+        content: '';
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+
+        background: rgb(var(--activo-rgb));
+        box-shadow:
+            0 0 6px rgba(var(--activo-rgb), .95),
+            0 0 14px rgba(var(--activo-rgb), .55);
+
+        text-shadow: none;
+        opacity: 1;
+        transform: translate(0, -50%);
+
+        animation: navbar-activo-led 2.2s ease-in-out infinite;
+    }
+
+    /* Subrayado: haz de luz que viaja de punta a punta
+       (distinto al del hover, que crece desde la izquierda con un punto) */
+    .navigation-dropdown a.active::after {
+        left: var(--link-pad);
+        right: var(--link-pad);
+        bottom: 2px;
+        height: 2px;
+        border-radius: 2px;
+
+        background:
+            linear-gradient(
+                90deg,
+                transparent,
+                rgba(var(--activo-rgb), 1) 50%,
+                transparent
+            ) -70% 0 / 40% 100% no-repeat,
+            linear-gradient(
+                90deg,
+                transparent,
+                rgba(var(--activo-rgb), .5),
+                transparent
+            );
+
+        filter: drop-shadow(0 0 4px rgba(var(--activo-rgb), .85));
+        opacity: 1;
+
+        animation: navbar-activo-haz 2.6s ease-in-out infinite;
+    }
+
+    .navigation-dropdown a.active img,
+    .navigation-dropdown a.active:hover img {
+        filter: drop-shadow(0 0 5px rgba(var(--activo-rgb), .85));
+    }
+
+    /* Tema claro: sin brillo en el texto y halo más suave */
+    :host-context([data-theme="light"]) .navigation-dropdown a.active,
+    :host-context([data-theme="light"]) .navigation-dropdown a.active:hover,
+    :host-context(.light-theme) .navigation-dropdown a.active,
+    :host-context(.light-theme) .navigation-dropdown a.active:hover {
+        text-shadow: none;
+
+        background:
+            radial-gradient(
+                120% 160% at 50% 120%,
+                rgba(var(--activo-rgb), .20),
+                transparent 70%
+            ),
+            linear-gradient(
+                180deg,
+                rgba(var(--activo-rgb), .12),
+                rgba(var(--activo-rgb), .04)
+            );
+
+        box-shadow:
+            inset 0 0 0 1px rgba(var(--activo-rgb), .38),
+            0 4px 14px -6px rgba(var(--activo-rgb), .45);
+    }
+}
+
+
+/* ---------- ANIMACIONES ---------- */
+
+/* encendido único al activarse la sección */
+@keyframes navbar-activo-encendido {
+    0% {
+        filter: brightness(1.7);
+        transform: scale(1.07);
+    }
+    100% {
+        filter: brightness(1);
+        transform: scale(1);
+    }
+}
+
+/* LED que respira */
+@keyframes navbar-activo-led {
+    0%, 100% {
+        opacity: .65;
+        scale: .85;
+    }
+    50% {
+        opacity: 1;
+        scale: 1.3;
+    }
+}
+
+/* haz que recorre el subrayado */
+@keyframes navbar-activo-haz {
+    0% {
+        background-position: -70% 0, 0 0;
+    }
+    100% {
+        background-position: 170% 0, 0 0;
+    }
+}
+
+
+/* ---------- SIN MOVIMIENTO ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .navigation-dropdown a.active,
+    .navigation-dropdown a.active::before,
+    .navigation-dropdown a.active::after {
+        animation: none !important;
+    }
+
+    /* sin animación, el haz queda fijo en el centro */
+    .navigation-dropdown a.active::after {
+        background-position: 50% 0, 0 0;
+    }
+}
+
+/* =====================================================
+   DESPLEGABLES DE IDIOMA Y TEMA: DISEÑO A JUEGO CON EL CV
+===================================================== */
+
+.language-dropdown,
+.theme-dropdown {
+    /* Tema oscuro */
+    --d-b1: #38bdf8;
+    --d-b2: #818cf8;
+    --d-b3: #8b5cf6;
+    --d-fondo-a: rgba(30, 41, 59, .92);
+    --d-fondo-b: rgba(15, 23, 42, .96);
+    --d-brillo: rgba(255, 255, 255, .10);
+    --d-hover: rgba(56, 189, 248, .14);
+    --d-hover-texto: var(--color-tech);
+
+    border: none;
+    border-radius: 18px;
+    padding: 6px;
+
+    background:
+        radial-gradient(120% 80% at 50% -20%, var(--d-brillo), transparent 60%),
+        linear-gradient(145deg, var(--d-fondo-a), var(--d-fondo-b));
+
+    box-shadow:
+        0 18px 36px rgba(0, 0, 0, .35),
+        0 0 22px rgba(56, 189, 248, .12),
+        inset 0 1px 0 var(--d-brillo);
+}
+
+/* Borde degradado fino */
+.language-dropdown::before,
+.theme-dropdown::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 1.2px;
+    border-radius: inherit;
+    pointer-events: none;
+
+    background: linear-gradient(135deg, var(--d-b1), var(--d-b2), var(--d-b3));
+
+    -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+    mask-composite: exclude;
+}
+
+/* Opciones */
+.language-dropdown button,
+.theme-dropdown button {
+    position: relative;
+    z-index: 1;
+    border-radius: 13px;
+}
+
+.language-dropdown button:hover,
+.theme-dropdown button:hover,
+.language-dropdown button:focus-visible,
+.theme-dropdown button:focus-visible {
+    background: var(--d-hover);
+    color: var(--d-hover-texto);
+    box-shadow: inset 0 0 0 1px rgba(56, 189, 248, .25);
+}
+
+/* Tema claro */
+:host-context(.light-theme) .language-dropdown,
+:host-context(.light-theme) .theme-dropdown,
+:host-context(.light) .language-dropdown,
+:host-context(.light) .theme-dropdown,
+:host-context([data-theme="light"]) .language-dropdown,
+:host-context([data-theme="light"]) .theme-dropdown,
+:host-context([data-theme="claro"]) .language-dropdown,
+:host-context([data-theme="claro"]) .theme-dropdown {
+    --d-b1: #0284c7;
+    --d-b2: #4f46e5;
+    --d-b3: #7c3aed;
+    --d-fondo-a: #ffffff;
+    --d-fondo-b: #f0f9ff;
+    --d-brillo: rgba(255, 255, 255, .9);
+    --d-hover: #e0f2fe;
+    --d-hover-texto: #0369a1;
+
+    box-shadow:
+        0 16px 32px rgba(15, 23, 42, .16),
+        0 0 18px rgba(2, 132, 199, .10),
+        inset 0 1px 0 var(--d-brillo);
+}
+
+:host-context(.light-theme) .language-dropdown button:hover,
+:host-context(.light-theme) .theme-dropdown button:hover,
+:host-context(.light) .language-dropdown button:hover,
+:host-context(.light) .theme-dropdown button:hover,
+:host-context([data-theme="light"]) .language-dropdown button:hover,
+:host-context([data-theme="light"]) .theme-dropdown button:hover,
+:host-context([data-theme="claro"]) .language-dropdown button:hover,
+:host-context([data-theme="claro"]) .theme-dropdown button:hover {
+    text-shadow: none;
+    box-shadow: inset 0 0 0 1px rgba(2, 132, 199, .25);
+}
+
+/* =====================================================
+   NAVBAR: DISEÑO TECNOLÓGICO
+   Destello orbitando el borde + textura de puntos en el vidrio.
+   Reemplaza el destello único de carga por uno continuo y lento.
+===================================================== */
+
+@property --ang {
+    syntax: '<angle>';
+    inherits: false;
+    initial-value: 0deg;
+}
+
+@keyframes navbar-orbit {
+    to { --ang: 360deg; }
+}
+
+@media (min-width: 1024px) {
+
+    .navbar-container {
+        --punto: rgba(255, 255, 255, .07);   /* color de los puntos */
+        --orbita: 9s;                         /* velocidad de la vuelta */
+
+        /* Vidrio + malla de puntos finísima + luz suave arriba */
+        background:
+            radial-gradient(120% 140% at 50% -40%, rgba(var(--glow-rgb), .10), transparent 60%),
+            radial-gradient(circle at 1px 1px, var(--punto) 1px, transparent 1.4px) 0 0 / 14px 14px,
+            color-mix(in srgb, var(--navbar-background) var(--glass-alpha), transparent);
+
+        backdrop-filter: blur(20px) saturate(170%);
+        -webkit-backdrop-filter: blur(20px) saturate(170%);
+    }
+
+    /* Destello que recorre el borde, con un pequeño halo */
+    .navbar-container::after {
+        padding: 1.5px;
+        opacity: .9;
+        background: conic-gradient(
+            from var(--ang),
+            transparent 0deg,
+            transparent 235deg,
+            rgba(var(--glow-rgb), .55) 305deg,
+            rgba(var(--glow-rgb-2), .95) 335deg,
+            var(--sweep-core, #ffffff) 350deg,
+            transparent 360deg
+        );
+        filter: drop-shadow(0 0 5px rgba(var(--glow-rgb), calc(.7 * var(--glow-strength))));
+        animation: navbar-orbit var(--orbita) linear infinite;
+    }
+
+    /* Al hacer scroll el navbar se vuelve más sólido: el destello se aquieta un poco */
+    .navbar.scrolled .navbar-container::after {
+        opacity: .6;
+    }
+
+    /* Tema claro: puntos oscuros y destello más profundo */
+    :host-context(.light-theme) .navbar-container,
+    :host-context(.light) .navbar-container,
+    :host-context([data-theme="light"]) .navbar-container,
+    :host-context([data-theme="claro"]) .navbar-container {
+        --punto: rgba(15, 23, 42, .07);
+    }
+
+    :host-context(.light-theme) .navbar-container::after,
+    :host-context(.light) .navbar-container::after,
+    :host-context([data-theme="light"]) .navbar-container::after,
+    :host-context([data-theme="claro"]) .navbar-container::after {
+        --sweep-core: #0369a1;
+        opacity: .85;
+    }
+}
+
+/* Sin movimiento si el sistema lo pide */
+@media (min-width: 1024px) and (prefers-reduced-motion: reduce) {
+
+    .navbar-container::after {
+        animation: none;
+        opacity: .5;
+    }
+}
+
+/* =====================================================
+   NAVBAR: DISEÑO MINIMALISTA Y SIMÉTRICO (sin movimiento)
+===================================================== */
+
+@media (min-width: 1024px) {
+
+    .navbar-container {
+        --punto: rgba(255, 255, 255, .06);
+
+        background:
+            radial-gradient(70% 120% at 50% -40%, rgba(var(--glow-rgb), .10), transparent 65%),
+            radial-gradient(circle at 1px 1px, var(--punto) 1px, transparent 1.4px) 0 0 / 14px 14px,
+            color-mix(in srgb, var(--navbar-background) var(--glass-alpha), transparent);
+    }
+
+    /* Borde: brilla igual en ambos extremos y se suaviza en el centro */
+    .navbar-container::before {
+        background: linear-gradient(
+            90deg,
+            rgba(var(--glow-rgb), calc(.75 * var(--glow-strength))) 0%,
+            rgba(var(--glow-rgb), calc(.22 * var(--glow-strength))) 30%,
+            rgba(var(--glow-rgb), calc(.22 * var(--glow-strength))) 70%,
+            rgba(var(--glow-rgb), calc(.75 * var(--glow-strength))) 100%
+        );
+    }
+
+    /* Línea de luz fina arriba, centrada y simétrica (reemplaza al destello) */
+    .navbar-container::after {
+        inset: auto;
+        top: -1px;
+        left: 14%;
+        right: 14%;
+        height: 1px;
+        padding: 0;
+        -webkit-mask: none;
+        mask: none;
+        animation: none;
+        opacity: 1;
+        filter: none;
+        background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(var(--glow-rgb), calc(.9 * var(--glow-strength))),
+            transparent
+        );
+    }
+
+    :host-context(.light-theme) .navbar-container,
+    :host-context(.light) .navbar-container,
+    :host-context([data-theme="light"]) .navbar-container,
+    :host-context([data-theme="claro"]) .navbar-container {
+        --punto: rgba(15, 23, 42, .06);
+    }
+}
+
+/* =====================================================
+   DESPLEGABLES DE IDIOMA Y TEMA: MISMO DISEÑO QUE EL NAVBAR
+===================================================== */
+
+.language-dropdown,
+.theme-dropdown {
+    /* Tema oscuro (toma el color del navbar y tiene respaldo en mobile) */
+    --d-borde: var(--glow-rgb, 56, 189, 248);
+    --d-alpha: 88%;
+    --d-punto: rgba(255, 255, 255, .06);
+    --d-hover: rgba(56, 189, 248, .14);
+    --d-hover-texto: var(--color-tech);
+
+    border: none;
+    border-radius: 18px;
+    padding: 6px;
+
+    background:
+        radial-gradient(70% 120% at 50% -40%, rgba(var(--d-borde), .10), transparent 65%),
+        radial-gradient(circle at 1px 1px, var(--d-punto) 1px, transparent 1.4px) 0 0 / 14px 14px,
+        color-mix(in srgb, var(--color-surface) var(--d-alpha), transparent);
+
+    backdrop-filter: blur(20px) saturate(170%);
+    -webkit-backdrop-filter: blur(20px) saturate(170%);
+
+    box-shadow:
+        0 16px 32px rgba(0, 0, 0, .30),
+        0 10px 28px -14px rgba(var(--d-borde), .45),
+        inset 0 1px 0 rgba(255, 255, 255, .12);
+}
+
+/* Borde simétrico: brilla igual en ambos extremos */
+.language-dropdown::before,
+.theme-dropdown::before {
+    background: linear-gradient(
+        90deg,
+        rgba(var(--d-borde), .75) 0%,
+        rgba(var(--d-borde), .22) 30%,
+        rgba(var(--d-borde), .22) 70%,
+        rgba(var(--d-borde), .75) 100%
+    );
+}
+
+/* Línea de luz fina arriba, centrada */
+.language-dropdown::after,
+.theme-dropdown::after {
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: 14%;
+    right: 14%;
+    height: 1px;
+    pointer-events: none;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(var(--d-borde), .9),
+        transparent
+    );
+}
+
+/* Opciones */
+.language-dropdown button,
+.theme-dropdown button {
+    border-radius: 13px;
+}
+
+.language-dropdown button:hover,
+.theme-dropdown button:hover,
+.language-dropdown button:focus-visible,
+.theme-dropdown button:focus-visible {
+    background: var(--d-hover);
+    color: var(--d-hover-texto);
+    box-shadow: inset 0 0 0 1px rgba(var(--d-borde), .25);
+}
+
+/* Tema claro */
+:host-context(.light-theme) .language-dropdown,
+:host-context(.light-theme) .theme-dropdown,
+:host-context(.light) .language-dropdown,
+:host-context(.light) .theme-dropdown,
+:host-context([data-theme="light"]) .language-dropdown,
+:host-context([data-theme="light"]) .theme-dropdown,
+:host-context([data-theme="claro"]) .language-dropdown,
+:host-context([data-theme="claro"]) .theme-dropdown {
+    --d-borde: 2, 132, 199;
+    --d-alpha: 92%;
+    --d-punto: rgba(15, 23, 42, .06);
+    --d-hover: rgba(2, 132, 199, .12);
+    --d-hover-texto: #0369a1;
+
+    box-shadow:
+        0 14px 30px rgba(15, 23, 42, .14),
+        0 10px 28px -14px rgba(var(--d-borde), .35),
+        inset 0 1px 0 rgba(255, 255, 255, .8);
+}
+
+/* =====================================================
+   AJUSTES DE ÍCONOS
+   Cada bloque va en el archivo indicado, AL FINAL.
+   No hace falta borrar nada: van después y reemplazan.
+===================================================== */
+ 
+ 
+/* =====================================================
+   1) navbar.css  — ÍCONOS DEL MENÚ: MÁS NÍTIDOS Y OSCUROS EN TEMA CLARO
+   Los SVG nuevos (carpeta iconos-navbar) ya traen el trazo más grueso.
+===================================================== */
+ 
+/* un poco más grandes para que el trazo caiga en píxeles enteros */
+.navigation-dropdown img {
+    width: 20px;
+    height: 20px;
+}
+ 
+/* Tema claro: más oscuros y con más color */
+:host-context([data-theme="light"]) .navigation-dropdown img,
+:host-context(.light-theme) .navigation-dropdown img {
+    filter: brightness(.7) saturate(1.3) contrast(1.1);
+}
+ 
+/* hover (escritorio): conserva el oscurecimiento y suma el brillo */
+:host-context([data-theme="light"]) .navigation-dropdown a:hover img,
+:host-context([data-theme="light"]) .navigation-dropdown a:focus-visible img,
+:host-context(.light-theme) .navigation-dropdown a:hover img,
+:host-context(.light-theme) .navigation-dropdown a:focus-visible img {
+    filter:
+        brightness(.7) saturate(1.3) contrast(1.1)
+        drop-shadow(0 0 5px rgba(var(--glow-rgb), .55));
+}
+ 
+/* sección activa (dorado) */
+:host-context([data-theme="light"]) .navigation-dropdown a.active img,
+:host-context([data-theme="light"]) .navigation-dropdown a.active:hover img,
+:host-context(.light-theme) .navigation-dropdown a.active img,
+:host-context(.light-theme) .navigation-dropdown a.active:hover img {
+    filter:
+        brightness(.7) saturate(1.3) contrast(1.1)
+        drop-shadow(0 0 5px rgba(var(--activo-rgb), .6));
+}
+ 
+@media (max-width: 768px) {
+
+    :host-context(html[data-seccion="experiencia"]) .navbar {
+        /* ↓↓↓ VALOR PARA SUBIR / BAJAR EL NAVBAR EN LA SECCIÓN EXPERIENCIA
+               Negativo = el navbar sube (ej: -10px, -20px).
+               Positivo = el navbar baja (ej: 10px, 20px).
+               0px = queda como está. */
+        --navbar-experiencia-y: 0px;
+
+        margin-top: var(--navbar-experiencia-y) !important;
+        transition: margin-top .3s ease;
+    }
+}
+
+ 
+/* =====================================================================
+   PARTE D  →  pegar al FINAL de navbar.css
+   Navbar sobre el título en la sección PROYECTOS (igual que Experiencia)
+===================================================================== */
+ 
+@media (max-width: 768px) {
+ 
+    :host-context(html[data-seccion="proyectos"]) .navbar {
+        /* Negativo = el navbar sube. Positivo = baja. 0px = como está. */
+        --navbar-proyectos-y: 0px;
+ 
+        margin-top: var(--navbar-proyectos-y) !important;
+        transition: margin-top .3s ease;
+    }
+}
+ 
+
+/* =====================================================================
+   PARTE B  →  pegar al FINAL de navbar.css
+   Navbar sobre el título en la sección TECNOLOGÍAS (igual que en las demás)
+===================================================================== */
+ 
+@media (max-width: 768px) {
+ 
+    :host-context(html[data-seccion="tecnologias"]) .navbar {
+        /* Usá el MISMO número que pusiste en Experiencia y Proyectos.
+           Negativo = el navbar sube. Positivo = baja. 0px = como está. */
+        --navbar-tecnologias-y: 0px;
+ 
+        margin-top: var(--navbar-tecnologias-y) !important;
+        transition: margin-top .3s ease;
+    }
+}
+
+
+/* =====================================================================
+   PARTE B  →  pegar al FINAL de navbar.css
+   Navbar sobre el título en la sección FORMACIÓN (igual que en las demás)
+===================================================================== */
+ 
+@media (max-width: 768px) {
+ 
+    :host-context(html[data-seccion="formacion"]) .navbar {
+        /* Usá el MISMO número que pusiste en las otras secciones.
+           Negativo = el navbar sube. Positivo = baja. 0px = como está. */
+        --navbar-formacion-y: 0px;
+ 
+        margin-top: var(--navbar-formacion-y) !important;
+        transition: margin-top .3s ease;
+    }
+}
+ 
+/* =====================================================================
+   PARTE B  →  pegar al FINAL de navbar.css
+   Navbar sobre el título en la sección CERTIFICACIONES (igual que en las demás)
+===================================================================== */
+ 
+@media (max-width: 768px) {
+ 
+    :host-context(html[data-seccion="certificaciones"]) .navbar {
+        /* Usá el MISMO número que pusiste en las otras secciones.
+           Negativo = el navbar sube. Positivo = baja. 0px = como está. */
+        --navbar-certificaciones-y: 0px;
+ 
+        margin-top: var(--navbar-certificaciones-y) !important;
+        transition: margin-top .3s ease;
+    }
+}
+ 
+
+/* =====================================================================
+   PARTE B  →  pegar al FINAL de navbar.css
+   Navbar sobre el título en la sección SOBRE MÍ (igual que en las demás)
+===================================================================== */
+ 
+@media (max-width: 768px) {
+ 
+    :host-context(html[data-seccion="sobre-mi"]) .navbar {
+        /* Usá el MISMO número que pusiste en las otras secciones.
+           Negativo = el navbar sube. Positivo = baja. 0px = como está. */
+        --navbar-sobre-mi-y: 0px;
+ 
+        margin-top: var(--navbar-sobre-mi-y) !important;
+        transition: margin-top .3s ease;
+    }
+}
+ 
+
+/* =====================================================================
+   PARTE B  →  pegar al FINAL de navbar.css
+   Navbar sobre el título en la sección CONTACTO (igual que en las demás)
+===================================================================== */
+ 
+@media (max-width: 768px) {
+ 
+    :host-context(html[data-seccion="contacto"]) .navbar {
+        /* Usá el MISMO número que pusiste en las otras secciones.
+           Negativo = el navbar sube. Positivo = baja. 0px = como está. */
+        --navbar-contacto-y: 0px;
+ 
+        margin-top: var(--navbar-contacto-y) !important;
+        transition: margin-top .3s ease;
+    }
+}

@@ -1,0 +1,1200 @@
+/* =====================================================
+   TECNOLOGÍAS
+===================================================== */
+
+.tecnologias {
+    position: relative;
+    width: 100%;
+    min-height: 100svh;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    /* deja el navbar arriba y el título un poco más abajo */
+    padding: calc(var(--navbar-height) + 30px) 20px 60px;
+
+    box-sizing: border-box;
+}
+
+
+/* =====================================================
+   CONTENEDOR
+===================================================== */
+
+.tecnologias-container {
+    width: 100%;
+    max-width: 1050px;
+    margin: 0 auto;
+}
+
+
+/* =====================================================
+   ENCABEZADO
+===================================================== */
+
+.tecnologias-header {
+    margin-bottom: 30px;
+}
+
+.tecnologias .section-title {
+    margin: 0;
+
+    font-family: var(--font-heading);
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    line-height: 1.1;
+    letter-spacing: -.5px;
+
+    text-align: center;
+}
+
+.section-title-icon {
+    width: 30px;
+    height: 30px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    flex: 0 0 30px;
+}
+
+.section-title-icon img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+}
+
+.dark-theme {
+    /* TECNOLOGÍAS */
+    --tecnologias-title: #ffffff;
+    --tecnologias-text: #e5e7eb;
+}
+
+/* LÍNEA DECORATIVA */
+
+.tecnologias .section-title::after {
+    content: "";
+    display: block;
+
+    width: 75px;
+    height: 2px;
+    margin: 18px auto 0;
+    border-radius: 999px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--color-tech),
+        rgba(212, 175, 55, .9),
+        transparent
+    );
+
+    box-shadow: 0 0 12px rgba(56, 189, 248, .25);
+}
+
+
+/* =====================================================
+   GRID DE TARJETAS
+===================================================== */
+
+.tecnologias-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+}
+
+
+/* =====================================================
+   TARJETA
+===================================================== */
+
+.tecnologia-card {
+    position: relative;
+
+    padding: 16px 18px 18px;
+    border-radius: 14px;
+
+    background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, .04),
+        rgba(255, 255, 255, .015)
+    );
+
+    border: 1px solid rgba(56, 189, 248, .12);
+    box-shadow: 0 14px 40px rgba(0, 0, 0, .2);
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    overflow: hidden;
+
+    transition:
+        transform .3s ease,
+        border-color .3s ease,
+        box-shadow .3s ease;
+}
+
+/* línea de acento superior */
+.tecnologia-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--color-tech) 30%,
+        rgba(212, 175, 55, .8) 70%,
+        transparent
+    );
+
+    opacity: .55;
+    pointer-events: none;
+
+    transition: opacity .3s ease;
+}
+
+/* grilla técnica muy sutil */
+.tecnologia-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        linear-gradient(rgba(56, 189, 248, .03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(56, 189, 248, .03) 1px, transparent 1px);
+    background-size: 28px 28px;
+
+    -webkit-mask-image: radial-gradient(ellipse at top right, #000, transparent 65%);
+            mask-image: radial-gradient(ellipse at top right, #000, transparent 65%);
+
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   HOVER TARJETA
+===================================================== */
+
+.tecnologia-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(56, 189, 248, .32);
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, .28),
+        0 0 26px rgba(56, 189, 248, .07);
+}
+
+.tecnologia-card:hover::before {
+    opacity: 1;
+}
+
+
+/* =====================================================
+   TÍTULO DE CATEGORÍA
+===================================================== */
+
+.tecnologia-card h3 {
+    position: relative;
+    z-index: 1;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    margin: 0 0 12px;
+
+    font-family: var(--font-heading);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+
+    color: var(--color-gold);
+}
+
+/* punto indicador */
+.tecnologia-card h3::before {
+    content: "";
+    flex-shrink: 0;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--color-tech);
+    box-shadow: 0 0 8px rgba(56, 189, 248, .6);
+}
+
+
+/* =====================================================
+   LISTA
+===================================================== */
+
+.tecnologia-lista {
+    position: relative;
+    z-index: 1;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+}
+
+
+/* =====================================================
+   TECNOLOGÍA INDIVIDUAL
+===================================================== */
+
+.tecnologia-item {
+    position: relative;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+
+    padding: 6px 10px;
+    border-radius: 8px;
+
+    background: rgba(56, 189, 248, .04);
+    border: 1px solid rgba(56, 189, 248, .13);
+
+    font-family: var(--font-primary);
+    font-size: 12px;
+    font-weight: 600;
+
+    color: var(--color-text-secondary);
+    white-space: nowrap;
+
+    transition:
+        transform .25s ease,
+        border-color .25s ease,
+        background .25s ease,
+        color .25s ease;
+}
+
+.tecnologia-item:hover {
+    transform: translateY(-2px);
+
+    border-color: rgba(56, 189, 248, .4);
+    background: rgba(56, 189, 248, .09);
+
+    color: var(--color-text);
+}
+
+
+/* =====================================================
+   ICONOS
+===================================================== */
+
+.tecnologia-item img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    flex-shrink: 0;
+
+    transition: transform .25s ease;
+}
+
+.tecnologia-item:hover img {
+    transform: scale(1.08);
+}
+
+/* ICONOS ESPECÍFICOS */
+.tecnologia-item img[alt="MySQL"],
+.tecnologia-item img[alt="Oracle"] {
+    width: 50px;
+    height: 26px;
+}
+
+.tecnologia-item img[alt="Angular"] {
+    width: 60px;
+    height: 26px;
+}
+
+
+/* =====================================================
+   MODO CLARO
+===================================================== */
+
+:root[data-theme="light"] .tecnologia-card {
+    background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, .85),
+        rgba(248, 250, 252, .7)
+    );
+
+    border-color: rgba(14, 116, 144, .14);
+
+    box-shadow:
+        0 14px 36px rgba(15, 23, 42, .09),
+        inset 0 1px 0 rgba(255, 255, 255, .9);
+}
+
+:root[data-theme="light"] .tecnologia-card:hover {
+    border-color: rgba(14, 116, 144, .32);
+
+    box-shadow:
+        0 20px 46px rgba(15, 23, 42, .15),
+        0 0 22px rgba(56, 189, 248, .10);
+}
+
+:root[data-theme="light"] .tecnologia-card::after {
+    background-image:
+        linear-gradient(rgba(14, 116, 144, .05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(14, 116, 144, .05) 1px, transparent 1px);
+}
+
+:root[data-theme="light"] .tecnologia-item {
+    background: rgba(14, 116, 144, .04);
+    border-color: rgba(14, 116, 144, .13);
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 768px) {
+
+    .tecnologias {
+        padding: calc(var(--navbar-height) + 28px) 15px 50px;
+    }
+
+    .tecnologias-header {
+        margin-bottom: 24px;
+    }
+
+    .tecnologias-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .tecnologia-card {
+        padding: 14px 13px 15px;
+        border-radius: 12px;
+    }
+
+    .tecnologia-card h3 {
+        font-size: 12px;
+        margin-bottom: 10px;
+    }
+
+    .tecnologia-lista {
+        gap: 6px;
+    }
+
+    .tecnologia-item {
+        padding: 5px 8px;
+        font-size: 11px;
+        gap: 5px;
+    }
+
+    .tecnologia-item img {
+        width: 18px;
+        height: 18px;
+    }
+
+    .tecnologia-item img[alt="MySQL"],
+    .tecnologia-item img[alt="Oracle"] {
+        width: 44px;
+        height: 22px;
+    }
+
+    .tecnologia-item img[alt="Angular"] {
+        width: 52px;
+        height: 22px;
+    }
+}
+
+
+/* =====================================================
+   MOBILE PEQUEÑO
+===================================================== */
+
+@media (max-width: 480px) {
+
+    .tecnologias {
+        padding: calc(var(--navbar-height) + 24px) 12px 40px;
+    }
+
+    .tecnologias-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* =====================================================
+   ANCLA
+===================================================== */
+
+#tecnologias {
+    /* el padding de .tecnologias ya compensa el navbar */
+    scroll-margin-top: 0;
+}
+
+/* =====================================================
+   CÁPSULAS DE TECNOLOGÍAS — DISEÑO MEJORADO
+   Pegar AL FINAL de tecnologias.css (no hace falta borrar
+   nada: estas reglas van después y reemplazan a las anteriores).
+
+   · Vidrio con brillo suave arriba
+   · Borde fino degradado: celeste → dorado
+   · Ícono con sombra y destello al pasar el mouse
+   · Hover: sube, se ilumina y cruza un reflejo diagonal
+===================================================== */
+
+
+/* ---------- CÁPSULA ---------- */
+
+.tecnologia-item {
+    /* color de acento de la cápsula (RGB) */
+    --t-rgb: 56, 189, 248;
+
+    position: relative;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 7px 12px 7px 10px;
+    border-radius: 11px;
+
+    /* el borde real lo dibuja el ::before (degradado) */
+    border: 1px solid transparent;
+
+    background:
+        radial-gradient(
+            100% 150% at 50% -45%,
+            rgba(var(--t-rgb), .16),
+            transparent 70%
+        ),
+        linear-gradient(
+            160deg,
+            rgba(var(--t-rgb), .07),
+            rgba(212, 175, 55, .035)
+        );
+
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, .16),
+        inset 0 1px 0 rgba(255, 255, 255, .08);
+
+    font-family: var(--font-primary);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .2px;
+
+    color: var(--color-text-secondary);
+    white-space: nowrap;
+
+    transition:
+        transform .3s cubic-bezier(.2, .8, .2, 1),
+        box-shadow .3s ease,
+        background .3s ease,
+        color .25s ease;
+}
+
+
+/* Borde fino degradado */
+.tecnologia-item::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    padding: 1px;
+    border-radius: inherit;
+    pointer-events: none;
+
+    background: linear-gradient(
+        150deg,
+        rgba(var(--t-rgb), .50),
+        rgba(var(--t-rgb), .12) 45%,
+        rgba(212, 175, 55, .40)
+    );
+
+    -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+    mask-composite: exclude;
+
+    opacity: .85;
+    transition: opacity .3s ease;
+}
+
+
+/* Reflejo diagonal que cruza la cápsula en hover */
+.tecnologia-item::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+
+    background: linear-gradient(
+        110deg,
+        transparent 35%,
+        rgba(255, 255, 255, .22) 50%,
+        transparent 65%
+    );
+    background-size: 250% 100%;
+    background-position: 130% 0;
+
+    transition: background-position .7s ease;
+}
+
+
+/* ---------- ÍCONO ---------- */
+
+.tecnologia-item img {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    object-fit: contain;
+
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, .3));
+
+    transition:
+        transform .3s cubic-bezier(.2, .8, .2, 1),
+        filter .3s ease;
+}
+
+/* logos anchos: se mantienen sus medidas */
+.tecnologia-item img[alt="MySQL"],
+.tecnologia-item img[alt="Oracle"] {
+    width: 50px;
+    height: 26px;
+}
+
+.tecnologia-item img[alt="Angular"] {
+    width: 60px;
+    height: 26px;
+}
+
+
+/* ---------- HOVER ---------- */
+
+.tecnologia-item:hover {
+    transform: translateY(-3px);
+
+    background:
+        radial-gradient(
+            100% 150% at 50% -45%,
+            rgba(var(--t-rgb), .26),
+            transparent 70%
+        ),
+        linear-gradient(
+            160deg,
+            rgba(var(--t-rgb), .13),
+            rgba(212, 175, 55, .06)
+        );
+
+    box-shadow:
+        0 10px 20px rgba(0, 0, 0, .24),
+        0 0 18px rgba(var(--t-rgb), .24),
+        inset 0 1px 0 rgba(255, 255, 255, .14);
+
+    color: var(--color-text);
+}
+
+.tecnologia-item:hover::before {
+    opacity: 1;
+}
+
+.tecnologia-item:hover::after {
+    background-position: -30% 0;
+}
+
+.tecnologia-item:hover img {
+    transform: scale(1.12);
+    filter: drop-shadow(0 0 7px rgba(var(--t-rgb), .6));
+}
+
+
+/* ---------- MODO CLARO ---------- */
+
+:root[data-theme="light"] .tecnologia-item {
+    --t-rgb: 2, 132, 199;
+
+    background:
+        radial-gradient(
+            100% 150% at 50% -45%,
+            rgba(255, 255, 255, .95),
+            transparent 70%
+        ),
+        linear-gradient(160deg, #ffffff, #f0f9ff);
+
+    border-color: transparent;
+
+    box-shadow:
+        0 4px 12px rgba(15, 23, 42, .08),
+        inset 0 1px 0 rgba(255, 255, 255, .9);
+}
+
+:root[data-theme="light"] .tecnologia-item img {
+    filter: drop-shadow(0 2px 3px rgba(15, 23, 42, .2));
+}
+
+:root[data-theme="light"] .tecnologia-item::after {
+    background: linear-gradient(
+        110deg,
+        transparent 35%,
+        rgba(2, 132, 199, .14) 50%,
+        transparent 65%
+    );
+    background-size: 250% 100%;
+    background-position: 130% 0;
+}
+
+:root[data-theme="light"] .tecnologia-item:hover {
+    background:
+        radial-gradient(
+            100% 150% at 50% -45%,
+            rgba(255, 255, 255, 1),
+            transparent 70%
+        ),
+        linear-gradient(160deg, #f0f9ff, #e0f2fe);
+
+    box-shadow:
+        0 10px 20px rgba(15, 23, 42, .14),
+        0 0 16px rgba(var(--t-rgb), .18),
+        inset 0 1px 0 rgba(255, 255, 255, .95);
+
+    color: #0369a1;
+}
+
+:root[data-theme="light"] .tecnologia-item:hover::after {
+    background-position: -30% 0;
+}
+
+:root[data-theme="light"] .tecnologia-item:hover img {
+    filter: drop-shadow(0 0 6px rgba(var(--t-rgb), .45));
+}
+
+
+/* ---------- CELULAR ---------- */
+
+@media (max-width: 768px) {
+
+    .tecnologia-item {
+        padding: 6px 10px 6px 8px;
+        gap: 6px;
+        border-radius: 10px;
+        font-size: 11px;
+    }
+
+    .tecnologia-item img {
+        width: 18px;
+        height: 18px;
+    }
+
+    .tecnologia-item img[alt="MySQL"],
+    .tecnologia-item img[alt="Oracle"] {
+        width: 44px;
+        height: 22px;
+    }
+
+    .tecnologia-item img[alt="Angular"] {
+        width: 52px;
+        height: 22px;
+    }
+}
+
+
+/* ---------- SIN MOVIMIENTO ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .tecnologia-item,
+    .tecnologia-item::before,
+    .tecnologia-item::after,
+    .tecnologia-item img {
+        transition: none;
+    }
+
+    .tecnologia-item:hover,
+    .tecnologia-item:hover img {
+        transform: none;
+    }
+}
+
+
+/* =====================================================
+   2) tecnologias.css — IA MÁS OSCURA (TEMA CLARO) Y MYSQL MÁS GRANDE
+===================================================== */
+ 
+/* MySQL más grande (Oracle queda como estaba) */
+.tecnologia-item img[alt="MySQL"] {
+    width: 68px;
+    height: 35px;
+}
+ 
+@media (max-width: 768px) {
+    .tecnologia-item img[alt="MySQL"] {
+        width: 58px;
+        height: 30px;
+    }
+}
+ 
+/* Inteligencia Artificial: más oscura y con más color en tema claro */
+:root[data-theme="light"] .tecnologia-item img[alt="Inteligencia Artificial"] {
+    filter:
+        brightness(.68) saturate(1.5) contrast(1.1)
+        drop-shadow(0 2px 3px rgba(15, 23, 42, .2));
+}
+ 
+:root[data-theme="light"] .tecnologia-item:hover img[alt="Inteligencia Artificial"] {
+    filter:
+        brightness(.68) saturate(1.5) contrast(1.1)
+        drop-shadow(0 0 6px rgba(var(--t-rgb), .45));
+}
+ 
+ 
+/* =====================================================
+   3) experiencia.css — (si MySQL e IA también aparecen ahí)
+===================================================== */
+ 
+/* MySQL más grande: ocupa casi todo el ancho de la tarjeta */
+.tecnologia img[alt="MySQL"] {
+    width: calc(var(--tec-icono) * 1.9);
+}
+ 
+/* Inteligencia Artificial más oscura en tema claro */
+:root[data-theme="light"] .tecnologia img[alt="Inteligencia Artificial"] {
+    filter:
+        brightness(.68) saturate(1.5) contrast(1.1)
+        drop-shadow(0 3px 6px rgba(15, 23, 42, .18));
+}
+ 
+:root[data-theme="light"] .tecnologia:hover img[alt="Inteligencia Artificial"] {
+    filter:
+        brightness(.68) saturate(1.5) contrast(1.1)
+        drop-shadow(0 0 8px rgba(var(--t-rgb), .45));
+}
+ 
+/* =====================================================================
+   TECNOLOGÍAS: AJUSTES
+   Pegar AL FINAL de tecnologias.css (después de todo lo anterior).
+===================================================================== */
+
+
+/* ---------- TAMAÑOS DE ÍCONO (se pueden tocar acá) ----------
+   --ico       : alto de TODOS los íconos (igual para todas las cápsulas)
+   --logo-max  : ancho máximo de los logos anchos (MySQL, Oracle, Angular...)
+                 Si algún logo se ve muy chico, subí este número. */
+
+.tecnologias {
+    --ico: 20px;
+    --logo-max: 44px;
+}
+
+@media (max-width: 768px) {
+    .tecnologias {
+        --ico: 18px;
+        --logo-max: 40px;
+    }
+}
+
+
+/* ---------- CÁPSULAS: todas del mismo alto, ícono pegado al texto ---------- */
+
+.tecnologias .tecnologia-item {
+    box-sizing: border-box;
+    min-height: 34px;
+    gap: 6px;
+    padding: 5px 12px 5px 9px;
+    line-height: 1.2;
+}
+
+.tecnologias .tecnologia-item img {
+    width: var(--ico);
+    height: var(--ico);
+    object-fit: contain;
+}
+
+/* Logos de MySQL, PostgreSQL, Oracle y Angular: mismo alto que los demás,
+   y el ancho se ajusta al dibujo (sin espacio vacío entre ícono y texto) */
+.tecnologias .tecnologia-item img[alt="MySQL"],
+.tecnologias .tecnologia-item img[alt="PostgreSQL"],
+.tecnologias .tecnologia-item img[alt="Oracle"],
+.tecnologias .tecnologia-item img[alt="Angular"] {
+    width: auto;
+    height: var(--ico);
+    max-width: var(--logo-max);
+    object-fit: contain;
+}
+
+@media (max-width: 768px) {
+
+    .tecnologias .tecnologia-item {
+        min-height: 30px;
+        gap: 5px;
+        padding: 4px 10px 4px 8px;
+    }
+}
+
+
+/* ---------- CELULAR: 2 TARJETAS POR LÍNEA ---------- */
+
+@media (max-width: 480px) {
+
+    .tecnologias .tecnologias-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+    }
+
+    .tecnologias .tecnologia-card {
+        padding: 12px 10px 13px;
+    }
+
+    .tecnologias .tecnologia-card h3 {
+        font-size: 11px;
+        letter-spacing: .6px;
+        margin-bottom: 9px;
+    }
+
+    .tecnologias .tecnologia-lista {
+        gap: 5px;
+    }
+
+    /* los nombres largos bajan de línea en vez de cortarse */
+    .tecnologias .tecnologia-item {
+        max-width: 100%;
+        white-space: normal;
+        font-size: 10.5px;
+    }
+}
+
+
+/* ---------- ÍCONO DE IA: más oscuro en tema claro (conserva sus colores) ----------
+   --ia-brillo: más chico = más oscuro (.55 es oscuro; .4 muy oscuro; .8 apenas) */
+
+:root[data-theme="light"] .tecnologias {
+    --ia-brillo: .55;
+}
+
+:root[data-theme="light"] .tecnologias .tecnologia-item img[alt="Inteligencia Artificial"],
+:root[data-theme="light"] .tecnologias .tecnologia-item img[alt="Artificial Intelligence"],
+:root[data-theme="light"] .tecnologias .tecnologia-item img[alt="IA"],
+:root[data-theme="light"] .tecnologias .tecnologia-item img[alt="AI"],
+:root[data-theme="light"] .tecnologias .tecnologia-item img[src*="/ai."],
+:root[data-theme="light"] .tecnologias .tecnologia-item img[src*="/ia."],
+:root[data-theme="light"] .tecnologias .tecnologia-item img[src*="artificial" i] {
+    filter:
+        brightness(var(--ia-brillo, .55)) saturate(1.8) contrast(1.1)
+        drop-shadow(0 2px 3px rgba(15, 23, 42, .25));
+}
+
+:root[data-theme="light"] .tecnologias .tecnologia-item:hover img[alt="Inteligencia Artificial"],
+:root[data-theme="light"] .tecnologias .tecnologia-item:hover img[alt="Artificial Intelligence"],
+:root[data-theme="light"] .tecnologias .tecnologia-item:hover img[alt="IA"],
+:root[data-theme="light"] .tecnologias .tecnologia-item:hover img[alt="AI"],
+:root[data-theme="light"] .tecnologias .tecnologia-item:hover img[src*="/ai."],
+:root[data-theme="light"] .tecnologias .tecnologia-item:hover img[src*="/ia."],
+:root[data-theme="light"] .tecnologias .tecnologia-item:hover img[src*="artificial" i] {
+    filter:
+        brightness(var(--ia-brillo, .55)) saturate(1.8) contrast(1.1)
+        drop-shadow(0 0 6px rgba(var(--t-rgb), .45));
+}
+
+
+/* ---------- VIÑETA CIRCULAR DE CADA CATEGORÍA: pulso suave y constante ---------- */
+
+.tecnologia-card h3::before {
+    animation: tecnologiaPulso 2.4s ease-in-out infinite;
+}
+
+@keyframes tecnologiaPulso {
+    0%, 100% {
+        transform: scale(.85);
+        opacity: .55;
+        box-shadow: 0 0 4px rgba(56, 189, 248, .35);
+    }
+    50% {
+        transform: scale(1.25);
+        opacity: 1;
+        box-shadow: 0 0 10px rgba(56, 189, 248, .85);
+    }
+}
+
+/* Cada tarjeta late en un momento distinto (se ve más natural) */
+.tecnologia-card:nth-child(2) h3::before { animation-delay: -.4s; }
+.tecnologia-card:nth-child(3) h3::before { animation-delay: -.8s; }
+.tecnologia-card:nth-child(4) h3::before { animation-delay: -1.2s; }
+.tecnologia-card:nth-child(5) h3::before { animation-delay: -1.6s; }
+.tecnologia-card:nth-child(6) h3::before { animation-delay: -2.0s; }
+
+@media (prefers-reduced-motion: reduce) {
+    .tecnologia-card h3::before {
+        animation: none;
+    }
+}
+
+
+/* =====================================================================
+   PARTE A  →  pegar al FINAL de tecnologias.css
+===================================================================== */
+ 
+/* ---------- Navbar por encima del título de la sección ---------- */
+#tecnologias.tecnologias {
+    position: relative;
+    z-index: 0;
+    isolation: isolate;
+}
+ 
+ 
+/* ---------- Tarjetas 1, 2 y 3 (Frontend, Backend y la tercera):
+              2 tecnologías por línea, una debajo de otra ---------- */
+ 
+@media (max-width: 768px) {
+ 
+    .tecnologias .tecnologia-card:nth-child(-n+3) .tecnologia-lista {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 5px;
+    }
+ 
+    .tecnologias .tecnologia-card:nth-child(-n+3) .tecnologia-item {
+        display: flex;
+        justify-content: flex-start;
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+    }
+}
+ 
+/* En celulares angostos las cápsulas se compactan para que entren de a dos */
+@media (max-width: 480px) {
+ 
+    .tecnologias .tecnologia-card:nth-child(-n+3) {
+        --ico: 16px;
+        --logo-max: 22px;   /* ancho máximo de los logos anchos (ej: Angular) */
+ 
+        padding: 10px 8px 11px;
+    }
+ 
+    .tecnologias .tecnologia-card:nth-child(-n+3) .tecnologia-item {
+        gap: 4px;
+        padding: 4px 5px;
+        font-size: clamp(9px, 2.3vw, 11px);
+        letter-spacing: 0;
+        white-space: normal;       /* los nombres con espacio pueden bajar de línea */
+    }
+}
+ 
+@media (max-width: 768px) {
+
+    #tecnologias.tecnologias {
+        /* ↓↓↓ ÚNICO VALOR QUE TENÉS QUE TOCAR
+               Más chico (ej: -30px) = todo el contenido sube.
+               Más grande (ej: 60px) = todo el contenido baja. */
+        --tecnologias-subir-bajar: 28px;
+
+        padding-top: calc(var(--navbar-height, 70px) + var(--tecnologias-subir-bajar)) !important;
+
+        /* arranca desde arriba, para que el valor mueva todo exacto */
+        align-items: flex-start !important;
+    }
+}
+
+/* SAP y Angular: cápsula ajustada al contenido (solo responsive) */
+@media (max-width: 768px) {
+
+    .tecnologias .tecnologia-card .tecnologia-item:has(img[alt="SAP"]),
+    .tecnologias .tecnologia-card .tecnologia-item:has(img[alt="Angular"]) {
+        display: inline-flex;
+        width: fit-content;
+        justify-self: start;
+        white-space: nowrap;
+    }
+
+    .tecnologias .tecnologia-card .tecnologia-item img[alt="SAP"],
+    .tecnologias .tecnologia-card .tecnologia-item img[alt="Angular"] {
+        width: auto;
+        height: var(--ico);
+        max-width: 38px;
+        object-fit: contain;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .tecnologias .tecnologia-card .tecnologia-item img[alt="SAP"],
+    .tecnologias .tecnologia-card .tecnologia-item img[alt="Angular"] {
+        max-width: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    /* 1) Angular: la cápsula abarca ícono + texto. Ocupa la fila completa,
+          así el texto nunca se sale de la cápsula. */
+    .tecnologias .tecnologia-card .tecnologia-item:has(img[alt="Angular"]) {
+        grid-column: 1 / -1;
+        width: fit-content;
+        max-width: 100%;
+        white-space: nowrap;
+    }
+
+    .tecnologias .tecnologia-card .tecnologia-item img[alt="Angular"] {
+        flex-shrink: 0;
+    }
+
+    /* 2) ProjectLibre: el logo se ve más grande por dentro, pero la cápsula
+          mantiene su mismo tamaño (el zoom no empuja el layout).
+          Subí o bajá --pl-zoom para ajustarlo (1 = tamaño actual). */
+    .tecnologias .tecnologia-item {
+        --pl-zoom: 1.35;
+    }
+
+    .tecnologias .tecnologia-item img[alt="ProjectLibre"],
+    .tecnologias .tecnologia-item img[src*="projectlibre" i] {
+        transform: translateX(-3px) scale(var(--pl-zoom));
+    }
+
+    .tecnologias .tecnologia-item:hover img[alt="ProjectLibre"],
+    .tecnologias .tecnologia-item:hover img[src*="projectlibre" i] {
+        transform: translateX(-3px) scale(calc(var(--pl-zoom) * 1.08));
+    }
+}
+
+@media (max-width: 768px) {
+
+    /* HTML5, CSS3, Node.js, Python, PHP, COBOL e IA:
+       la cápsula termina justo donde termina el texto */
+    .tecnologias .tecnologia-card .tecnologia-item:has(img[alt="HTML5" i]),
+    .tecnologias .tecnologia-card .tecnologia-item:has(img[alt="CSS3" i]),
+    .tecnologias .tecnologia-card .tecnologia-item:has(img[alt="Node.js" i]),
+    .tecnologias .tecnologia-card .tecnologia-item:has(img[alt="Python" i]),
+    .tecnologias .tecnologia-card .tecnologia-item:has(img[alt="PHP" i]),
+    .tecnologias .tecnologia-card .tecnologia-item:has(img[alt="COBOL" i]),
+    .tecnologias .tecnologia-card .tecnologia-item:has(img[alt="Inteligencia Artificial" i]),
+    .tecnologias .tecnologia-card .tecnologia-item:has(img[alt="AI" i]),
+    .tecnologias .tecnologia-card .tecnologia-item:has(img[alt="IA" i]) {
+        width: fit-content;
+        min-width: 0;
+        max-width: 100%;
+        justify-self: start;
+        flex: 0 0 auto;
+        white-space: nowrap;
+        padding-right: 8px;
+    }
+
+    /* ProjectLibre: logo más grande por dentro, cápsula del mismo tamaño */
+    .tecnologias .tecnologia-card .tecnologia-item {
+        --pl-zoom: 1.6;
+    }
+
+    .tecnologias .tecnologia-card .tecnologia-item img[alt="ProjectLibre" i],
+    .tecnologias .tecnologia-card .tecnologia-item img[src*="projectlibre" i] {
+        transform: scale(var(--pl-zoom));
+        transform-origin: left center;
+    }
+
+    .tecnologias .tecnologia-card .tecnologia-item:hover img[alt="ProjectLibre" i],
+    .tecnologias .tecnologia-card .tecnologia-item:hover img[src*="projectlibre" i] {
+        transform: scale(calc(var(--pl-zoom) * 1.06));
+    }
+}
+
+@media (max-width: 768px) {
+
+    /* Tarjetas 1 y 2 (Frontend y Backend): 2 tecnologías por línea */
+    .tecnologias .tecnologias-grid .tecnologia-card:nth-child(-n+2) .tecnologia-lista {
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+        justify-content: start;
+        align-items: start;
+        column-gap: 3px;
+        row-gap: 5px;
+    }
+
+    .tecnologias .tecnologias-grid .tecnologia-card:nth-child(-n+2) .tecnologia-item {
+        justify-self: start;
+        width: fit-content;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+
+    /* Tarjetas 1 y 2: 2 cápsulas por línea, pegadas entre sí.
+       Cada cápsula mide lo que su contenido; ya no hay columnas de ancho fijo. */
+    .tecnologias .tecnologias-grid .tecnologia-card:nth-child(-n+2) .tecnologia-lista {
+        display: flow-root;
+    }
+
+    .tecnologias .tecnologias-grid .tecnologia-card:nth-child(-n+2) .tecnologia-item {
+        float: left;
+        width: fit-content;
+        max-width: 100%;
+        margin: 0 3px 5px 0;   /* 3px entre cápsulas de la misma línea, 5px entre líneas */
+    }
+
+    /* la primera de cada pareja siempre abre línea nueva */
+    .tecnologias .tecnologias-grid .tecnologia-card:nth-child(-n+2) .tecnologia-item:nth-child(odd) {
+        clear: left;
+    }
+}
+
+@media (max-width: 768px) {
+
+    /* Tarjeta Frontend: máximo 2 cápsulas por línea, lo más pegadas posible */
+    .tecnologias .tecnologias-grid .tecnologia-card:first-child .tecnologia-lista {
+        display: flow-root !important;
+    }
+
+    .tecnologias .tecnologias-grid .tecnologia-card:first-child .tecnologia-item {
+        display: inline-flex !important;
+        float: left !important;
+        clear: none !important;
+
+        width: fit-content !important;
+        min-width: 0 !important;
+        max-width: 100% !important;
+
+        margin: 0 2px 5px 0 !important;   /* 2px entre cápsulas, 5px entre líneas */
+    }
+
+    /* la 1.ª, 3.ª, 5.ª... abren línea nueva, así nunca hay más de 2 por línea */
+    .tecnologias .tecnologias-grid .tecnologia-card:first-child .tecnologia-item:nth-child(odd) {
+        clear: left !important;
+    }
+}
+
+/* Tarjeta Frontend: la primera cápsula nace justo debajo de la viñeta (desktop y responsive) */
+
+.tecnologias .tecnologias-grid .tecnologia-card:first-child {
+    /* ↓ único valor a tocar: mueve la lista hacia la derecha (+) o izquierda (-)
+         respecto de la viñeta. 0px = borde izquierdo de la cápsula
+         alineado con el borde izquierdo de la viñeta. */
+    --alinear-izq: 0px;
+}
+
+.tecnologias .tecnologias-grid .tecnologia-card:first-child .tecnologia-lista {
+    margin: 0 !important;
+    padding: 0 !important;
+    text-indent: 0 !important;
+    justify-content: flex-start !important;
+    justify-items: start !important;
+    transform: translateX(var(--alinear-izq));
+}
+
+.tecnologias .tecnologias-grid .tecnologia-card:first-child .tecnologia-item:nth-child(odd) {
+    margin-left: 0 !important;
+}
+
+@media (min-width: 769px) {
+
+    /* Angular abre su propia línea y TypeScript baja justo debajo,
+       con el mismo borde izquierdo */
+    .tecnologias .tecnologias-grid .tecnologia-card:first-child .tecnologia-item:has(+ .tecnologia-item img[alt="Angular" i]),
+    .tecnologias .tecnologias-grid .tecnologia-card:first-child .tecnologia-item:has(img[alt="Angular" i]) {
+        margin-right: 100%;   /* fuerza salto de línea después de esta cápsula */
+        flex-shrink: 0;
+    }
+}

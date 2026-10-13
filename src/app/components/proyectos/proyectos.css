@@ -1,0 +1,844 @@
+/* =====================================================
+   PROYECTOS
+===================================================== */
+
+.proyectos {
+    position: relative;
+    width: 100%;
+    min-height: 100svh;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    /* deja el navbar arriba y el título un poco más abajo */
+    padding: calc(var(--navbar-height) + 30px) 20px 60px;
+
+    box-sizing: border-box;
+}
+
+
+/* =====================================================
+   CONTENEDOR
+===================================================== */
+
+.proyectos-container {
+    width: 100%;
+    max-width: 3000px;
+    margin: 0 auto;
+}
+
+
+/* =====================================================
+   ENCABEZADO
+===================================================== */
+
+.proyectos-header {
+    margin-bottom: 28px;
+}
+
+.proyectos .section-title {
+    margin: 0;
+
+    font-family: var(--font-heading);
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    line-height: 1.1;
+    letter-spacing: -.5px;
+
+    text-align: center;
+}
+
+.section-title-icon {
+    width: 30px;
+    height: 30px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    flex: 0 0 30px;
+}
+
+.section-title-icon img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+}
+
+.dark-theme {
+    /* PROYECTOS */
+    --proyectos-title: #ffffff;
+    --proyectos-text: #e5e7eb;
+}
+
+/* LÍNEA DECORATIVA */
+
+.proyectos .section-title::after {
+    content: "";
+    display: block;
+
+    width: 75px;
+    height: 2px;
+    margin: 18px auto 0;
+    border-radius: 999px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--color-tech),
+        rgba(212, 175, 55, .9),
+        transparent
+    );
+
+    box-shadow: 0 0 12px rgba(56, 189, 248, .25);
+}
+
+
+/* =====================================================
+   TARJETA DEL PROYECTO
+===================================================== */
+
+.proyecto-card {
+    position: relative;
+
+    width: 100%;
+    max-width: 500px;
+
+    margin: 28px auto 0;
+    padding: 30px 34px 32px;
+
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    border-radius: 18px;
+
+    background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, .04),
+        rgba(255, 255, 255, .015)
+    );
+
+    border: 1px solid rgba(56, 189, 248, .14);
+    box-shadow: 0 18px 50px rgba(0, 0, 0, .22);
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    overflow: hidden;
+
+    transition:
+        transform .3s ease,
+        border-color .3s ease,
+        box-shadow .3s ease;
+}
+
+/* línea de acento superior */
+.proyecto-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--color-tech) 30%,
+        rgba(212, 175, 55, .8) 70%,
+        transparent
+    );
+
+    opacity: .8;
+    pointer-events: none;
+}
+
+/* grilla técnica muy sutil */
+.proyecto-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        linear-gradient(rgba(56, 189, 248, .035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(56, 189, 248, .035) 1px, transparent 1px);
+    background-size: 36px 36px;
+
+    -webkit-mask-image: radial-gradient(ellipse at top right, #000, transparent 65%);
+            mask-image: radial-gradient(ellipse at top right, #000, transparent 65%);
+
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   HOVER TARJETA
+===================================================== */
+
+.proyecto-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(56, 189, 248, .32);
+
+    box-shadow:
+        0 26px 64px rgba(0, 0, 0, .3),
+        0 0 30px rgba(56, 189, 248, .08);
+}
+
+
+/* =====================================================
+   CONTENIDO
+===================================================== */
+
+.proyecto-content {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+    max-width: 780px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+}
+
+.proyecto-tipo {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    margin-bottom: 8px;
+
+    font-family: var(--font-primary);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.9px;
+
+    color: var(--color-tech);
+    text-align: center;
+}
+
+/* punto indicador */
+.proyecto-tipo::before {
+    content: "";
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--color-tech);
+    box-shadow: 0 0 8px rgba(56, 189, 248, .6);
+}
+
+
+/* =====================================================
+   TÍTULO
+===================================================== */
+
+.proyecto-titulo {
+    margin: 0 0 14px;
+
+    font-family: var(--font-heading);
+    font-size: clamp(1.6rem, 2.6vw, 2.1rem);
+    line-height: 1.15;
+
+    color: var(--color-gold);
+    text-shadow: 0 0 10px var(--gold-glow);
+
+    text-align: center;
+}
+
+
+/* =====================================================
+   TECNOLOGÍAS
+===================================================== */
+
+.proyecto-tecnologias {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+
+    margin-bottom: 16px;
+}
+
+.proyecto-tecnologia {
+    min-width: 92px;
+    height: 44px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    padding: 6px 12px;
+    border-radius: 10px;
+
+    background: rgba(56, 189, 248, .04);
+    border: 1px solid rgba(56, 189, 248, .14);
+
+    transition:
+        transform .25s ease,
+        background .25s ease,
+        border-color .25s ease;
+}
+
+.proyecto-tecnologia:hover {
+    transform: translateY(-2px);
+    background: rgba(56, 189, 248, .09);
+    border-color: rgba(56, 189, 248, .4);
+}
+
+.proyecto-tecnologia img {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+}
+
+.proyecto-tecnologia span {
+    font-family: var(--font-primary);
+    font-size: 13px;
+    font-weight: 600;
+
+    color: var(--color-text-secondary);
+}
+
+
+/* =====================================================
+   DESCRIPCIÓN
+===================================================== */
+
+.proyecto-descripcion {
+    width: 100%;
+    max-width: 720px;
+
+    margin: 0 auto 20px;
+
+    font-family: var(--font-primary);
+    font-size: 15px;
+    line-height: 1.6;
+
+    color: var(--color-text-secondary);
+
+    text-align: left;
+    text-align-last: left;
+}
+
+
+/* =====================================================
+   BOTÓN
+===================================================== */
+
+.proyecto-acciones {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.proyecto-btn {
+    min-width: 190px;
+    height: 38px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0 18px;
+    border-radius: 8px;
+
+    font-family: var(--font-primary);
+    font-size: 15px;
+    font-weight: 700;
+
+    text-decoration: none;
+    color: #ffffff;
+
+    background: linear-gradient(
+        135deg,
+        rgba(56, 189, 248, .95),
+        rgba(14, 165, 233, .80)
+    );
+
+    border: 1px solid rgba(56, 189, 248, .80);
+    box-shadow: 0 6px 18px rgba(56, 189, 248, .16);
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+}
+
+.proyecto-btn:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 9px 24px rgba(56, 189, 248, .28),
+        0 0 18px rgba(56, 189, 248, .15);
+}
+
+
+/* =====================================================
+   MODO CLARO
+===================================================== */
+
+:root[data-theme="light"] .proyecto-card {
+    background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, .85),
+        rgba(248, 250, 252, .7)
+    );
+
+    border-color: rgba(14, 116, 144, .14);
+
+    box-shadow:
+        0 18px 50px rgba(15, 23, 42, .10),
+        inset 0 1px 0 rgba(255, 255, 255, .9);
+}
+
+:root[data-theme="light"] .proyecto-card::after {
+    background-image:
+        linear-gradient(rgba(14, 116, 144, .05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(14, 116, 144, .05) 1px, transparent 1px);
+}
+
+:root[data-theme="light"] .proyecto-card:hover {
+    border-color: rgba(14, 116, 144, .32);
+
+    box-shadow:
+        0 24px 56px rgba(15, 23, 42, .16),
+        0 0 24px rgba(56, 189, 248, .10);
+}
+
+:root[data-theme="light"] .proyecto-tecnologia {
+    background: rgba(14, 116, 144, .04);
+    border-color: rgba(14, 116, 144, .13);
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 768px) {
+
+    .proyectos {
+        padding: calc(var(--navbar-height) + 28px) 15px 50px;
+    }
+
+    .proyecto-card {
+        width: 100%;
+        margin-top: 22px;
+        padding: 26px 20px 28px;
+        border-radius: 16px;
+    }
+
+    .proyecto-content {
+        max-width: 100%;
+    }
+
+    .proyecto-titulo {
+        font-size: 1.6rem;
+    }
+
+    .proyecto-descripcion {
+        max-width: 100%;
+        font-size: 14.5px;
+        line-height: 1.6;
+        text-align: left;
+    }
+
+    .proyecto-tecnologias {
+        justify-content: center;
+    }
+
+    .proyecto-btn {
+        width: 100%;
+        max-width: 260px;
+        font-size: 14px;
+    }
+}
+
+
+/* =====================================================
+   MOBILE PEQUEÑO
+===================================================== */
+
+@media (max-width: 480px) {
+
+    .proyectos {
+        padding: calc(var(--navbar-height) + 24px) 12px 40px;
+    }
+
+    .proyecto-card {
+        padding: 22px 16px 24px;
+    }
+
+    .proyecto-tecnologia {
+        min-width: 0;
+        padding: 6px 10px;
+    }
+}
+
+
+/* =====================================================
+   ANCLA
+===================================================== */
+
+#proyectos {
+    /* el padding de .proyectos ya compensa el navbar */
+    scroll-margin-top: 0;
+}
+
+/* =====================================================
+   PEGAR AL FINAL DE proyectos.css
+===================================================== */
+
+
+/* ---------- Viñeta en movimiento (rombo que gira), igual que Experiencia ---------- */
+
+.proyecto-tipo::before {
+    width: 7px;
+    height: 7px;
+    margin-right: 2px;
+    border-radius: 1px;
+
+    background: var(--color-tech);
+    box-shadow: 0 0 8px rgba(56, 189, 248, .6);
+
+    transform: rotate(45deg);
+    animation: proyectoGiro 2.6s ease-in-out infinite;
+}
+
+@keyframes proyectoGiro {
+    0%   { transform: rotate(45deg)  scale(1);   }
+    50%  { transform: rotate(225deg) scale(1.3); }
+    100% { transform: rotate(405deg) scale(1);   }
+}
+
+
+/* ---------- Cápsulas de tecnologías (Python, Visual Studio Code, etc.) ----------
+   Borde exterior + anillo suave por fuera + borde interior dorado por dentro */
+
+.proyecto-tecnologia {
+    position: relative;
+    border-radius: 12px;
+
+    /* borde exterior */
+    border: 1px solid rgba(56, 189, 248, .45);
+
+    background:
+        radial-gradient(90% 80% at 50% -20%, rgba(56, 189, 248, .16), transparent 70%),
+        linear-gradient(160deg, rgba(56, 189, 248, .09), rgba(212, 175, 55, .04));
+
+    box-shadow:
+        0 0 0 3px rgba(56, 189, 248, .07),          /* anillo exterior */
+        0 6px 16px rgba(0, 0, 0, .18),
+        inset 0 1px 0 rgba(255, 255, 255, .10);
+}
+
+/* borde interior */
+.proyecto-tecnologia::before {
+    content: "";
+    position: absolute;
+    inset: 3px;
+    border-radius: 9px;
+    border: 1px solid rgba(212, 175, 55, .35);
+    pointer-events: none;
+
+    transition: border-color .25s ease;
+}
+
+.proyecto-tecnologia:hover {
+    border-color: rgba(56, 189, 248, .8);
+    background:
+        radial-gradient(90% 80% at 50% -20%, rgba(56, 189, 248, .26), transparent 70%),
+        linear-gradient(160deg, rgba(56, 189, 248, .14), rgba(212, 175, 55, .06));
+
+    box-shadow:
+        0 0 0 3px rgba(56, 189, 248, .14),
+        0 10px 22px rgba(0, 0, 0, .22),
+        0 0 18px rgba(56, 189, 248, .22),
+        inset 0 1px 0 rgba(255, 255, 255, .16);
+}
+
+.proyecto-tecnologia:hover::before {
+    border-color: rgba(212, 175, 55, .65);
+}
+
+/* Tema claro */
+:root[data-theme="light"] .proyecto-tecnologia {
+    border-color: rgba(2, 132, 199, .45);
+
+    background:
+        radial-gradient(90% 80% at 50% -20%, rgba(255, 255, 255, .95), transparent 70%),
+        linear-gradient(160deg, #ffffff, #f0f9ff);
+
+    box-shadow:
+        0 0 0 3px rgba(2, 132, 199, .08),
+        0 6px 16px rgba(15, 23, 42, .10),
+        inset 0 1px 0 rgba(255, 255, 255, .95);
+}
+
+:root[data-theme="light"] .proyecto-tecnologia::before {
+    border-color: rgba(180, 83, 9, .32);
+}
+
+:root[data-theme="light"] .proyecto-tecnologia:hover {
+    border-color: rgba(2, 132, 199, .8);
+    background:
+        radial-gradient(90% 80% at 50% -20%, rgba(255, 255, 255, 1), transparent 70%),
+        linear-gradient(160deg, #f0f9ff, #e0f2fe);
+
+    box-shadow:
+        0 0 0 3px rgba(2, 132, 199, .14),
+        0 12px 24px rgba(15, 23, 42, .14),
+        0 0 16px rgba(2, 132, 199, .18),
+        inset 0 1px 0 rgba(255, 255, 255, 1);
+}
+
+:root[data-theme="light"] .proyecto-tecnologia:hover::before {
+    border-color: rgba(180, 83, 9, .55);
+}
+
+
+/* ---------- Texto de la descripción: blanco (oscuro) / negro (claro) ---------- */
+
+:root:not([data-theme="light"]) #proyectos .proyecto-descripcion { 
+    color: #ffffff !important;
+}
+
+:root[data-theme="light"] #proyectos .proyecto-descripcion {
+    color: #000000 !important;
+}
+
+
+/* ---------- Navbar por encima de la sección ---------- */
+
+#proyectos.proyectos {
+    position: relative;
+    z-index: 0;
+    isolation: isolate;
+}
+
+
+/* ---------- Movimiento reducido ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+    .proyecto-tipo::before {
+        animation: none;
+    }
+}
+
+
+ 
+/* =====================================================================
+   PARTE B  →  pegar al FINAL de proyectos.css
+===================================================================== */
+ 
+@media (max-width: 768px) {
+ 
+    #proyectos.proyectos {
+        box-sizing: border-box;
+ 
+        min-height: 100svh;
+        min-height: 100dvh;
+ 
+        padding-top: calc(var(--navbar-height, 70px) + 16px);
+        padding-bottom: 12px;
+        padding-left: 12px;
+        padding-right: 12px;
+ 
+        scroll-snap-align: start;
+        scroll-snap-stop: always;
+    }
+ 
+    /* Todo se compacta según el alto de la pantalla para que la tarjeta entre */
+    #proyectos .proyectos-header {
+        margin-bottom: clamp(6px, 1.4svh, 16px);
+    }
+ 
+    #proyectos .section-title {
+        font-size: clamp(1.5rem, 3.6svh, 2.2rem);
+    }
+ 
+    #proyectos .section-title::after {
+        margin-top: clamp(8px, 1.4svh, 14px);
+    }
+ 
+    #proyectos .proyecto-card {
+        margin-top: clamp(10px, 2svh, 22px);
+        padding: clamp(14px, 2.6svh, 24px) 16px;
+    }
+ 
+    #proyectos .proyecto-tipo {
+        margin-bottom: 4px;
+    }
+ 
+    #proyectos .proyecto-titulo {
+        margin-bottom: clamp(8px, 1.5svh, 14px);
+        font-size: clamp(1.25rem, 3svh, 1.6rem);
+    }
+ 
+    #proyectos .proyecto-tecnologias {
+        margin-bottom: clamp(8px, 1.6svh, 14px);
+    }
+ 
+    #proyectos .proyecto-tecnologia {
+        height: clamp(38px, 5.4svh, 44px);
+    }
+ 
+    #proyectos .proyecto-descripcion {
+        margin-bottom: clamp(12px, 2.2svh, 20px);
+        font-size: clamp(12px, 1.9svh, 14.5px);
+        line-height: 1.5;
+    }
+}
+ 
+
+/* =====================================================================
+   PARTE B  →  al FINAL de proyectos.css
+   (reemplaza la "Parte B" anterior, que compactaba la tarjeta)
+===================================================================== */
+ 
+@media (max-width: 768px) {
+ 
+    #proyectos.proyectos {
+        /* ↓ Mover todo el contenido: más chico = sube, más grande = baja */
+        --proyectos-subir-bajar: 16px;
+ 
+        box-sizing: border-box;
+        min-height: 100svh;
+        min-height: 100dvh;
+ 
+        padding-top: calc(var(--navbar-height, 70px) + var(--proyectos-subir-bajar));
+        padding-right: 12px;
+        padding-bottom: 12px;
+        padding-left: 12px;
+    }
+ 
+    #proyectos .proyectos-container {
+        align-self: stretch;
+        display: flex;
+        flex-direction: column;
+    }
+ 
+    /* ---------- Título: tamaño ORIGINAL ---------- */
+    #proyectos .proyectos-header {
+        flex: 0 0 auto;
+        margin-bottom: 28px;
+    }
+ 
+    #proyectos .section-title {
+        font-size: clamp(2.2rem, 5vw, 3.5rem);
+    }
+ 
+    #proyectos .section-title::after {
+        margin-top: 18px;
+    }
+ 
+    /* ---------- Tarjeta: ocupa todo lo que queda ---------- */
+    #proyectos .proyecto-card {
+        flex: 1 1 auto;
+        width: 100%;
+        max-width: none;
+        margin: 22px auto 0;
+        padding: clamp(20px, 3.2svh, 34px) clamp(16px, 5vw, 26px);
+ 
+        justify-content: space-evenly;
+    }
+ 
+    #proyectos .proyecto-content {
+        flex: 1 1 auto;
+        max-width: 100%;
+        justify-content: space-evenly;
+        gap: clamp(10px, 1.8svh, 20px);
+    }
+ 
+    #proyectos .proyecto-tipo {
+        margin-bottom: 0;
+    }
+ 
+    #proyectos .proyecto-titulo {
+        margin: 0;
+        font-size: clamp(1.6rem, 3.6svh, 2rem);
+    }
+ 
+    #proyectos .proyecto-tecnologias {
+        margin-bottom: 0;
+    }
+ 
+    #proyectos .proyecto-tecnologia {
+        height: clamp(44px, 6svh, 56px);
+    }
+ 
+    #proyectos .proyecto-tecnologia img {
+        width: clamp(22px, 3.2svh, 28px);
+        height: clamp(22px, 3.2svh, 28px);
+    }
+ 
+    #proyectos .proyecto-tecnologia span {
+        font-size: clamp(13px, 1.8svh, 15px);
+    }
+ 
+    #proyectos .proyecto-descripcion {
+        margin: 0 auto;
+        font-size: clamp(14px, 2.1svh, 16.5px);
+        line-height: 1.6;
+    }
+ 
+    #proyectos .proyecto-btn {
+        width: 100%;
+        max-width: 280px;
+        height: clamp(40px, 5.6svh, 48px);
+    }
+}
+ 
+/* Celular acostado: la tarjeta vuelve a su tamaño natural */
+@media (max-width: 768px) and (orientation: landscape) {
+ 
+    #proyectos .proyectos-container { align-self: auto; }
+    #proyectos .proyecto-card       { flex: 0 0 auto; }
+    #proyectos .proyecto-content    { justify-content: flex-start; }
+}
+
+
+/* =====================================================================
+   PARTE B  →  pegar al FINAL de proyectos.css
+   Arregla el control manual de subir / bajar el contenido de Proyectos.
+   Si ya tenés otro "--proyectos-subir-bajar" o un "padding-top" de
+   #proyectos más arriba en el archivo, este bloque los reemplaza.
+===================================================================== */
+ 
+@media (max-width: 768px) {
+ 
+    #proyectos.proyectos {
+        /* ↓↓↓ ÚNICO VALOR QUE TENÉS QUE TOCAR
+               Más chico (ej: -30px) = el contenido sube.
+               Más grande (ej: 60px) = el contenido baja. */
+        --proyectos-subir-bajar: 40px;
+ 
+        padding-top: calc(var(--navbar-height, 70px) + var(--proyectos-subir-bajar)) !important;
+ 
+        /* arranca desde arriba, igual que en Experiencia */
+        align-items: flex-start !important;
+    }
+}
+ 
+/* =====================================================================
+   SCROLL LIBRE EN EL CELULAR (Experiencia y Proyectos)
+===================================================================== */
+
+@media (max-width: 768px) {
+
+    #experiencia.experiencia,
+    #proyectos.proyectos {
+        scroll-snap-align: none !important;
+        scroll-snap-stop: normal !important;
+    }
+}
