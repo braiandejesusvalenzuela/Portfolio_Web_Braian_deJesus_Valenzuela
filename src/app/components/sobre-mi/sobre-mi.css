@@ -13,7 +13,7 @@
 
     /* ← AQUÍ REGULÁS cuánto baja el contenido respecto al navbar
        (el número que se suma a --navbar-height) */
-    padding: calc(var(--navbar-height) + 50px) 24px 50px;
+    padding: calc(var(--navbar-height) + 70px) 24px 50px;
 
     box-sizing: border-box;
 }
