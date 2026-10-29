@@ -31,16 +31,26 @@ import { Cursor } from './components/cursor/cursor';
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
+
 export class App implements AfterViewInit {
 
   protected readonly title = signal('portfolio-web-brai');
 
   ngAfterViewInit(): void {
-    // Una vez pintada la página, se asegura de estar arriba (Inicio)
-    window.scrollTo(0, 0);
 
-    // Y otra vez cuando termina de cargar todo (imágenes, fuentes),
-    // por si el navegador movió el scroll entre medio
-    window.addEventListener('load', () => window.scrollTo(0, 0), { once: true });
+    const irAlInicio = () => {
+      const html = document.documentElement;
+      const previo = html.style.scrollBehavior;
+
+      html.style.scrollBehavior = 'auto';
+      window.scrollTo(0, 0);
+      html.style.scrollBehavior = previo;
+    };
+
+    // Una vez pintada la página
+    irAlInicio();
+
+    // Y cuando termina de cargar todo (imágenes, fuentes)
+    window.addEventListener('load', irAlInicio, { once: true });
   }
 }
