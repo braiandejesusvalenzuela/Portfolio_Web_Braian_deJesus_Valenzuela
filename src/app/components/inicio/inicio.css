@@ -1557,3 +1557,13 @@
         transition: none;
     }
 }
+
+/* Bandera como imagen SVG (se ve igual en todos los sistemas) */
+.nacionalidad .bandera img {
+    display: block;
+    width: 22px;
+    height: 15px;
+    object-fit: cover;
+    border-radius: 2px;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, .15);
+}

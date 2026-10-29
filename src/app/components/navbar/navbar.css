@@ -1555,3 +1555,14 @@ MENÚ NAVEGACIÓN
         transition: margin-top .3s ease;
     }
 }
+
+/* Banderas del menú de idioma */
+.language-dropdown button img.flag {
+    display: block;
+    width: 22px;
+    height: 15px;
+    flex: 0 0 22px;
+    object-fit: cover;
+    border-radius: 2px;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, .15);
+}
