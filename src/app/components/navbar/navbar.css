@@ -1566,3 +1566,63 @@ MENÚ NAVEGACIÓN
     border-radius: 2px;
     box-shadow: 0 0 0 1px rgba(0, 0, 0, .15);
 }
+
+/* =====================================================
+   ÍCONOS DEL MENÚ: COLOR ORIGINAL + MÁS BRILLO / LEGIBILIDAD
+   Todo se controla con una variable por tema.
+===================================================== */
+
+/* ---------- Valores por tema ---------- */
+
+/* Tema oscuro (por defecto): más claros y vivos */
+.navigation-dropdown {
+    --icono-realce: brightness(1.6) saturate(1.2) contrast(1.05);
+}
+
+/* Tema claro: mismo color, un poco más profundo para que no se pierdan sobre el fondo claro */
+:host-context([data-theme="light"]) .navigation-dropdown,
+:host-context(.light-theme) .navigation-dropdown {
+    --icono-realce: brightness(.8) saturate(1.35) contrast(1.15);
+}
+
+
+/* ---------- Estado normal ---------- */
+
+.navigation-dropdown img {
+    filter: var(--icono-realce);
+}
+
+:host-context([data-theme="light"]) .navigation-dropdown img,
+:host-context(.light-theme) .navigation-dropdown img {
+    filter: var(--icono-realce);
+}
+
+
+/* ---------- Hover y foco (escritorio) ---------- */
+
+.navigation-dropdown a:hover img,
+.navigation-dropdown a:focus-visible img {
+    filter: var(--icono-realce) drop-shadow(0 0 5px rgba(var(--glow-rgb, 56, 189, 248), .8));
+}
+
+:host-context([data-theme="light"]) .navigation-dropdown a:hover img,
+:host-context([data-theme="light"]) .navigation-dropdown a:focus-visible img,
+:host-context(.light-theme) .navigation-dropdown a:hover img,
+:host-context(.light-theme) .navigation-dropdown a:focus-visible img {
+    filter: var(--icono-realce) drop-shadow(0 0 5px rgba(var(--glow-rgb, 2, 132, 199), .55));
+}
+
+
+/* ---------- Sección activa (dorado) ---------- */
+
+.navigation-dropdown a.active img,
+.navigation-dropdown a.active:hover img {
+    filter: var(--icono-realce) drop-shadow(0 0 5px rgba(var(--activo-rgb), .85));
+}
+
+:host-context([data-theme="light"]) .navigation-dropdown a.active img,
+:host-context([data-theme="light"]) .navigation-dropdown a.active:hover img,
+:host-context(.light-theme) .navigation-dropdown a.active img,
+:host-context(.light-theme) .navigation-dropdown a.active:hover img {
+    filter: var(--icono-realce) drop-shadow(0 0 5px rgba(var(--activo-rgb), .6));
+}
