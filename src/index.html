@@ -11,6 +11,13 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <!-- Se ejecuta antes que todo: el navegador no restaura el scroll al recargar -->
+  <script>
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+  </script>
+
   <link rel="icon" href="favicon.ico" sizes="32x32">
   <link rel="icon" id="favicon" type="image/svg+xml" href="favicon.svg">
 
