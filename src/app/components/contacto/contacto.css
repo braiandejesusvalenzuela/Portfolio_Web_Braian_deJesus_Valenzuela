@@ -2032,3 +2032,57 @@
     opacity: 0;
     pointer-events: none;
 }
+
+/* =====================================================================
+   CONTACTO: sin la barra de editor (puntos de colores + "~/nuevo-mensaje.sh")
+===================================================================== */
+
+/* Se quita la barra, pero se deja la línea de acento que tenía la tarjeta */
+.contacto .contacto-formulario::before {
+    content: "";
+    height: 2px;
+    padding: 0;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--cf-cyan) 30%,
+        var(--cf-gold) 70%,
+        transparent
+    );
+    opacity: .6;
+}
+
+:root[data-theme="light"] .contacto .contacto-formulario::before {
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--cf-cyan) 30%,
+        var(--cf-gold) 70%,
+        transparent
+    );
+}
+
+/* Ya no hay barra: se reduce el espacio que se le reservaba arriba */
+.contacto .contacto-formulario {
+    --cf-bar: 0px;
+    padding-top: 20px;
+}
+
+@media (min-width: 769px) {
+    .contacto .contacto-formulario {
+        --cf-bar: 0px;
+        padding-top: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .contacto .contacto-formulario {
+        --cf-bar: 0px;
+        padding-top: 16px;
+    }
+
+    .contacto .contacto-formulario::before {
+        padding-left: 0;
+    }
+}

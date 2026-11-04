@@ -646,3 +646,50 @@
         font-size: 9.5px;
     }
 }
+
+/* =====================================================================
+   SOBRE MÍ: sin la barra de editor (puntos de colores + "~/sobre-mi.md")
+===================================================================== */
+
+/* Se quita la barra, pero se deja la línea de acento que tenía la tarjeta */
+.sobre-mi .sobre-mi-texto::before {
+    content: "";
+    height: 2px;
+    padding: 0;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--sm-cyan) 30%,
+        var(--sm-gold) 70%,
+        transparent
+    );
+    opacity: .6;
+}
+
+:root[data-theme="light"] .sobre-mi .sobre-mi-texto::before {
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--sm-cyan) 30%,
+        var(--sm-gold) 70%,
+        transparent
+    );
+}
+
+/* Ya no hay barra: se reduce el espacio que se le reservaba arriba */
+.sobre-mi .sobre-mi-texto {
+    --sm-bar: 0px;
+    padding-top: 24px;
+}
+
+@media (max-width: 768px) {
+    .sobre-mi .sobre-mi-texto {
+        --sm-bar: 0px;
+        padding-top: 18px;
+    }
+
+    .sobre-mi .sobre-mi-texto::before {
+        padding-left: 0;
+    }
+}
